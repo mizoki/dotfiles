@@ -1,0 +1,33 @@
+# Git
+alias g='git'
+alias ga='git add'
+alias gaa='git add -A'
+alias gbr='git branch'
+alias gci='git commit'
+alias gcifixup="git commit -m '[fixup]'"
+alias gcisquash="git commit -m '[squash]'"
+alias gco='git checkout'
+alias gf='git fetch'
+alias gfa='git fetch --all'
+alias gm='git merge'
+alias gmff='git merge --ff'
+alias gmnoff='git merge --no-ff'
+alias gmom='git merge origin/master'
+alias gp='git push'
+alias gpo='git push origin'
+alias gpom='git push origin master'
+alias grb='git rebase --committer-date-is-author-date'
+alias grbi='git rebase -i --committer-date-is-author-date'
+alias grhh='git reset --hard HEAD'
+alias gs='git status'
+alias gt="git log --graph --all --pretty=format:'%x09%Cred%h%Creset - %Cgreen(%ai)%Creset%x09%C(bold blue)<%an>%Creset%x09%s %C(blue reverse)%d%Creset' --abbrev-commit --date=relative"
+alias gtmp="git add -A; git commit -m '[WIP]'"
+
+alias gdf='git diff'
+alias gdfc='git diff --cached'
+alias gdfcr="git diff --cached --color-words --word-diff-regex='\\w+|[^[:space:]]'"
+alias gdfr="git diff --color-words --word-diff-regex='\\w+|[^[:space:]]'"
+
+alias groot='cd `git rev-parse --show-toplevel`'
+
+alias ta='tig --all'

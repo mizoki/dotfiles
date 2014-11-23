@@ -1,0 +1,17 @@
+# Common Commands
+alias md='mkdir'
+
+alias ls='ls --color'
+alias ll='ls -aFl'
+alias la='ls -aF'
+
+# Applications
+alias vi=vim
+
+alias w3m='w3m -B'
+
+# Git
+[[ -s "$HOME/.alias/git" ]] && source $HOME/.alias/git
+
+# Ruby
+[[ -s "$HOME/.alias/ruby" ]] && source $HOME/.alias/ruby
