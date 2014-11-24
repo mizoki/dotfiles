@@ -1,0 +1,8 @@
+set vertical-split = horizontal
+
+bind generic H view-help
+bind generic h scroll-left
+bind generic L view-log
+bind generic l scroll-right
+bind generic <C-F> move-page-down
+bind generic <C-B> move-page-up
