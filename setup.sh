@@ -1,16 +1,19 @@
 #!/bin/sh
 
-ln -s $PWD/.zshrc $HOME/.zshrc
-ln -s $PWD/.alias_common $HOME/.alias_common
-ln -s $PWD/.functions_common $HOME/.functions_common
+[ ! -s "$HOME/.zshrc" ] && ln -s $PWD/.zshrc $HOME/.zshrc
+[ ! -s "$HOME/.alias_common" ] && ln -s $PWD/.alias_common $HOME/.alias_common
+[ ! -s "$HOME/.functions_common" ] && ln -s $PWD/.functions_common $HOME/.functions_common
 
-ln -s $PWD/.vimrc $HOME/.vimrc
+[ ! -s "$HOME/.vimrc" ] && ln -s $PWD/.vimrc $HOME/.vimrc
+[ ! -s "$HOME/.tigrc" ] && ln -s $PWD/.tigrc $HOME/.tigrc
 
-mkdir $HOME/.alias
+if [ ! -d "$HOME/.alias" ]; then
+  mkdir $HOME/.alias
+  ln -s $PWD/.alias/git $HOME/.alias/git
+  ln -s $PWD/.alias/ruby $HOME/.alias/ruby
+fi
 
-ln -s $PWD/.alias/git $HOME/.alias/git
-ln -s $PWD/.alias/ruby $HOME/.alias/ruby
-
-mkdir $HOME/.functions
-
-ln -s $PWD/.functions/peco_function.sh $HOME/.functions/peco_function.sh
+if [ ! -d "$HOME/.functions" ]; then
+  mkdir $HOME/.functions
+  ln -s $PWD/.functions/peco_function.sh $HOME/.functions/peco_function.sh
+fi
