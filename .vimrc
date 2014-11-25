@@ -280,6 +280,9 @@ vnoremap <C-c> :w !pbcopy<CR><CR>
 """"cmap <C-V>       <C-R>*
 """cmap <S-Insert>  <C-R>*
 
+" Space でコマンドモード
+noremap <Space> :
+
 " Esc×2で検索結果のハイライトを解除する
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
