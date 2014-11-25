@@ -294,6 +294,23 @@ nmap <silent><Space>cd :CdCurrent<CR>
 " Auto escape / and ? in search command.
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 
+" Enable to move freely
+" ref.
+"   :help virtualedit
+"   http://qiita.com/ka_/items/8e7a5e681db857b2ee26#comment-8d7a434b595f023cd12c
+set virtualedit=all
+
+" Settings of cursor movement
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+vnoremap j gj
+vnoremap k gk
+vnoremap gj j
+vnoremap gk k
+vnoremap ff <Esc>
+
 " Easy escape.
 """inoremap jj <ESC>
 """cnoremap <expr> j getcmdline()[getcmdpos()-2] ==# 'j' ? "\<BS>\<C-c>" : 'j'
