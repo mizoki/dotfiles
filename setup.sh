@@ -6,6 +6,7 @@
 
 [ ! -s "$HOME/.vimrc" ] && ln -s $PWD/.vimrc $HOME/.vimrc
 [ ! -s "$HOME/.tigrc" ] && ln -s $PWD/.tigrc $HOME/.tigrc
+[ ! -s "$HOME/.gemrc" ] && ln -s $PWD/.gemrc $HOME/.gemrc
 
 if [ ! -d "$HOME/.alias" ]; then
   mkdir $HOME/.alias
