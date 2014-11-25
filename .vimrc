@@ -186,7 +186,7 @@ set guioptions+=a
 
 " CUI用の設定
 " set clipboard+=autoselect
-set clipboard+=unnamed
+set clipboard+=unnamedplus
 
 " ツールバーを削除
 set guioptions-=T
@@ -266,7 +266,11 @@ endif
 
 " Ctrl+C でクリップボードへコピー (linux OS用)
 " ref. https://github.com/mizoki/rpbcopy
-vnoremap <C-C> :!pbcopy<CR>
+" vnoremap <C-C> :!pbcopy<CR>
+
+" ref. http://qiita.com/kseta/items/ba1754ec74254863e9ec
+vnoremap <C-c> :w !pbcopy<CR><CR>
+
 """nmap <C-C> "*y
 
 " インサートモード時にCtrl+Vでクリップボードからペースト
