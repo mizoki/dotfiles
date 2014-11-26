@@ -248,17 +248,23 @@ endif
 "-------------------------------------------------------------------------------
 let mapleader = ","     "Set mapleader 
 if (has("win32") || has("win64"))
-  nmap <silent><Leader>ss :source ~/_vimrc<cr>    "設定ファイル再読込 
-  nmap <silent><Leader>ee :e ~/_vimrc<cr>         "設定ファイル編集 
-  nmap <silent><Leader>ps :e $HOME/macros/printrc.vim<cr>    "プリント設定
+  " 設定ファイル再読込
+  nmap <silent><Leader>ss :source ~/_vimrc<CR>
+  " 設定ファイル編集
+  nmap <silent><Leader>ee :e ~/_vimrc<CR>
+  " プリント設定
+  nmap <silent><Leader>ps :e ~/macros/printrc.vim<CR>
   " このファイルを編集したら、このファイルを再読込する
-  autocmd BufWritePost _vimrc source ~/_vimrc      "When edited, reload it
+  autocmd BufWritePost _vimrc source ~/_vimrc
 elseif (has("mac") || has("unix"))
-  nmap <silent><Leader>ss :source ~/.vimrc<cr>    "設定ファイル再読込 
-  nmap <silent><Leader>ee :e ~/.vimrc<cr>         "設定ファイル編集 
-  nmap <silent><Leader>ps :e ~/Dropbox/Data/Vim/macros/printrc.vim<cr>  "プリント設定
+  " 設定ファイル再読込
+  nmap <silent><Leader>ss :source ~/.vimrc<CR>
+  " 設定ファイル編集
+  nmap <silent><Leader>ee :e ~/.vimrc<CR>
+  " プリント設定
+  nmap <silent><Leader>ps :e ~/Dropbox/Data/Vim/macros/printrc.vim<CR>
   " このファイルを編集したら、このファイルを再読込する
-  autocmd BufWritePost .vimrc source ~/.vimrc      "When edited, reload it
+  autocmd BufWritePost .vimrc source ~/.vimrc
 endif
 
 " スペルチェックのオン・オフ
