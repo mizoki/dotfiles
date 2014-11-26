@@ -67,7 +67,6 @@ NeoBundle 'kana/vim-textobj-jabraces' " Vim plugin: Text objects for Japanese br
 " ## テキスト
 NeoBundle 'Align' " 27/31 Help folks to align text, eqns, declarations, tables, etc : http://www.vim.org/scripts/script.php?script_id=294
 NeoBundle 'plasticboy/vim-markdown' " Markdown Vim Mode
-NeoBundle 'YankRing.vim' " 1.4   Maintains a history of previous yanks, changes and deletes
 NeoBundle 'thinca/vim-qfreplace' " Perform the replacement in quickfix. : ref. http://d.hatena.ne.jp/thinca/20081107/1225997310
 
 " ## アウトライン
@@ -596,14 +595,6 @@ endif
 "-------------------------------------------------------------------------------
 " プロンプトの設定
 let g:vimshell_user_prompt = 'getcwd()'
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" YankRing の設定 {{{
-"-------------------------------------------------------------------------------
-" yankring_histroy_fileの設定
-let g:yankring_history_file = '.yankring_history'
 " }}}
 "-------------------------------------------------------------------------------
 
