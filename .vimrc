@@ -185,7 +185,7 @@ set guioptions+=a
 
 " CUI用の設定
 " set clipboard+=autoselect
-set clipboard+=unnamedplus
+set clipboard+=unnamed
 
 " ツールバーを削除
 set guioptions-=T
