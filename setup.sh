@@ -18,3 +18,8 @@ if [ ! -d "$HOME/.functions" ]; then
   mkdir $HOME/.functions
   ln -s $PWD/.functions/peco_function.sh $HOME/.functions/peco_function.sh
 fi
+
+if [ ! -d "$HOME/.peco" ]; then
+  mkdir $HOME/.peco
+  ln -s $PWD/.peco/config.json $HOME/.peco/config.json
+fi
