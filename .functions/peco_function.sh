@@ -54,5 +54,14 @@ function peco-pkill() {
 alias pk="peco-pkill"
 
 ### peco でSSH & Mosh
-alias s='ssh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \$2}")'
-alias m='mosh $(grep -iE "^host[[:space:]]+[^*]" ~/.ssh/config|peco|awk "{print \$2}")'
+function peco-remote() {
+  for host in `echo $(grep -iE '^host[[:space:]]+[^*]' ~/.ssh/config | awk '{print $2}' | peco)`
+  do
+    $1 $host
+    return
+  done
+}
+zle -N peco-ssh
+
+alias s='peco-remote ssh'
+alias m='peco-remote mosh'
