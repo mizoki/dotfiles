@@ -1,0 +1,9 @@
+set hintchars=hjklasdf
+
+" Copy the page title or Markdown link syntax text with it and its URL to the clipboard
+"   http://www.mozdev.org/pipermail/vimperator/2008-October/002547.html
+:command! yanktitle :js util.copyToClipboard(content.document.title,true)
+:command! yankhtmlatagtitle :js util.copyToClipboard('<a href="'+content.location+'" title="'+content.document.title+'">'+content.document.title+'</a>',true)
+:command! yankhtmlataglink :js util.copyToClipboard('<a href="'+content.location+'" title="'+content.document.title+'">'+content.location+'</a>',true)
+:command! yankmdlink :js util.copyToClipboard('['+content.document.title+']('+content.location+')',true)
+:command! yanktwitterlink :js util.copyToClipboard(content.document.title+' '+content.location+' ',true)
