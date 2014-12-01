@@ -82,7 +82,6 @@ NeoBundle 'mattn/webapi-vim' " vim interface to Web API
 NeoBundle 'thinca/vim-quickrun' " Run commands quickly.
 NeoBundle 'tpope/vim-fugitive' " fugitive.vim: a Git wrapper so awesome, it should be illegal
 NeoBundle 'lilydjwg/colorizer' " A Vim plugin to colorize all text in the form #rrggbb or #rgb.
-NeoBundle 'tpope/vim-endwise' " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc : http://www.vim.org/scripts/script.php?script_id=2386
 NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease : http://www.vim.org/scripts/script.php?script_id=1697
 NeoBundle 'mattn/gist-vim' " vimscript for gist
 
@@ -93,6 +92,7 @@ NeoBundle 'str2numchar.vim' " 0.1   String convert to Numeric Character Referenc
 
 " ## Ruby
 NeoBundle 'tpope/vim-rails' " rails.vim: Ruby on Rails power tools
+NeoBundle 'tpope/vim-endwise' " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc : http://www.vim.org/scripts/script.php?script_id=2386
 NeoBundle 'basyura/unite-rails' " a unite.vim plugin for rails http://basyura.org
 NeoBundle 'todesking/ruby_hl_lvar.vim' " Highlight Ruby local variables
 
