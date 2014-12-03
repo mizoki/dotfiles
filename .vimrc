@@ -81,6 +81,7 @@ NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim
 NeoBundle 'mattn/webapi-vim' " vim interface to Web API
 NeoBundle 'thinca/vim-quickrun' " Run commands quickly.
 NeoBundle 'tpope/vim-fugitive' " fugitive.vim: a Git wrapper so awesome, it should be illegal
+NeoBundle 'tpope/vim-endwise' " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc : http://www.vim.org/scripts/script.php?script_id=2386
 NeoBundle 'lilydjwg/colorizer' " A Vim plugin to colorize all text in the form #rrggbb or #rgb.
 NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease : http://www.vim.org/scripts/script.php?script_id=1697
 NeoBundle 'mattn/gist-vim' " vimscript for gist
@@ -92,7 +93,6 @@ NeoBundle 'str2numchar.vim' " 0.1   String convert to Numeric Character Referenc
 
 " ## Ruby
 NeoBundle 'tpope/vim-rails' " rails.vim: Ruby on Rails power tools
-NeoBundle 'tpope/vim-endwise' " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc : http://www.vim.org/scripts/script.php?script_id=2386
 NeoBundle 'basyura/unite-rails' " a unite.vim plugin for rails http://basyura.org
 NeoBundle 'todesking/ruby_hl_lvar.vim' " Highlight Ruby local variables
 
@@ -237,7 +237,7 @@ let g:changelog_dateformat="%Y/%m/%d(%a) %H:%M:%S"
 let g:changelog_username="Hiroto Mizoki <h.mizoki@gmail.com>"
 
 if (has("mac") || has("unix"))
-  nmap <silent><Leader>cl :e ~/Dropbox/Documents/changelog.txt<cr>
+  nmap <silent><Leader>cl :e ~/Dropbox/Documents/changelog.txt<CR>
 endif
 
 " }}}
@@ -268,7 +268,7 @@ elseif (has("mac") || has("unix"))
 endif
 
 " スペルチェックのオン・オフ
-"""nmap <silent><Leader>spl :set spell!<cr>
+"""nmap <silent><Leader>spl :set spell!<CR>
 
 " Ctrl+C でクリップボードへコピー (linux OS用)
 " ref. https://github.com/mizoki/rpbcopy
@@ -298,11 +298,12 @@ nmap <silent><Leader>l <C-W>>
 nmap <silent><Leader>j <C-W>+
 nmap <silent><Leader>k <C-W>-
 
-" 作業用バッファの作成
-nmap <silent><Leader>s :Scratch<CR>
-
-" カレントディレクトリの変更
-nmap <silent><Space>cd :CdCurrent<CR>
+if has('kaoriya')
+  " 作業用バッファの作成
+  nmap <silent><Leader>s :Scratch<CR>
+  " カレントディレクトリの変更
+  nmap <silent><Space>cd :CdCurrent<CR>
+endif
 
 " Auto escape / and ? in search command.
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
@@ -382,6 +383,7 @@ map <silent> [Tag]n :tabnext<CR>
 " tn 次のタブ
 map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
+
 " }}}
 "-------------------------------------------------------------------------------
 
@@ -409,16 +411,18 @@ endif
 autocmd FileType html,xhtml,css,perl inoremap <buffer> </ </<C-x><C-o>
 
 " HTMLの編集時に編集中のファイルを標準のブラウザで開く
-autocmd FileType html,xhtml,css,perl nmap <silent><Leader>o :!open %<cr><cr>
+autocmd FileType html,xhtml,css,perl nmap <silent><Leader>o :!open %<CR><CR>
 
 " HTMLの編集時に編集中のファイルをw3mで開く
-autocmd FileType html,xhtml,css,perl nmap <silent><Leader>w :!w3m %<cr><cr>
-
-" HTMLの編集時に編集中のファイルをGoogle Chromeで開く
-autocmd FileType html,xhtml,css,perl nmap <silent><Leader>gc :!open -a 'Google Chrome' %<cr><cr>
+autocmd FileType html,xhtml,css,perl nmap <silent><Leader>w :!w3m %<CR><CR>
 
 " HTMLを編集するときはタブをスペースに変換する
 autocmd FileType html,xhtml,css,perl set expandtab
+
+if has('mac')
+  " HTMLの編集時に編集中のファイルをGoogle Chromeで開く
+  autocmd FileType html,xhtml,css,perl nmap <silent><Leader>gc :!open -a 'Google Chrome' %<CR><CR>
+endif
 
 " }}}
 "-------------------------------------------------------------------------------
@@ -473,7 +477,6 @@ let g:user_emmet_settings = {
 
 " Unite起動用のショートカット
 nmap <silent><Leader>b :Unite buffer<CR>
-"nmap <silent><Leader>f :Unite -vertical -winwidth=40 file<CR>
 nmap <silent><Leader>um :Unite file_mru<CR>
 nmap <silent><Leader>ur :Unite register<CR>
 nmap <silent><Leader>ut :Unite tab<CR>
@@ -570,27 +573,6 @@ let g:vimfiler_safe_mode_by_default = 0
 
 " }}}
 "-------------------------------------------------------------------------------
-
-""""-------------------------------------------------------------------------------
-"""" qfixhowmの設定 {{{
-""""-------------------------------------------------------------------------------
-"""" qfixappにruntimepathを通す
-"""set runtimepath+=~/.vim/bundle/qfixhowm
-"""
-"""" キーマップリーダー
-"""let QFixHowm_Key = 'g'
-"""
-"""" howm_dirはファイルを保存したいディレクトリを設定
-"""let howm_dir             = '~/Dropbox/Data/Vim/howm'
-"""let howm_filename        = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
-"""let howm_fileencoding    = 'utf-8'
-"""let howm_fileformat      = 'unix'
-"""
-"""" 内部grepを明示的に指定する
-"""let mygrepprg = 'internal'
-"""
-"""" }}}
-""""-------------------------------------------------------------------------------
 
 "-------------------------------------------------------------------------------
 " vim-quickrun の設定 {{{
