@@ -4,6 +4,8 @@
 [ ! -s "$HOME/.alias_common" ] && ln -s $PWD/.alias_common $HOME/.alias_common
 [ ! -s "$HOME/.functions_common" ] && ln -s $PWD/.functions_common $HOME/.functions_common
 
+[ ! -s "$HOME/.gitignore" ] && ln -s $PWD/.gitignore_global $HOME/.gitignore
+
 [ ! -s "$HOME/.vimrc" ] && ln -s $PWD/.vimrc $HOME/.vimrc
 [ ! -s "$HOME/.tigrc" ] && ln -s $PWD/.tigrc $HOME/.tigrc
 [ ! -s "$HOME/.gemrc" ] && ln -s $PWD/.gemrc $HOME/.gemrc
