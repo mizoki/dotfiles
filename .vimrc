@@ -292,7 +292,7 @@ noremap <Space> :
 " Esc×2で検索結果のハイライトを解除する
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
-" Shift+カーソルで分割ウインドウの大きさを調整
+" 分割ウインドウの大きさを調整
 nmap <silent><Leader>h <C-W><
 nmap <silent><Leader>l <C-W>>
 nmap <silent><Leader>j <C-W>+
