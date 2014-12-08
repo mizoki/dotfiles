@@ -85,6 +85,7 @@ NeoBundle 'tpope/vim-endwise' " endwise.vim: wisely add 'end' in ruby, endfuncti
 NeoBundle 'lilydjwg/colorizer' " A Vim plugin to colorize all text in the form #rrggbb or #rgb.
 NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease : http://www.vim.org/scripts/script.php?script_id=1697
 NeoBundle 'mattn/gist-vim' " vimscript for gist
+NeoBundle 'tomtom/tcomment_vim' " An extensible & universal comment vim-plugin that also handles embedded filetypes
 
 " ## HTML
 """ NeoBundle 'mattn/zencoding-vim' " zen-coding for vim : http://code.google.com/p/zen-coding/ : https://github.com/mattn/zencoding-vim
