@@ -72,9 +72,12 @@ NeoBundle 'thinca/vim-qfreplace' " Perform the replacement in quickfix. : ref. h
 " ## アウトライン
 NeoBundle 'VOoM' " 1.0   Vim two-pane outliner
 
-" ##カラースキーム
+" ## カラースキーム
 NeoBundle 'w0ng/vim-hybrid' " A dark colour scheme for Vim & gVim
 NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
+
+" ## 表示
+NeoBundle 'nathanaelkane/vim-indent-guides' " A Vim plugin for visually displaying indent levels in code
 
 " # 開発系
 " ## common
@@ -611,5 +614,17 @@ let NERDTreeShowHidden = 1
 let NERDTreeHijackNetrw = 0
 
 nmap <silent><Leader>f :NERDTree<CR>
+" }}}
+"-------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
+" vim-indent-guides の設定 {{{
+"-------------------------------------------------------------------------------
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_auto_colors=0
+let g:indent_guides_guide_size=shiftwidth()-1
+let g:indent_guides_exclude_filetypes=['help', 'nerdtree', 'vimfiler', 'unite']
+hi IndentGuidesOdd  ctermbg=4
+hi IndentGuidesEven ctermbg=6
 " }}}
 "-------------------------------------------------------------------------------
