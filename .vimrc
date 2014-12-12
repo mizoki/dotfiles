@@ -282,7 +282,37 @@ noremap <Space> :
 " Esc×2で検索結果のハイライトを解除する
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
+" 分割ウインドウ操作関係のプレフィックス
+nnoremap [Window] <Nop>
+nmap s [Window]
+
+" ウインドウの分割
+nnoremap [Window]s :split<CR>
+nnoremap [Window]v :vsplit<CR>
+
+" 分割ウインドウを閉じる
+nnoremap [Window]q <C-W>q
+
+" 分割ウインドウ間の移動
+nnoremap [Window]j <C-W>j
+nnoremap [Window]k <C-W>k
+nnoremap [Window]l <C-W>l
+nnoremap [Window]h <C-W>h
+
+" 分割ウインドウ自体の移動
+nnoremap [Window]J <C-W>J
+nnoremap [Window]K <C-W>K
+nnoremap [Window]L <C-W>L
+nnoremap [Window]H <C-W>H
+
 " 分割ウインドウの大きさを調整
+nnoremap [Window], <C-W><
+nnoremap [Window]. <C-W>>
+nnoremap [Window]= <C-W>+
+nnoremap [Window]- <C-W>-
+nnoremap [Window]+ <C-W>=
+
+" 分割ウインドウの大きさを調整（旧設定） ※　新設定になれたら消す
 nmap <silent><Leader>h <C-W><
 nmap <silent><Leader>l <C-W>>
 nmap <silent><Leader>j <C-W>+
