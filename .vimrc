@@ -267,15 +267,6 @@ endif
 " ref. http://qiita.com/kseta/items/ba1754ec74254863e9ec
 vnoremap <C-c> :w !pbcopy<CR><CR>
 
-"""nmap <C-C> "*y
-
-" インサートモード時にCtrl+Vでクリップボードからペースト
-"""nmap <silent><Leader><C-V>       "*p
-"""nmap <S-Insert>  "*p
-"""imap <C-V>       <C-R>*
-""""cmap <C-V>       <C-R>*
-"""cmap <S-Insert>  <C-R>*
-
 " Space でコマンドモード
 noremap <Space> :
 
