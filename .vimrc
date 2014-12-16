@@ -642,7 +642,7 @@ nmap <silent><Leader>f :NERDTree<CR>
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_auto_colors=0
 let g:indent_guides_guide_size=shiftwidth()-1
-let g:indent_guides_exclude_filetypes=['help', 'nerdtree', 'vimfiler', 'unite']
+let g:indent_guides_exclude_filetypes=['help', 'nerdtree', 'vimfiler', 'unite', 'voomtree']
 hi IndentGuidesOdd  ctermbg=4
 hi IndentGuidesEven ctermbg=6
 " }}}
