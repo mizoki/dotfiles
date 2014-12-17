@@ -239,20 +239,20 @@ set scrolloff=10
 let mapleader = ","     "Set mapleader 
 if (has("win32") || has("win64"))
   " 設定ファイル再読込
-  nmap <silent><Leader>ss :source ~/_vimrc<CR>
+  nnoremap <silent><Leader>ss :source ~/_vimrc<CR>
   " 設定ファイル編集
-  nmap <silent><Leader>ee :e ~/_vimrc<CR>
+  nnoremap <silent><Leader>ee :e ~/_vimrc<CR>
   " プリント設定
-  nmap <silent><Leader>ps :e ~/macros/printrc.vim<CR>
+  nnoremap <silent><Leader>ps :e ~/macros/printrc.vim<CR>
   " このファイルを編集したら、このファイルを再読込する
   autocmd BufWritePost _vimrc source ~/_vimrc
 elseif (has("mac") || has("unix"))
   " 設定ファイル再読込
-  nmap <silent><Leader>ss :source ~/.vimrc<CR>
+  nnoremap <silent><Leader>ss :source ~/.vimrc<CR>
   " 設定ファイル編集
-  nmap <silent><Leader>ee :e ~/.vimrc<CR>
+  nnoremap <silent><Leader>ee :e ~/.vimrc<CR>
   " プリント設定
-  nmap <silent><Leader>ps :e ~/Dropbox/Data/Vim/macros/printrc.vim<CR>
+  nnoremap <silent><Leader>ps :e ~/Dropbox/Data/Vim/macros/printrc.vim<CR>
   " このファイルを編集したら、このファイルを再読込する
   autocmd BufWritePost .vimrc source ~/.vimrc
 endif
@@ -268,7 +268,7 @@ endif
 vnoremap <C-c> :w !pbcopy<CR><CR>
 
 " Space でコマンドモード
-noremap <Space> :
+nnoremap <Space> :
 
 " Esc×2で検索結果のハイライトを解除する
 nnoremap <Esc><Esc> :nohlsearch<CR>
@@ -303,17 +303,11 @@ nnoremap [Window]= <C-W>+
 nnoremap [Window]- <C-W>-
 nnoremap [Window]+ <C-W>=
 
-" 分割ウインドウの大きさを調整（旧設定） ※　新設定になれたら消す
-nmap <silent><Leader>h <C-W><
-nmap <silent><Leader>l <C-W>>
-nmap <silent><Leader>j <C-W>+
-nmap <silent><Leader>k <C-W>-
-
 if has('kaoriya')
   " 作業用バッファの作成
-  nmap <silent><Leader>s :Scratch<CR>
+  nnoremap <silent><Leader>s :Scratch<CR>
   " カレントディレクトリの変更
-  nmap <silent><Space>cd :CdCurrent<CR>
+  nnoremap <silent><Space>cd :CdCurrent<CR>
 endif
 
 " Auto escape / and ? in search command.
@@ -404,9 +398,9 @@ map <silent> [Tab]p :tabprevious<CR>
 if (has("win32") || has("win64"))
 elseif (has("mac"))
   " Google Chrome で Google検索
-  nmap <silent><Leader>sg :!open -a 'Google Chrome' https://www.google.co.jp/search?q=
+  nnoremap <silent><Leader>sg :!open -a 'Google Chrome' https://www.google.co.jp/search?q=
   " Safari で Google検索
-  nmap <silent><Leader>sf :!open -a 'Safari' https://www.google.co.jp/search?q=
+  nnoremap <silent><Leader>sf :!open -a 'Safari' https://www.google.co.jp/search?q=
   " Geeknote を実行する
   command! -nargs=+ Geeknote :!geeknote <args>
 endif
@@ -422,17 +416,17 @@ endif
 autocmd FileType html,xhtml,css,perl inoremap <buffer> </ </<C-x><C-o>
 
 " HTMLの編集時に編集中のファイルを標準のブラウザで開く
-autocmd FileType html,xhtml,css,perl nmap <silent><Leader>o :!open %<CR><CR>
+autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>o :!open %<CR><CR>
 
 " HTMLの編集時に編集中のファイルをw3mで開く
-autocmd FileType html,xhtml,css,perl nmap <silent><Leader>w :!w3m %<CR><CR>
+autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>w :!w3m %<CR><CR>
 
 " HTMLを編集するときはタブをスペースに変換する
 autocmd FileType html,xhtml,css,perl set expandtab
 
 if has('mac')
   " HTMLの編集時に編集中のファイルをGoogle Chromeで開く
-  autocmd FileType html,xhtml,css,perl nmap <silent><Leader>gc :!open -a 'Google Chrome' %<CR><CR>
+  autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>gc :!open -a 'Google Chrome' %<CR><CR>
 endif
 
 " }}}
@@ -485,16 +479,16 @@ let g:user_emmet_settings = {
 "-------------------------------------------------------------------------------
 
 " Unite起動用のショートカット
-nmap <silent><Leader>b :Unite buffer<CR>
-nmap <silent><Leader>um :Unite file_mru<CR>
-nmap <silent><Leader>ur :Unite register<CR>
-nmap <silent><Leader>ut :Unite tab<CR>
+nnoremap <silent><Leader>b :Unite buffer<CR>
+nnoremap <silent><Leader>um :Unite file_mru<CR>
+nnoremap <silent><Leader>ur :Unite register<CR>
+nnoremap <silent><Leader>ut :Unite tab<CR>
 
 " unite-rails
-nmap <silent><Leader>rm :Unite rails/model<CR>
-nmap <silent><Leader>rv :Unite rails/view<CR>
-nmap <silent><Leader>rc :Unite rails/controller<CR>
-nmap <silent><Leader>rs :Unite rails/spec<CR>
+nnoremap <silent><Leader>rm :Unite rails/model<CR>
+nnoremap <silent><Leader>rv :Unite rails/view<CR>
+nnoremap <silent><Leader>rc :Unite rails/controller<CR>
+nnoremap <silent><Leader>rs :Unite rails/spec<CR>
 
 " Uniteのオプション設定
 let g:unite_enable_start_insert = 1 " 絞り込みモードで起動する
@@ -632,7 +626,7 @@ let NERDTreeShowHidden = 1
 " デフォルトのエクスプローラを置き換えない
 let NERDTreeHijackNetrw = 0
 
-nmap <silent><Leader>f :NERDTree<CR>
+nnoremap <silent><Leader>f :NERDTree<CR>
 " }}}
 "-------------------------------------------------------------------------------
 
