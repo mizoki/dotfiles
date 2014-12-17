@@ -257,6 +257,10 @@ elseif (has("mac") || has("unix"))
   autocmd BufWritePost .vimrc source ~/.vimrc
 endif
 
+" Switch to command mode with semi colon key (For US keyboard)
+nnoremap ; :
+nnoremap : ;
+
 " スペルチェックのオン・オフ
 """nmap <silent><Leader>spl :set spell!<CR>
 
