@@ -69,6 +69,9 @@ NeoBundle 'Align' " 27/31 Help folks to align text, eqns, declarations, tables, 
 NeoBundle 'plasticboy/vim-markdown' " Markdown Vim Mode
 NeoBundle 'thinca/vim-qfreplace' " Perform the replacement in quickfix. : ref. http://d.hatena.ne.jp/thinca/20081107/1225997310
 
+" ## バイナリ
+NeoBundle 'Shougo/vinarise.vim' " Ultimate hex editing system with Vim
+
 " ## アウトライン
 NeoBundle 'VOoM' " 1.0   Vim two-pane outliner
 
