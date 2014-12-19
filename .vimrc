@@ -338,6 +338,32 @@ vnoremap gj j
 vnoremap gk k
 vnoremap ff <Esc>
 
+" ref.
+" https://github.com/Shougo/shougo-s-github/blob/master/vim/rc/mappings.rc.vim
+" https://github.com/Shougo/shougo-s-github/blob/d0c3785c4a3913ba3fc02e184de8d51c9356e535/vim/rc/mappings.rc.vim#L42-L62
+"
+" Command-line mode keymappings:"{{{
+" <C-a>, A: move to head.
+cnoremap <C-a>          <Home>
+" <C-b>: previous char.
+cnoremap <C-b>          <Left>
+" <C-d>: delete char.
+cnoremap <C-d>          <Del>
+" <C-e>, E: move to end.
+cnoremap <C-e>          <End>
+" <C-f>: next char.
+cnoremap <C-f>          <Right>
+" <C-n>: next history.
+cnoremap <C-n>          <Down>
+" <C-p>: previous history.
+cnoremap <C-p>          <Up>
+" <C-k>, K: delete to end.
+cnoremap <C-k> <C-\>e getcmdpos() == 1 ?
+      \ '' : getcmdline()[:getcmdpos()-2]<CR>
+" <C-y>: paste.
+cnoremap <C-y>          <C-r>*
+"}}}
+
 " Easy escape.
 """inoremap jj <ESC>
 """cnoremap <expr> j getcmdline()[getcmdpos()-2] ==# 'j' ? "\<BS>\<C-c>" : 'j'
