@@ -264,6 +264,8 @@ endif
 " Switch to command mode with semi colon key (For US keyboard)
 nnoremap ; :
 nnoremap : ;
+vnoremap ; :
+vnoremap : ;
 
 " スペルチェックのオン・オフ
 """nmap <silent><Leader>spl :set spell!<CR>
