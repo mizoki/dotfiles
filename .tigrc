@@ -6,3 +6,7 @@ bind generic L view-log
 bind generic l scroll-right
 bind generic <C-F> move-page-down
 bind generic <C-B> move-page-up
+
+bind main B ?git rebase -i %(commit)
+bind diff B ?git rebase -i %(commit)
+bind main V ?git revert %(commit)
