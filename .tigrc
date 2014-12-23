@@ -21,3 +21,5 @@ bind diff B ?git rebase -i %(commit)
 bind main V ?git revert %(commit)
 
 bind main <C-R> :!git fetch --all --prune
+
+bind main C !@zsh -c "echo %(commit) | pbcopy"
