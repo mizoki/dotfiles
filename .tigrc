@@ -1,5 +1,14 @@
-set vertical-split = horizontal
+# View settings
+set main-view	= line-number:no,interval=5 date:default id author:abbreviated commit-title:yes,graph,refs,overflow=no
 
+# UI display settings
+set vertical-split = horizontal # Enum: horizontal, vertical, auto
+set split-view-height = 80%     # Height of the bottom view for horizontal splits
+
+set mouse = yes      # Enable mouse support?
+set mouse-scroll = 2 # Number of lines to scroll via the mouse
+
+# User-defined commands
 bind generic H view-help
 bind generic h scroll-left
 bind generic L view-log
@@ -10,3 +19,5 @@ bind generic <C-B> move-page-up
 bind main B ?git rebase -i %(commit)
 bind diff B ?git rebase -i %(commit)
 bind main V ?git revert %(commit)
+
+bind main <C-R> :!git fetch --all --prune
