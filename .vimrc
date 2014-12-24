@@ -416,13 +416,13 @@ for n in range(1, 9)
 endfor
 " t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 
-map <silent> [Tab]c :tablast <bar> tabnew<CR>
+nnoremap <silent> [Tab]c :tablast <bar> tabnew<CR>
 " tc 新しいタブを一番右に作る
-map <silent> [Tab]x :tabclose<CR>
+nnoremap <silent> [Tab]x :tabclose<CR>
 " tx タブを閉じる
-map <silent> [Tab]n :tabnext<CR>
+nnoremap <silent> [Tab]n :tabnext<CR>
 " tn 次のタブ
-map <silent> [Tab]p :tabprevious<CR>
+nnoremap <silent> [Tab]p :tabprevious<CR>
 " tp 前のタブ
 
 " }}}
