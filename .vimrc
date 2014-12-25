@@ -35,8 +35,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
-
 NeoBundle 'Shougo/vimproc', {
   \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -50,6 +48,11 @@ NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim' " MRU plugin includes unite.vim MRU sources
+
+NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
+
+NeoBundle 'Shougo/neosnippet.vim' " neo-snippet plugin contains neocomplcache snippets source
+NeoBundle 'Shougo/neosnippet-snippets' " The standard snippets repository for neosnippet
 
 " # 汎用
 " ## システム
@@ -555,8 +558,7 @@ endif
 "-------------------------------------------------------------------------------
 
 "-------------------------------------------------------------------------------
-" neocomplcache.vimの設定 {{{
-" neocomplete.vimの設定
+" neocomplcache.vim and neocomplete.vimの設定  {{{
 "-------------------------------------------------------------------------------
 
 if neobundle#is_installed('neocomplete')
@@ -583,6 +585,30 @@ endif
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
+" }}}
+"-------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
+" neosnippet.vimの設定  {{{
+"-------------------------------------------------------------------------------
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 " }}}
 "-------------------------------------------------------------------------------
