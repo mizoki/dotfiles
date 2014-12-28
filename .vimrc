@@ -237,6 +237,10 @@ set backspace=indent,eol,start
 " Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=10
 
+" ref. http://itchyny.hatenablog.com/entry/2014/12/25/090000
+" Determines the maximum number of items to show in the popup menu for Insert mode completion.
+set pumheight=10
+
 " }}}
 "-------------------------------------------------------------------------------
 
