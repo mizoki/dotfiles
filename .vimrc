@@ -253,7 +253,7 @@ set pumheight=10
 "-------------------------------------------------------------------------------
 " キーマップの変更 {{{
 "-------------------------------------------------------------------------------
-let mapleader = ","     "Set mapleader 
+let g:mapleader = ","     "Set mapleader 
 if (has("win32") || has("win64"))
   " 設定ファイル再読込
   nnoremap <silent><Leader>ss :source ~/_vimrc<CR>
@@ -695,9 +695,9 @@ endif
 " NERDTree の設定 {{{
 "-------------------------------------------------------------------------------
 " 隠しファイルをデフォルトで表示
-let NERDTreeShowHidden = 1
+let g:NERDTreeShowHidden = 1
 " デフォルトのエクスプローラを置き換えない
-let NERDTreeHijackNetrw = 0
+let g:NERDTreeHijackNetrw = 0
 
 nnoremap <silent><Leader>f :NERDTree<CR>
 " }}}
