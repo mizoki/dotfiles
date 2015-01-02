@@ -31,7 +31,7 @@ set nocompatible
 filetype off
 
 if (has("vim_starting"))
-  set rtp+=~/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle'))
