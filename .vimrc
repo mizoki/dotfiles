@@ -122,6 +122,11 @@ syntax enable
 "-------------------------------------------------------------------------------
 " 設定の変更 {{{
 "-------------------------------------------------------------------------------
+" vimrc グループのautocmdを初期化
+augroup vimrc
+  autocmd!
+augroup END
+
 " 初期のカラースキームを指定する
 if has('mac') || has('unix')
   let g:hybrid_use_iTerm_colors = 1
@@ -175,12 +180,12 @@ set tabstop=2
 set shiftwidth=2
 
 " Grep検索時にQuickFixリストを自動で表示する
-autocmd QuickfixCmdPost grep cw
+autocmd vimrc QuickfixCmdPost grep cw
 
 " テキストの最大幅（フォーマット時に手動で設定する）
 set textwidth=0
 " デフォルトvimrc_exampleのtextwidth設定上書き
-autocmd FileType text setlocal textwidth=0
+autocmd vimrc FileType text setlocal textwidth=0
 "
 " 全角スペースを視覚化
 highlight ZenkakuSpace term=underline cterm=underline ctermbg=White guibg=White
@@ -194,7 +199,7 @@ set list
 set listchars=tab:»-,trail:␣,eol:⏎,extends:»,precedes:«,nbsp:%
 
 " PowerShellファイルのSyntaxの読み込み用
-" autocmd BufRead,BufNewFile *.ps1 set syntax=ps1
+" autocmd vimrc BufRead,BufNewFile *.ps1 set syntax=ps1
 
 " 選択時にクリップボードレジスタに値をコピーする
 set guioptions+=a
@@ -262,7 +267,7 @@ if (has("win32") || has("win64"))
   " プリント設定
   nnoremap <silent><Leader>ps :e ~/macros/printrc.vim<CR>
   " このファイルを編集したら、このファイルを再読込する
-  autocmd BufWritePost _vimrc source ~/_vimrc
+  autocmd vimrc BufWritePost _vimrc source ~/_vimrc
 elseif (has("mac") || has("unix"))
   " 設定ファイル再読込
   nnoremap <silent><Leader>ss :source ~/.vimrc<CR>
@@ -271,7 +276,7 @@ elseif (has("mac") || has("unix"))
   " プリント設定
   nnoremap <silent><Leader>ps :e ~/Dropbox/Data/Vim/macros/printrc.vim<CR>
   " このファイルを編集したら、このファイルを再読込する
-  autocmd BufWritePost .vimrc source ~/.vimrc
+  autocmd vimrc BufWritePost .vimrc source ~/.vimrc
 endif
 
 " Switch to command mode with semi colon key (For US keyboard)
@@ -461,22 +466,26 @@ endif
 " HTML編集用の設定 {{{
 "-------------------------------------------------------------------------------
 
-" HTMLの閉じタグの自動入力
-autocmd FileType html,xhtml,css,perl inoremap <buffer> </ </<C-x><C-o>
+" htmlグループのautocmdを設定
+augroup html
+  autocmd!
+  " HTMLの閉じタグの自動入力
+  autocmd FileType html,xhtml,css,perl inoremap <buffer> </ </<C-x><C-o>
 
-" HTMLの編集時に編集中のファイルを標準のブラウザで開く
-autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>o :!open %<CR><CR>
+  " HTMLの編集時に編集中のファイルを標準のブラウザで開く
+  autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>o :!open %<CR><CR>
 
-" HTMLの編集時に編集中のファイルをw3mで開く
-autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>w :!w3m %<CR><CR>
+  " HTMLの編集時に編集中のファイルをw3mで開く
+  autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>w :!w3m %<CR><CR>
 
-" HTMLを編集するときはタブをスペースに変換する
-autocmd FileType html,xhtml,css,perl set expandtab
+  " HTMLを編集するときはタブをスペースに変換する
+  autocmd FileType html,xhtml,css,perl set expandtab
 
-if has('mac')
-  " HTMLの編集時に編集中のファイルをGoogle Chromeで開く
-  autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>gc :!open -a 'Google Chrome' %<CR><CR>
-endif
+  if has('mac')
+    " HTMLの編集時に編集中のファイルをGoogle Chromeで開く
+    autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>gc :!open -a 'Google Chrome' %<CR><CR>
+  endif
+augroup END
 
 " }}}
 "-------------------------------------------------------------------------------
