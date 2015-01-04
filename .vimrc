@@ -27,10 +27,13 @@ endif
 "-------------------------------------------------------------------------------
 " プラグインの読み込み {{{
 "-------------------------------------------------------------------------------
-set nocompatible
-filetype off
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
 
 if (has("vim_starting"))
+  if &compatible
+    set nocompatible
+  endif
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
