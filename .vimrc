@@ -117,7 +117,6 @@ NeoBundle 'todesking/ruby_hl_lvar.vim' " Highlight Ruby local variables
 call neobundle#end()
 
 filetype plugin indent on
-syntax enable
 
 " }}}
 "-------------------------------------------------------------------------------
@@ -135,6 +134,9 @@ if has('mac') || has('unix')
   let g:hybrid_use_iTerm_colors = 1
   colorscheme hybrid
 endif
+
+" Enable syntax
+syntax enable
 
 " 全てのモードでマウスを有効にする
 set mouse=a
