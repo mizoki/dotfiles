@@ -13,6 +13,8 @@ alias vi=vim
 
 alias w3m='w3m -B'
 
+alias t='tmux'
+
 # Git
 [[ -s "$HOME/.alias/git" ]] && source $HOME/.alias/git
 
