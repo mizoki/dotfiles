@@ -113,6 +113,9 @@ zstyle ':completion:*:sudo:*' command-path /opt/local/bin/ /usr/local/sbin /usr/
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
+# 2つ以上、候補があるときにメニュー選択モードに切り替える
+zstyle ':completion:*:default' menu select=2
+
 # オプション
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
