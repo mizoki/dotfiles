@@ -65,3 +65,16 @@ zle -N peco-ssh
 
 alias s='peco-remote ssh'
 alias m='peco-remote mosh'
+
+function peco-tmux() {
+  local i=$(tmux lsw 2>/dev/null | awk '/active.$/ {print NR-1}')
+  if [ -n "$i" ]; then
+    local f='#{window_index}: #{window_name}#{window_flags} #{pane_current_path}'
+    local w="$(tmux lsw -F "$f" | peco --initial-index $i | awk -F : 'NR == 1 {print $1}')"
+    if [ -n "$w" ]; then
+      tmux select-window -t $w
+    fi
+  fi
+}
+zle -N peco-tmux
+bindkey '^w' peco-tmux
