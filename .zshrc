@@ -4,15 +4,6 @@ export LANG="ja_JP.UTF-8"
 export LANGUAGE="ja_JP"
 export LC_ALL="ja_JP.UTF-8"
 
-# エイリアスの読み込み
-[[ -s "$HOME/.alias_common" ]] && source $HOME/.alias_common
-
-# 関数の読み込み
-[[ -s "$HOME/.functions_common" ]] && source $HOME/.functions_common
-
-# PATHの重複項目を削除して、PATHの長さ順に並び替える
-export PATH=`echo $PATH | tr ':' '\n' | awk '{print length($0), $0}' | sort -unr | cut -d' ' -f2- | paste -d: -s -`
-
 ##### zsh の設定 #####
 
 #プロンプトの設定
@@ -155,6 +146,15 @@ setopt extended_glob
 
 # 補完時に濁点・半濁点を <3099> <309a> のように表示させない
 setopt COMBINING_CHARS
+
+# エイリアスの読み込み
+[[ -s "$HOME/.alias_common" ]] && source $HOME/.alias_common
+
+# 関数の読み込み
+[[ -s "$HOME/.functions_common" ]] && source $HOME/.functions_common
+
+# PATHの重複項目を削除して、PATHの長さ順に並び替える
+export PATH=`echo $PATH | tr ':' '\n' | awk '{print length($0), $0}' | sort -unr | cut -d' ' -f2- | paste -d: -s -`
 
 # 'hub' subcommand completion
 # ref.
