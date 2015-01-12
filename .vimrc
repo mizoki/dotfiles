@@ -257,6 +257,9 @@ set scrolloff=10
 " Determines the maximum number of items to show in the popup menu for Insert mode completion.
 set pumheight=10
 
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
+
 " }}}
 "-------------------------------------------------------------------------------
 
