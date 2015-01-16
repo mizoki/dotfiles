@@ -66,7 +66,6 @@ NeoBundle 'vim-scripts/sudo.vim' " Allows one to edit a file with prevledges fro
 
 " ## ファイル
 NeoBundle 'renamer.vim' " 1.0   Use the power of vim to rename groups of files : http://www.vim.org/scripts/script.php?script_id=1721
-NeoBundle 'kien/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder.
 NeoBundle 'scrooloose/nerdtree' " A tree explorer plugin for vim.
 
 " ## テキストオブジェクト関連
@@ -692,19 +691,6 @@ endif
 "-------------------------------------------------------------------------------
 " プロンプトの設定
 let g:vimshell_user_prompt = 'getcwd()'
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" Ctrlp の設定 {{{
-"-------------------------------------------------------------------------------
-" ref. http://celt.hatenablog.jp/entry/2014/07/11/205308
-" ag入ってたらagで検索させる
-" ついでにキャッシュファイルからの検索もさせない
-if executable('ag')
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
-endif
 " }}}
 "-------------------------------------------------------------------------------
 
