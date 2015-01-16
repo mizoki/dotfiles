@@ -399,6 +399,9 @@ cnoremap <C-y>          <C-r>*
 """inoremap j<Space> j
 """onoremap j<Space> j
 
+" Set VoomToggle for markdown
+nnoremap <Leader>m :VoomToggle markdown<CR>
+
 " }}}
 "-------------------------------------------------------------------------------
 
