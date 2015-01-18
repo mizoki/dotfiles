@@ -19,6 +19,10 @@ bind generic <C-B> move-page-up
 bind main B ?git rebase -i %(commit)
 bind diff B ?git rebase -i %(commit)
 bind main V ?git revert %(commit)
+bind main @ ?git reset %(commit)
+bind main ! ?git reset --hard %(commit)
+bind main p ?git push origin %(branch)
+bind main P ?git push origin -f %(branch)
 
 bind main <C-R> !zsh -c "git fetch --all --prune"
 
