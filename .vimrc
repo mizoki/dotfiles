@@ -548,6 +548,7 @@ let g:user_emmet_settings = {
 
 " Unite起動用のショートカット
 nnoremap <silent><Leader>b :Unite buffer<CR>
+nnoremap <silent><Leader>uf :Unite file<CR>
 nnoremap <silent><Leader>um :Unite file_mru<CR>
 nnoremap <silent><Leader>ur :Unite register<CR>
 nnoremap <silent><Leader>ut :Unite tab<CR>
