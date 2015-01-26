@@ -1,3 +1,5 @@
 #Ruby
 alias be='bundle exec'
 alias bi='bundle install'
+
+alias rs='bundle exec rails server -b 0.0.0.0'
