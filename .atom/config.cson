@@ -1,0 +1,20 @@
+"*":
+  editor:
+    fontFamily: "Ricty"
+    fontSize: 14
+    showIndentGuide: true
+    invisibles: {}
+  core:
+    followSymlinks: true
+    themes: [
+      "atom-dark-ui"
+      "atom-dark-syntax"
+    ]
+    audioBeep: false
+  "exception-reporting":
+    userId: "da2e998d-8642-57d2-aa01-c9ddf723918b"
+  welcome:
+    showOnStartup: false
+  term2:
+    colors: {}
+  emmet: {}
