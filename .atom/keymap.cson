@@ -28,3 +28,7 @@
 'atom-text-editor:not([mini])':
   'ctrl-e': 'editor:move-to-end-of-line'
   'ctrl-cmd-e': 'emmet:expand-abbreviation'
+
+'.platform-darwin atom-text-editor:not([mini])':
+  'ctrl-d': 'core:delete'
+  'ctrl-cmd-d': 'emmet:balance-outward'
