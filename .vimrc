@@ -130,9 +130,11 @@ augroup vimrc
 augroup END
 
 " 初期のカラースキームを指定する
-if has('mac') || has('unix')
+if has('mac')
   let g:hybrid_use_iTerm_colors = 1
   colorscheme hybrid
+else
+  colorscheme default
 endif
 
 " Enable syntax
