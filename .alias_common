@@ -10,6 +10,7 @@ alias cp='cp -p'
 
 # Applications
 alias vi=vim
+alias v=vim
 
 alias w3m='w3m -B'
 
