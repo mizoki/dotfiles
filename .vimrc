@@ -88,6 +88,7 @@ NeoBundle 'Shougo/unite-outline' " outline source for unite.vim
 " ## カラースキーム
 NeoBundle 'w0ng/vim-hybrid' " A dark colour scheme for Vim & gVim
 NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
+NeoBundle 'chriskempson/vim-tomorrow-theme' " Tomorrow Theme for Vim
 
 " ## 表示
 NeoBundle 'nathanaelkane/vim-indent-guides' " A Vim plugin for visually displaying indent levels in code
@@ -130,12 +131,7 @@ augroup vimrc
 augroup END
 
 " 初期のカラースキームを指定する
-if has('mac')
-  let g:hybrid_use_iTerm_colors = 1
-  colorscheme hybrid
-else
-  colorscheme default
-endif
+colorscheme Tomorrow-Night-Eighties
 
 " Enable syntax
 syntax enable
