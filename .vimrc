@@ -83,7 +83,6 @@ NeoBundle 'Shougo/vinarise.vim' " Ultimate hex editing system with Vim
 
 " ## アウトライン
 NeoBundle 'VOoM' " 1.0   Vim two-pane outliner
-NeoBundle 'Shougo/unite-outline' " outline source for unite.vim
 
 " ## カラースキーム
 NeoBundle 'w0ng/vim-hybrid' " A dark colour scheme for Vim & gVim
@@ -563,7 +562,6 @@ nnoremap <silent><Leader>uf :Unite file<CR>
 nnoremap <silent><Leader>um :Unite file_mru<CR>
 nnoremap <silent><Leader>ur :Unite register<CR>
 nnoremap <silent><Leader>ut :Unite tab<CR>
-nnoremap <silent><Leader>uo :Unite outline<CR>
 
 " unite-rails
 nnoremap <silent><Leader>rm :Unite rails/model<CR>
