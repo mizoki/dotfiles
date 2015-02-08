@@ -105,7 +105,6 @@ NeoBundle 'mattn/gist-vim' " vimscript for gist
 NeoBundle 'tomtom/tcomment_vim' " An extensible & universal comment vim-plugin that also handles embedded filetypes
 
 " ## HTML
-""" NeoBundle 'mattn/zencoding-vim' " zen-coding for vim : http://code.google.com/p/zen-coding/ : https://github.com/mattn/zencoding-vim
 NeoBundle 'mattn/emmet-vim' " emmet for vim: http://emmet.io/
 NeoBundle 'str2numchar.vim' " 0.1   String convert to Numeric Character Reference : http://www.vim.org/scripts/script.php?script_id=1646
 
