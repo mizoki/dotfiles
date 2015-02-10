@@ -399,18 +399,6 @@ cnoremap <C-y>          <C-r>*
 " Set VoomToggle for markdown
 nnoremap <Leader>m :VoomToggle markdown<CR>
 
-" 括弧の補完
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-vnoremap { "zdi{<C-R>z}<ESC>
-vnoremap [ "zdi[<C-R>z]<ESC>
-vnoremap ( "zdi(<C-R>z)<ESC>
-vnoremap " "zdi"<C-R>z"<ESC>
-vnoremap ' "zdi'<C-R>z'<ESC>
-
 " }}}
 "-------------------------------------------------------------------------------
 
