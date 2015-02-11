@@ -550,6 +550,9 @@ nnoremap <silent><Leader>um :Unite file_mru<CR>
 nnoremap <silent><Leader>ur :Unite register<CR>
 nnoremap <silent><Leader>ut :Unite tab<CR>
 
+"ref. http://kannokanno.hatenablog.com/entry/20120429/1335679101
+nnoremap <silent><Leader>uw :UniteWithCursorWord -no-quit line<CR>
+
 " unite-rails
 nnoremap <silent><Leader>rm :Unite rails/model<CR>
 nnoremap <silent><Leader>rv :Unite rails/view<CR>
