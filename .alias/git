@@ -9,6 +9,7 @@ alias gcisquash="git commit -m '[squash]'"
 alias gco='git checkout'
 alias gf='git fetch'
 alias gfa='git fetch --all'
+alias gfap='git fetch --all --prune'
 alias gm='git merge'
 alias gmff='git merge --ff'
 alias gmnoff='git merge --no-ff'
