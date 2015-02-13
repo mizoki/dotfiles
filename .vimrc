@@ -103,6 +103,7 @@ NeoBundle 'lilydjwg/colorizer' " A Vim plugin to colorize all text in the form #
 NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease : http://www.vim.org/scripts/script.php?script_id=1697
 NeoBundle 'mattn/gist-vim' " vimscript for gist
 NeoBundle 'tomtom/tcomment_vim' " An extensible & universal comment vim-plugin that also handles embedded filetypes
+NeoBundle 'bronson/vim-trailing-whitespace' " Highlights trailing whitespace in red and provides :FixWhitespace to fix it. : ref. http://mattn.kaoriya.net/software/vim/20150209151638.htm
 
 " ## HTML
 NeoBundle 'mattn/emmet-vim' " emmet for vim: http://emmet.io/
@@ -731,5 +732,12 @@ let g:indent_guides_guide_size=shiftwidth()-1
 let g:indent_guides_exclude_filetypes=['help', 'nerdtree', 'vimfiler', 'unite', 'voomtree']
 hi IndentGuidesOdd  ctermbg=4
 hi IndentGuidesEven ctermbg=6
+" }}}
+"-------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
+" vim-trailing-whitespace の設定 {{{
+"-------------------------------------------------------------------------------
+let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd']
 " }}}
 "-------------------------------------------------------------------------------
