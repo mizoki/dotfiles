@@ -172,7 +172,7 @@ set cmdheight=2
 set showcmd
 
 " ステータス行の設定
-set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%r%h%w 
+set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%r%h%w
 set statusline+=%=%{fugitive#statusline()}[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
 
 " Tabをスペースに変換する
@@ -263,7 +263,7 @@ nnoremap <C-]> g<C-]>
 "-------------------------------------------------------------------------------
 " キーマップの変更 {{{
 "-------------------------------------------------------------------------------
-let g:mapleader = ","     "Set mapleader 
+let g:mapleader = ","     "Set mapleader
 if (has("win32") || has("win64"))
   " 設定ファイル再読込
   nnoremap <silent><Leader>ss :source ~/_vimrc<CR>
