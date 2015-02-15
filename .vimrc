@@ -114,6 +114,11 @@ NeoBundle 'tpope/vim-rails' " rails.vim: Ruby on Rails power tools
 NeoBundle 'basyura/unite-rails' " a unite.vim plugin for rails http://basyura.org
 NeoBundle 'todesking/ruby_hl_lvar.vim' " Highlight Ruby local variables
 
+" ## Swift
+if has('mac')
+  NeoBundle 'toyamarinyon/vim-swift' " Adds Swift support to vim. It covers syntax, intenting, and more.
+endif
+
 call neobundle#end()
 
 filetype plugin indent on
