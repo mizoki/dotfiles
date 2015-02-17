@@ -160,7 +160,7 @@ set viminfo='50,<50,s10,:200,@200,/200,h,rA:,rB:"
 set helplang=ja,en
 
 " スペルチェックの言語
-set spelllang=en_us
+set spelllang=en,cjk
 
 " インクリメント・デクリメントの設定
 set nrformats=hex,alpha
@@ -297,7 +297,7 @@ vnoremap ; :
 vnoremap : ;
 
 " スペルチェックのオン・オフ
-"""nmap <silent><Leader>spl :set spell!<CR>
+nnoremap <silent><Leader>spl :set spell!<CR>
 
 " Ctrl+C でクリップボードへコピー (linux OS用)
 " ref. https://github.com/mizoki/rpbcopy
