@@ -16,6 +16,11 @@ alias w3m='w3m -B'
 
 alias t='tmux'
 
+# Mac
+if [ `uname` = 'Darwin' ]; then
+  [[ -s "$HOME/.alias/mac" ]] && source $HOME/.alias/mac
+fi
+
 # Git
 [[ -s "$HOME/.alias/git" ]] && source $HOME/.alias/git
 

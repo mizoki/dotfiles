@@ -16,6 +16,9 @@ if [ ! -d "$HOME/.alias" ]; then
   mkdir $HOME/.alias
   ln -s $PWD/.alias/git $HOME/.alias/git
   ln -s $PWD/.alias/ruby $HOME/.alias/ruby
+  if [ `uname` = 'Darwin' ]; then
+    ln -s $PWD/.alias/mac $HOME/.alias/mac
+  fi
 fi
 
 if [ ! -d "$HOME/.functions" ]; then
