@@ -2,3 +2,9 @@
 
 # Quicklook
 alias ql='qlmanage -p "$@" >& /dev/null'
+
+# Disable to MacBook internal keyboard
+alias disablekeyboard='sudo kextunload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext'
+
+# Enable to MacBook internal keyboard
+alias enablekeyboard='sudo kextload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext'
