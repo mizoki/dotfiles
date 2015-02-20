@@ -14,19 +14,19 @@
 
 if [ ! -d "$HOME/.alias" ]; then
   mkdir $HOME/.alias
-  ln -s $PWD/.alias/git $HOME/.alias/git
-  ln -s $PWD/.alias/ruby $HOME/.alias/ruby
-  if [ `uname` = 'Darwin' ]; then
-    ln -s $PWD/.alias/mac $HOME/.alias/mac
-  fi
+fi
+[ ! -s "$HOME/.alias/git" ] && ln -s $PWD/.alias/git $HOME/.alias/git
+[ ! -s "$HOME/.alias/ruby" ] && ln -s $PWD/.alias/ruby $HOME/.alias/ruby
+if [ `uname` = 'Darwin' ]; then
+  [ ! -s "$HOME/.alias/mac" ] && ln -s $PWD/.alias/mac $HOME/.alias/mac
 fi
 
 if [ ! -d "$HOME/.functions" ]; then
   mkdir $HOME/.functions
-  ln -s $PWD/.functions/peco_function.sh $HOME/.functions/peco_function.sh
 fi
+[ ! -s "$HOME/.functions/peco_function.sh" ] && ln -s $PWD/.functions/peco_function.sh $HOME/.functions/peco_function.sh
 
 if [ ! -d "$HOME/.peco" ]; then
   mkdir $HOME/.peco
-  ln -s $PWD/.peco/config.json $HOME/.peco/config.json
 fi
+[ ! -s "$HOME/.peco/config.json" ] && ln -s $PWD/.peco/config.json $HOME/.peco/config.json
