@@ -50,75 +50,47 @@ NeoBundle 'Shougo/vimproc', {
   \ },
 \ }
 
+NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim' " MRU plugin includes unite.vim MRU sources
-
-NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
-
-NeoBundle 'Shougo/neosnippet.vim' " neo-snippet plugin contains neocomplcache snippets source
-NeoBundle 'Shougo/neosnippet-snippets' " The standard snippets repository for neosnippet
-
-" # 汎用
-" ## システム
-NeoBundle 'vim-scripts/sudo.vim' " Allows one to edit a file with prevledges from an unprivledged session.
-
-" ## ファイル
-NeoBundle 'renamer.vim' " 1.0   Use the power of vim to rename groups of files : http://www.vim.org/scripts/script.php?script_id=1721
-NeoBundle 'kien/ctrlp.vim' " Fuzzy file, buffer, mru, tag, etc finder.
-NeoBundle 'scrooloose/nerdtree' " A tree explorer plugin for vim.
-
-" ## テキストオブジェクト関連
-NeoBundle 'kana/vim-textobj-user' " Vim plugin: Create your own text objects
-NeoBundle 'kana/vim-textobj-jabraces' " Vim plugin: Text objects for Japanese braces
-
-" ## テキスト
-NeoBundle 'Align' " 27/31 Help folks to align text, eqns, declarations, tables, etc : http://www.vim.org/scripts/script.php?script_id=294
-NeoBundle 'plasticboy/vim-markdown' " Markdown Vim Mode
-NeoBundle 'thinca/vim-qfreplace' " Perform the replacement in quickfix. : ref. http://d.hatena.ne.jp/thinca/20081107/1225997310
-
-" ## バイナリ
-NeoBundle 'Shougo/vinarise.vim' " Ultimate hex editing system with Vim
-
-" ## アウトライン
-NeoBundle 'VOoM' " 1.0   Vim two-pane outliner
-
-" ## カラースキーム
-NeoBundle 'w0ng/vim-hybrid' " A dark colour scheme for Vim & gVim
-NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
-NeoBundle 'chriskempson/vim-tomorrow-theme' " Tomorrow Theme for Vim
-
-" ## 表示
-NeoBundle 'nathanaelkane/vim-indent-guides' " A Vim plugin for visually displaying indent levels in code
-
-" # 開発系
-" ## common
-NeoBundle 'mattn/webapi-vim' " vim interface to Web API
-NeoBundle 'thinca/vim-quickrun' " Run commands quickly.
-NeoBundle 'tpope/vim-fugitive' " fugitive.vim: a Git wrapper so awesome, it should be illegal
-NeoBundle 'rhysd/committia.vim' " A Vim plugin for more pleasant editing on commit messages
-NeoBundle 'tpope/vim-endwise' " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc : http://www.vim.org/scripts/script.php?script_id=2386
-NeoBundle 'lilydjwg/colorizer' " A Vim plugin to colorize all text in the form #rrggbb or #rgb.
-NeoBundle 'surround.vim' " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease : http://www.vim.org/scripts/script.php?script_id=1697
-NeoBundle 'mattn/gist-vim' " vimscript for gist
+NeoBundle 'Shougo/neomru.vim'                " MRU plugin includes unite.vim MRU sources
+NeoBundle 'Shougo/neosnippet.vim'            " neo-snippet plugin contains neocomplcache snippets source
+NeoBundle 'Shougo/neosnippet-snippets'       " The standard snippets repository for neosnippet
+NeoBundle 'vim-scripts/sudo.vim'             " Allows one to edit a file with prevledges from an unprivledged session.
+NeoBundle 'renamer.vim'                      " 1.0   Use the power of vim to rename groups of files ( http://www.vim.org/scripts/script.php?script_id=1721 )
+NeoBundle 'kien/ctrlp.vim'                   " Fuzzy file, buffer, mru, tag, etc finder.
+NeoBundle 'scrooloose/nerdtree'              " A tree explorer plugin for vim.
+NeoBundle 'kana/vim-textobj-user'            " Vim plugin: Create your own text objects
+NeoBundle 'kana/vim-textobj-jabraces'        " Vim plugin: Text objects for Japanese braces
+NeoBundle 'Align'                            " 27/31 Help folks to align text, eqns, declarations, tables, etc ( http://www.vim.org/scripts/script.php?script_id=294 )
+NeoBundle 'plasticboy/vim-markdown'          " Markdown Vim Mode
+NeoBundle 'thinca/vim-qfreplace'             " Perform the replacement in quickfix. ( ref. http://d.hatena.ne.jp/thinca/20081107/1225997310 )
+NeoBundle 'Shougo/vinarise.vim'              " Ultimate hex editing system with Vim
+NeoBundle 'VOoM'                             " 1.0   Vim two-pane outliner
+NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
+NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
+NeoBundle 'thinca/vim-quickrun'              " Run commands quickly.
+NeoBundle 'tpope/vim-fugitive'               " fugitive.vim: a Git wrapper so awesome, it should be illegal
+NeoBundle 'rhysd/committia.vim'              " A Vim plugin for more pleasant editing on commit messages
+NeoBundle 'tpope/vim-endwise'                " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc ( http://www.vim.org/scripts/script.php?script_id=2386 )
+NeoBundle 'lilydjwg/colorizer'               " A Vim plugin to colorize all text in the form #rrggbb or #rgb.
+NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
+NeoBundle 'mattn/gist-vim'                   " vimscript for gist
 NeoBundle 'mattn/qiita-vim'
-NeoBundle 'tomtom/tcomment_vim' " An extensible & universal comment vim-plugin that also handles embedded filetypes
-NeoBundle 'bronson/vim-trailing-whitespace' " Highlights trailing whitespace in red and provides :FixWhitespace to fix it. : ref. http://mattn.kaoriya.net/software/vim/20150209151638.htm
-
-" ## HTML
-NeoBundle 'mattn/emmet-vim' " emmet for vim: http://emmet.io/
-NeoBundle 'str2numchar.vim' " 0.1   String convert to Numeric Character Reference : http://www.vim.org/scripts/script.php?script_id=1646
-
-" ## Ruby
-NeoBundle 'tpope/vim-rails' " rails.vim: Ruby on Rails power tools
-NeoBundle 'basyura/unite-rails' " a unite.vim plugin for rails http://basyura.org
-NeoBundle 'todesking/ruby_hl_lvar.vim' " Highlight Ruby local variables
-
-" ## Swift
+NeoBundle 'tomtom/tcomment_vim'              " An extensible & universal comment vim-plugin that also handles embedded filetypes
+NeoBundle 'bronson/vim-trailing-whitespace'  " Highlights trailing whitespace in red and provides :FixWhitespace to fix it. ( ref. http://mattn.kaoriya.net/software/vim/20150209151638.htm )
+NeoBundle 'mattn/emmet-vim'                  " emmet for vim ( http://emmet.io/ )
+NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
+NeoBundle 'tpope/vim-rails'                  " rails.vim: Ruby on Rails power tools
+NeoBundle 'basyura/unite-rails'              " a unite.vim plugin for rails ( http://basyura.org )
+NeoBundle 'todesking/ruby_hl_lvar.vim'       " Highlight Ruby local variables
 if has('mac')
-  NeoBundle 'toyamarinyon/vim-swift' " Adds Swift support to vim. It covers syntax, intenting, and more.
+  NeoBundle 'toyamarinyon/vim-swift'         " Adds Swift support to vim. It covers syntax, intenting, and more.
 endif
+NeoBundle 'w0ng/vim-hybrid'                  " A dark colour scheme for Vim & gVim
+NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
+NeoBundle 'chriskempson/vim-tomorrow-theme'  " Tomorrow Theme for Vim
 
 call neobundle#end()
 
