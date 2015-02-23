@@ -178,9 +178,6 @@ match ZenkakuSpace /　/
 set list
 set listchars=tab:»-,trail:␣,eol:⏎,extends:»,precedes:«,nbsp:%
 
-" PowerShellファイルのSyntaxの読み込み用
-" autocmd vimrc BufRead,BufNewFile *.ps1 set syntax=ps1
-
 " 選択時にクリップボードレジスタに値をコピーする
 set guioptions+=a
 
