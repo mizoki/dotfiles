@@ -60,7 +60,6 @@ NeoBundle 'Shougo/neosnippet-snippets'       " The standard snippets repository 
 NeoBundle 'vim-scripts/sudo.vim'             " Allows one to edit a file with prevledges from an unprivledged session.
 NeoBundle 'renamer.vim'                      " 1.0   Use the power of vim to rename groups of files ( http://www.vim.org/scripts/script.php?script_id=1721 )
 NeoBundle 'ctrlpvim/ctrlp.vim'               " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder. http://ctrlpvim.github.com/ctrlp.vim
-NeoBundle 'scrooloose/nerdtree'              " A tree explorer plugin for vim.
 NeoBundle 'kana/vim-textobj-user'            " Vim plugin: Create your own text objects
 NeoBundle 'kana/vim-textobj-jabraces'        " Vim plugin: Text objects for Japanese braces
 NeoBundle 'Align'                            " 27/31 Help folks to align text, eqns, declarations, tables, etc ( http://www.vim.org/scripts/script.php?script_id=294 )
@@ -687,24 +686,12 @@ endif
 "-------------------------------------------------------------------------------
 
 "-------------------------------------------------------------------------------
-" NERDTree の設定 {{{
-"-------------------------------------------------------------------------------
-" 隠しファイルをデフォルトで表示
-let g:NERDTreeShowHidden = 1
-" デフォルトのエクスプローラを置き換えない
-let g:NERDTreeHijackNetrw = 0
-
-nnoremap <silent><Leader>f :NERDTree<CR>
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
 " vim-indent-guides の設定 {{{
 "-------------------------------------------------------------------------------
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_auto_colors=0
 let g:indent_guides_guide_size=shiftwidth()-1
-let g:indent_guides_exclude_filetypes=['help', 'nerdtree', 'vimfiler', 'unite', 'voomtree']
+let g:indent_guides_exclude_filetypes=['help', 'vimfiler', 'unite', 'voomtree']
 hi IndentGuidesOdd  ctermbg=4
 hi IndentGuidesEven ctermbg=6
 " }}}
