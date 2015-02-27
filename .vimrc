@@ -641,6 +641,19 @@ let g:vimfiler_as_default_explorer = 1
 " Enable file operation commands.
 let g:vimfiler_safe_mode_by_default = 0
 
+if has('mac')
+  " QuickLook
+  " See :h g:vimfiler_quick_look_command
+  let g:vimfiler_quick_look_command = 'qlmanage -p'
+  augroup vimfiler
+    autocmd!
+    autocmd FileType vimfiler nmap <buffer> p <Plug>(vimfiler_quick_look)
+  augroup END
+endif
+
+" Tree View Filer
+nnoremap <silent><Leader>f :VimFilerExplore -split -winwidth=30 -find -no-quit<CR>
+
 " }}}
 "-------------------------------------------------------------------------------
 
@@ -700,6 +713,6 @@ hi IndentGuidesEven ctermbg=6
 "-------------------------------------------------------------------------------
 " vim-trailing-whitespace の設定 {{{
 "-------------------------------------------------------------------------------
-let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd']
+let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd', 'vimfiler']
 " }}}
 "-------------------------------------------------------------------------------
