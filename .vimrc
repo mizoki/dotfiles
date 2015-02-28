@@ -78,7 +78,6 @@ NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parenthes
 NeoBundle 'mattn/gist-vim'                   " vimscript for gist
 NeoBundle 'mattn/qiita-vim'
 NeoBundle 'tomtom/tcomment_vim'              " An extensible & universal comment vim-plugin that also handles embedded filetypes
-NeoBundle 'bronson/vim-trailing-whitespace'  " Highlights trailing whitespace in red and provides :FixWhitespace to fix it. ( ref. http://mattn.kaoriya.net/software/vim/20150209151638.htm )
 NeoBundle 'mattn/emmet-vim'                  " emmet for vim ( http://emmet.io/ )
 NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
 NeoBundle 'tpope/vim-rails'                  " rails.vim: Ruby on Rails power tools
@@ -707,12 +706,5 @@ let g:indent_guides_guide_size=shiftwidth()-1
 let g:indent_guides_exclude_filetypes=['help', 'vimfiler', 'unite', 'voomtree']
 hi IndentGuidesOdd  ctermbg=4
 hi IndentGuidesEven ctermbg=6
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" vim-trailing-whitespace の設定 {{{
-"-------------------------------------------------------------------------------
-let g:extra_whitespace_ignored_filetypes = ['unite', 'mkd', 'vimfiler']
 " }}}
 "-------------------------------------------------------------------------------
