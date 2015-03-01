@@ -64,6 +64,7 @@ NeoBundle 'kana/vim-textobj-user'            " Vim plugin: Create your own text 
 NeoBundle 'kana/vim-textobj-jabraces'        " Vim plugin: Text objects for Japanese braces
 NeoBundle 'Align'                            " 27/31 Help folks to align text, eqns, declarations, tables, etc ( http://www.vim.org/scripts/script.php?script_id=294 )
 NeoBundle 'plasticboy/vim-markdown'          " Markdown Vim Mode
+NeoBundle 'rking/ag.vim'                     " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
 NeoBundle 'thinca/vim-qfreplace'             " Perform the replacement in quickfix. ( ref. http://d.hatena.ne.jp/thinca/20081107/1225997310 )
 NeoBundle 'Shougo/vinarise.vim'              " Ultimate hex editing system with Vim
 NeoBundle 'VOoM'                             " 1.0   Vim two-pane outliner
