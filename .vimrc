@@ -58,7 +58,6 @@ NeoBundle 'Shougo/neomru.vim'                " MRU plugin includes unite.vim MRU
 NeoBundle 'Shougo/neosnippet.vim'            " neo-snippet plugin contains neocomplcache snippets source
 NeoBundle 'Shougo/neosnippet-snippets'       " The standard snippets repository for neosnippet
 NeoBundle 'vim-scripts/sudo.vim'             " Allows one to edit a file with prevledges from an unprivledged session.
-NeoBundle 'renamer.vim'                      " 1.0   Use the power of vim to rename groups of files ( http://www.vim.org/scripts/script.php?script_id=1721 )
 NeoBundle 'ctrlpvim/ctrlp.vim'               " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder. http://ctrlpvim.github.com/ctrlp.vim
 NeoBundle 'kana/vim-textobj-user'            " Vim plugin: Create your own text objects
 NeoBundle 'kana/vim-textobj-jabraces'        " Vim plugin: Text objects for Japanese braces
