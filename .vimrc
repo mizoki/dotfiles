@@ -708,3 +708,5 @@ hi IndentGuidesOdd  ctermbg=4
 hi IndentGuidesEven ctermbg=6
 " }}}
 "-------------------------------------------------------------------------------
+
+" vim: foldmethod=marker
