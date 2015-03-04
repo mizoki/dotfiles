@@ -4,12 +4,13 @@ scriptencoding utf-8
 "-------------------------------------------------------------------------------
 " ■各OS固有の設定 {{{
 "-------------------------------------------------------------------------------
+
 " 初期化処理中のみ（再読み込み時に実行しない）
-if (has("vim_starting"))
-  if (has('mac'))
-  elseif ($HOSTNAME == "example.com")
-  endif
-endif
+"if (has("vim_starting"))
+"  if (has('mac'))
+"  elseif ($HOSTNAME == "example.com")
+"  endif
+"endif
 
 if (has("win32") || has("win64"))
   set runtimepath+=$HOME/.vim/
@@ -27,6 +28,7 @@ endif
 "-------------------------------------------------------------------------------
 " プラグインの読み込み {{{
 "-------------------------------------------------------------------------------
+
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -100,6 +102,7 @@ filetype plugin indent on
 "-------------------------------------------------------------------------------
 " 設定の変更 {{{
 "-------------------------------------------------------------------------------
+
 " vimrc グループのautocmdを初期化
 augroup vimrc
   autocmd!
@@ -164,13 +167,10 @@ autocmd vimrc QuickfixCmdPost grep cw
 set textwidth=0
 " デフォルトvimrc_exampleのtextwidth設定上書き
 autocmd vimrc FileType text setlocal textwidth=0
-"
+
 " 全角スペースを視覚化
 highlight ZenkakuSpace term=underline cterm=underline ctermbg=White guibg=White
 match ZenkakuSpace /　/
-" タブを視覚化
-"""highlight TabMoji term=underline cterm=underline ctermbg=LightBlue guibg=LightBlue
-"2match TabMoji /	/
 
 " タブと改行を可視化
 set list
@@ -188,9 +188,6 @@ set guioptions-=T
 
 " メニューを削除
 """set guioptions-=m
-
-" Alignプラグインのメニューを非表示にする
-let g:DrChipTopLvlMenu=""
 
 "日本語の行の連結時には空白を入力しない。
 set formatoptions+=mM
@@ -236,6 +233,7 @@ nnoremap <C-]> g<C-]>
 "-------------------------------------------------------------------------------
 " キーマップの変更 {{{
 "-------------------------------------------------------------------------------
+
 let g:mapleader = ","     "Set mapleader
 if (has("win32") || has("win64"))
   " 設定ファイル再読込
@@ -379,6 +377,7 @@ nnoremap <Leader>m :VoomToggle markdown<CR>
 "-------------------------------------------------------------------------------
 " Tab関係の設定 {{{
 "-------------------------------------------------------------------------------
+
 " Anywhere SID.
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -430,6 +429,7 @@ nnoremap <silent> [Tab]p :tabprevious<CR>
 "-------------------------------------------------------------------------------
 " 外部アプリケーションの設定 {{{
 "-------------------------------------------------------------------------------
+
 if (has("win32") || has("win64"))
 elseif (has("mac"))
   " Google Chrome で Google検索
@@ -474,6 +474,7 @@ augroup END
 "-------------------------------------------------------------------------------
 " emmet-vimの設定 {{{
 "-------------------------------------------------------------------------------
+
 let g:user_emmet_settings = {
   \  'lang' : 'ja',
   \  'html' : {
@@ -509,6 +510,7 @@ let g:user_emmet_settings = {
   \    'indentation' : '  ',
   \  },
   \}
+
 " }}}
 "-------------------------------------------------------------------------------
 
@@ -621,6 +623,9 @@ endif
 " Alignの設定 {{{
 "-------------------------------------------------------------------------------
 
+" Alignプラグインのメニューを非表示にする
+let g:DrChipTopLvlMenu=""
+
 " Alignを日本語環境で使用するための設定
 let g:Align_xstrlen = 3
 
@@ -659,6 +664,7 @@ nnoremap <silent><Leader>f :VimFilerExplore -split -winwidth=30 -find -no-quit<C
 "-------------------------------------------------------------------------------
 " vim-quickrun の設定 {{{
 "-------------------------------------------------------------------------------
+
 " デフォルトのキーマッピングを無効にする
 "let g:quickrun_no_default_key_mappings = 1
 
@@ -679,14 +685,17 @@ endif
 "-------------------------------------------------------------------------------
 " VimShell の設定 {{{
 "-------------------------------------------------------------------------------
+
 " プロンプトの設定
 let g:vimshell_user_prompt = 'getcwd()'
+
 " }}}
 "-------------------------------------------------------------------------------
 
 "-------------------------------------------------------------------------------
 " Ctrlp の設定 {{{
 "-------------------------------------------------------------------------------
+
 " ref. http://celt.hatenablog.jp/entry/2014/07/11/205308
 " ag入ってたらagで検索させる
 " ついでにキャッシュファイルからの検索もさせない
@@ -694,18 +703,21 @@ if executable('ag')
   let g:ctrlp_use_caching = 0
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
 endif
+
 " }}}
 "-------------------------------------------------------------------------------
 
 "-------------------------------------------------------------------------------
 " vim-indent-guides の設定 {{{
 "-------------------------------------------------------------------------------
+
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_auto_colors=0
 let g:indent_guides_guide_size=shiftwidth()-1
 let g:indent_guides_exclude_filetypes=['help', 'vimfiler', 'unite', 'voomtree']
 hi IndentGuidesOdd  ctermbg=4
 hi IndentGuidesEven ctermbg=6
+
 " }}}
 "-------------------------------------------------------------------------------
 
