@@ -26,7 +26,7 @@ endif
 "-------------------------------------------------------------------------------
 
 "-------------------------------------------------------------------------------
-" プラグインの読み込み {{{
+" プラグインの設定 {{{
 "-------------------------------------------------------------------------------
 
 " Note: Skip initialization for vim-tiny or vim-small.
@@ -52,42 +52,266 @@ NeoBundle 'Shougo/vimproc', {
   \ },
 \ }
 
-NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
-NeoBundle 'Shougo/vimfiler'
+
+" Shougo/vimshell {{{
 NeoBundle 'Shougo/vimshell'
+
+" プロンプトの設定
+let g:vimshell_user_prompt = 'getcwd()'
+
+" -------------------------------------------------------------------------- }}}
+
+" Shougo/vimfiler {{{
+NeoBundle 'Shougo/vimfiler'
+
+" vimfilerをデフォルトのExplorerに指定
+let g:vimfiler_as_default_explorer = 1
+
+" Enable file operation commands.
+let g:vimfiler_safe_mode_by_default = 0
+
+if has('mac')
+  " QuickLook
+  " See :h g:vimfiler_quick_look_command
+  let g:vimfiler_quick_look_command = 'qlmanage -p'
+  augroup vimfiler
+    autocmd!
+    autocmd FileType vimfiler nmap <buffer> p <Plug>(vimfiler_quick_look)
+  augroup END
+endif
+
+" Tree View Filer
+nnoremap <silent><Leader>f :VimFilerExplore -split -winwidth=30 -find -no-quit<CR>
+
+" -------------------------------------------------------------------------- }}}
+
+" Shougo/neocomplcache or Shougo/neocomplete  {{{
+NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
+
+if neobundle#is_installed('neocomplete')
+    " neocomplete用設定
+    let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#enable_ignore_case = 1
+    let g:neocomplete#enable_smart_case = 1
+    if !exists('g:neocomplete#keyword_patterns')
+        let g:neocomplete#keyword_patterns = {}
+    endif
+    let g:neocomplete#keyword_patterns._ = '\h\w*'
+elseif neobundle#is_installed('neocomplcache')
+    " neocomplcache用設定
+    let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_ignore_case = 1
+    let g:neocomplcache_enable_smart_case = 1
+    if !exists('g:neocomplcache_keyword_patterns')
+        let g:neocomplcache_keyword_patterns = {}
+    endif
+    let g:neocomplcache_keyword_patterns._ = '\h\w*'
+    let g:neocomplcache_enable_camel_case_completion = 1
+    let g:neocomplcache_enable_underbar_completion = 1
+endif
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" -------------------------------------------------------------------------- }}}
+
+" Shougo/unite.vim {{{
+" http://www.vim.org/scripts/script.php?script_id=3396
 NeoBundle 'Shougo/unite.vim'
+
+" Unite起動用のショートカット
+nnoremap <silent><Leader>b :Unite buffer<CR>
+nnoremap <silent><Leader>uf :Unite file<CR>
+nnoremap <silent><Leader>um :Unite file_mru<CR>
+nnoremap <silent><Leader>ur :Unite register<CR>
+nnoremap <silent><Leader>ut :Unite tab<CR>
+
+"ref. http://kannokanno.hatenablog.com/entry/20120429/1335679101
+nnoremap <silent><Leader>uw :UniteWithCursorWord -no-quit line<CR>
+
+" unite-rails
+nnoremap <silent><Leader>rm :Unite rails/model<CR>
+nnoremap <silent><Leader>rv :Unite rails/view<CR>
+nnoremap <silent><Leader>rc :Unite rails/controller<CR>
+nnoremap <silent><Leader>rs :Unite rails/spec<CR>
+
+" Uniteのオプション設定
+let g:unite_enable_start_insert = 1 " 絞り込みモードで起動する
+let g:unite_winheight = 20          " 起動時のウインドウの高さ（def:20）
+
+" ref. http://blog.monochromegane.com/blog/2013/09/18/ag-and-unite/
+" 大文字小文字を区別しない
+let g:unite_enable_ignore_case = 1
+let g:unite_enable_smart_case = 1
+
+" grep検索
+nnoremap <silent><Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+
+" カーソル位置の単語をgrep検索
+nnoremap <silent><Leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>
+
+" grep検索結果の再呼出
+nnoremap <silent><Leader>r  :<C-u>UniteResume search-buffer<CR>
+
+" unite grep に ag(The Silver Searcher) を使う
+if executable('ag')
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
+  let g:unite_source_grep_recursive_opt = ''
+endif
+
+" -------------------------------------------------------------------------- }}}
+
 NeoBundle 'Shougo/neomru.vim'                " MRU plugin includes unite.vim MRU sources
+NeoBundle 'basyura/unite-rails'              " a unite.vim plugin for rails ( http://basyura.org )
+
+" Shougo/neosnippet.vim {{{
 NeoBundle 'Shougo/neosnippet.vim'            " neo-snippet plugin contains neocomplcache snippets source
+
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)"
+      \: "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
+" -------------------------------------------------------------------------- }}}
+
 NeoBundle 'Shougo/neosnippet-snippets'       " The standard snippets repository for neosnippet
-NeoBundle 'vim-scripts/sudo.vim'             " Allows one to edit a file with prevledges from an unprivledged session.
+
+" Align {{{
+NeoBundle 'Align'                            " 27/31 Help folks to align text, eqns, declarations, tables, etc ( http://www.vim.org/scripts/script.php?script_id=294 )
+
+" Alignプラグインのメニューを非表示にする
+let g:DrChipTopLvlMenu=""
+
+" Alignを日本語環境で使用するための設定
+let g:Align_xstrlen = 3
+
+" AlignCtrlの設定を初期状態に戻す(:AlignReset)
+command! -nargs=0 AlignReset call Align#AlignCtrl("default")
+
+" -------------------------------------------------------------------------- }}}
+
+" ctrlpvim/ctrlp.vim {{{
 NeoBundle 'ctrlpvim/ctrlp.vim'               " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder. http://ctrlpvim.github.com/ctrlp.vim
+
+" ref. http://celt.hatenablog.jp/entry/2014/07/11/205308
+" ag入ってたらagで検索させる
+" ついでにキャッシュファイルからの検索もさせない
+if executable('ag')
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
+endif
+
+" -------------------------------------------------------------------------- }}}
+
+" nathanaelkane/vim-indent-guides {{{
+NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
+
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_auto_colors=0
+let g:indent_guides_guide_size=shiftwidth()-1
+let g:indent_guides_exclude_filetypes=['help', 'vimfiler', 'unite', 'voomtree']
+hi IndentGuidesOdd  ctermbg=4
+hi IndentGuidesEven ctermbg=6
+
+" -------------------------------------------------------------------------- }}}
+
+" thinca/vim-quickrun {{{
+NeoBundle 'thinca/vim-quickrun'              " Run commands quickly.
+
+" デフォルトのキーマッピングを無効にする
+"let g:quickrun_no_default_key_mappings = 1
+
+if (has('mac'))
+  let g:quickrun_config = {}
+  let g:quickrun_config.mkd = {
+              \   'outputter' : 'null',
+              \   'command': 'open',
+              \   'cmdopt': '-a',
+              \   'args': 'Mou',
+              \   'exec': '%c %o %a %s',
+              \ }
+endif
+
+" -------------------------------------------------------------------------- }}}
+
+" mattn/emmet-vim {{{
+NeoBundle 'mattn/emmet-vim'                  " emmet for vim ( http://emmet.io/ )
+
+let g:user_emmet_settings = {
+  \  'lang' : 'ja',
+  \  'html' : {
+  \    'indentation' : '  ',
+  \    'snippets' : {
+  \      'jq' : "<script type=\"text/javascript\" src=\"files/jquery/1.10.2/jquery.min.js\"></script>\n<script>\n\\$(function() {\n\t|\n})\n</script>",
+  \      'st' : "<style type=\"text/css\">\n\t<!--\n\t${cursor}\n\t-->\n</style>",
+  \      'hs' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = '';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
+  \      'hs:rw' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = 'rounded-white';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
+  \    },
+  \    'default_attributes': {
+  \      'a:ttl' : {'href': '', 'title': ''},
+  \      'a:ttg' : {'href': '', 'title': '', 'target': '_blank'},
+  \    },
+  \  },
+  \  'css' : {
+  \    'filters' : 'fc',
+  \    'snippets' : {
+  \      'box-shadow' : "-webkit-box-shadow: 0 0 0 # 000;\n-moz-box-shadow: 0 0 0 0 # 000;\nbox-shadow: 0 0 0 # 000;",
+  \    },
+  \  },
+  \  'javascript' : {
+  \    'snippets' : {
+  \      'jq' : "\\$(function() {\n\t\\${cursor}\\${child}\n});",
+  \      'jq:json' : "\\$.getJSON(\"${cursor}\", function(data) {\n\t\\${child}\n});",
+  \      'jq:each' : "\\$.each(data, function(index, item) {\n\t\\${child}\n});",
+  \      'fn' : "(function() {\n\t\\${cursor}\n})();",
+  \      'tm' : "setTimeout(function() {\n\t\\${cursor}\n}, 100);",
+  \    },
+  \    'use_pipe_for_cursor' : 0,
+  \  },
+  \  'xhtml': {
+  \    'indentation' : '  ',
+  \  },
+  \}
+
+" -------------------------------------------------------------------------- }}}
+
+NeoBundle 'VOoM'                             " 1.0   Vim two-pane outliner
+NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
+NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
+NeoBundle 'Shougo/vinarise.vim'              " Ultimate hex editing system with Vim
+NeoBundle 'vim-scripts/sudo.vim'             " Allows one to edit a file with prevledges from an unprivledged session.
+NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
 NeoBundle 'kana/vim-textobj-user'            " Vim plugin: Create your own text objects
 NeoBundle 'kana/vim-textobj-jabraces'        " Vim plugin: Text objects for Japanese braces
-NeoBundle 'Align'                            " 27/31 Help folks to align text, eqns, declarations, tables, etc ( http://www.vim.org/scripts/script.php?script_id=294 )
 NeoBundle 'plasticboy/vim-markdown'          " Markdown Vim Mode
 NeoBundle 'rking/ag.vim'                     " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
 NeoBundle 'thinca/vim-qfreplace'             " Perform the replacement in quickfix. ( ref. http://d.hatena.ne.jp/thinca/20081107/1225997310 )
-NeoBundle 'Shougo/vinarise.vim'              " Ultimate hex editing system with Vim
-NeoBundle 'VOoM'                             " 1.0   Vim two-pane outliner
-NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
-NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
-NeoBundle 'thinca/vim-quickrun'              " Run commands quickly.
 NeoBundle 'tpope/vim-fugitive'               " fugitive.vim: a Git wrapper so awesome, it should be illegal
 NeoBundle 'rhysd/committia.vim'              " A Vim plugin for more pleasant editing on commit messages
 NeoBundle 'tpope/vim-endwise'                " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc ( http://www.vim.org/scripts/script.php?script_id=2386 )
 NeoBundle 'lilydjwg/colorizer'               " A Vim plugin to colorize all text in the form #rrggbb or #rgb.
-NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
 NeoBundle 'mattn/gist-vim'                   " vimscript for gist
 NeoBundle 'mattn/qiita-vim'
 NeoBundle 'tomtom/tcomment_vim'              " An extensible & universal comment vim-plugin that also handles embedded filetypes
-NeoBundle 'mattn/emmet-vim'                  " emmet for vim ( http://emmet.io/ )
-NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
 NeoBundle 'tpope/vim-rails'                  " rails.vim: Ruby on Rails power tools
-NeoBundle 'basyura/unite-rails'              " a unite.vim plugin for rails ( http://basyura.org )
 NeoBundle 'todesking/ruby_hl_lvar.vim'       " Highlight Ruby local variables
 if has('mac')
   NeoBundle 'toyamarinyon/vim-swift'         " Adds Swift support to vim. It covers syntax, intenting, and more.
 endif
+
 NeoBundle 'w0ng/vim-hybrid'                  " A dark colour scheme for Vim & gVim
 NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
 NeoBundle 'chriskempson/vim-tomorrow-theme'  " Tomorrow Theme for Vim
@@ -467,256 +691,6 @@ augroup html
     autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>gc :!open -a 'Google Chrome' %<CR><CR>
   endif
 augroup END
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" emmet-vimの設定 {{{
-"-------------------------------------------------------------------------------
-
-let g:user_emmet_settings = {
-  \  'lang' : 'ja',
-  \  'html' : {
-  \    'indentation' : '  ',
-  \    'snippets' : {
-  \      'jq' : "<script type=\"text/javascript\" src=\"files/jquery/1.10.2/jquery.min.js\"></script>\n<script>\n\\$(function() {\n\t|\n})\n</script>",
-  \      'st' : "<style type=\"text/css\">\n\t<!--\n\t${cursor}\n\t-->\n</style>",
-  \      'hs' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = '';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
-  \      'hs:rw' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = 'rounded-white';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
-  \    },
-  \    'default_attributes': {
-  \      'a:ttl' : {'href': '', 'title': ''},
-  \      'a:ttg' : {'href': '', 'title': '', 'target': '_blank'},
-  \    },
-  \  },
-  \  'css' : {
-  \    'filters' : 'fc',
-  \    'snippets' : {
-  \      'box-shadow' : "-webkit-box-shadow: 0 0 0 # 000;\n-moz-box-shadow: 0 0 0 0 # 000;\nbox-shadow: 0 0 0 # 000;",
-  \    },
-  \  },
-  \  'javascript' : {
-  \    'snippets' : {
-  \      'jq' : "\\$(function() {\n\t\\${cursor}\\${child}\n});",
-  \      'jq:json' : "\\$.getJSON(\"${cursor}\", function(data) {\n\t\\${child}\n});",
-  \      'jq:each' : "\\$.each(data, function(index, item) {\n\t\\${child}\n});",
-  \      'fn' : "(function() {\n\t\\${cursor}\n})();",
-  \      'tm' : "setTimeout(function() {\n\t\\${cursor}\n}, 100);",
-  \    },
-  \    'use_pipe_for_cursor' : 0,
-  \  },
-  \  'xhtml': {
-  \    'indentation' : '  ',
-  \  },
-  \}
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" Unite.vimの設定 {{{
-" http://www.vim.org/scripts/script.php?script_id=3396
-"-------------------------------------------------------------------------------
-
-" Unite起動用のショートカット
-nnoremap <silent><Leader>b :Unite buffer<CR>
-nnoremap <silent><Leader>uf :Unite file<CR>
-nnoremap <silent><Leader>um :Unite file_mru<CR>
-nnoremap <silent><Leader>ur :Unite register<CR>
-nnoremap <silent><Leader>ut :Unite tab<CR>
-
-"ref. http://kannokanno.hatenablog.com/entry/20120429/1335679101
-nnoremap <silent><Leader>uw :UniteWithCursorWord -no-quit line<CR>
-
-" unite-rails
-nnoremap <silent><Leader>rm :Unite rails/model<CR>
-nnoremap <silent><Leader>rv :Unite rails/view<CR>
-nnoremap <silent><Leader>rc :Unite rails/controller<CR>
-nnoremap <silent><Leader>rs :Unite rails/spec<CR>
-
-" Uniteのオプション設定
-let g:unite_enable_start_insert = 1 " 絞り込みモードで起動する
-let g:unite_winheight = 20          " 起動時のウインドウの高さ（def:20）
-
-" ref. http://blog.monochromegane.com/blog/2013/09/18/ag-and-unite/
-" 大文字小文字を区別しない
-let g:unite_enable_ignore_case = 1
-let g:unite_enable_smart_case = 1
-
-" grep検索
-nnoremap <silent><Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
-
-" カーソル位置の単語をgrep検索
-nnoremap <silent><Leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>
-
-" grep検索結果の再呼出
-nnoremap <silent><Leader>r  :<C-u>UniteResume search-buffer<CR>
-
-" unite grep に ag(The Silver Searcher) を使う
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" neocomplcache.vim and neocomplete.vimの設定  {{{
-"-------------------------------------------------------------------------------
-
-if neobundle#is_installed('neocomplete')
-    " neocomplete用設定
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_ignore_case = 1
-    let g:neocomplete#enable_smart_case = 1
-    if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
-    endif
-    let g:neocomplete#keyword_patterns._ = '\h\w*'
-elseif neobundle#is_installed('neocomplcache')
-    " neocomplcache用設定
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_enable_ignore_case = 1
-    let g:neocomplcache_enable_smart_case = 1
-    if !exists('g:neocomplcache_keyword_patterns')
-        let g:neocomplcache_keyword_patterns = {}
-    endif
-    let g:neocomplcache_keyword_patterns._ = '\h\w*'
-    let g:neocomplcache_enable_camel_case_completion = 1
-    let g:neocomplcache_enable_underbar_completion = 1
-endif
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" neosnippet.vimの設定  {{{
-"-------------------------------------------------------------------------------
-
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)"
-      \: "\<TAB>"
-
-" For snippet_complete marker.
-if has('conceal')
-  set conceallevel=2 concealcursor=i
-endif
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" Alignの設定 {{{
-"-------------------------------------------------------------------------------
-
-" Alignプラグインのメニューを非表示にする
-let g:DrChipTopLvlMenu=""
-
-" Alignを日本語環境で使用するための設定
-let g:Align_xstrlen = 3
-
-" AlignCtrlの設定を初期状態に戻す(:AlignReset)
-command! -nargs=0 AlignReset call Align#AlignCtrl("default")
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" vimfilerの設定 {{{
-"-------------------------------------------------------------------------------
-
-" vimfilerをデフォルトのExplorerに指定
-let g:vimfiler_as_default_explorer = 1
-
-" Enable file operation commands.
-let g:vimfiler_safe_mode_by_default = 0
-
-if has('mac')
-  " QuickLook
-  " See :h g:vimfiler_quick_look_command
-  let g:vimfiler_quick_look_command = 'qlmanage -p'
-  augroup vimfiler
-    autocmd!
-    autocmd FileType vimfiler nmap <buffer> p <Plug>(vimfiler_quick_look)
-  augroup END
-endif
-
-" Tree View Filer
-nnoremap <silent><Leader>f :VimFilerExplore -split -winwidth=30 -find -no-quit<CR>
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" vim-quickrun の設定 {{{
-"-------------------------------------------------------------------------------
-
-" デフォルトのキーマッピングを無効にする
-"let g:quickrun_no_default_key_mappings = 1
-
-if (has('mac'))
-  let g:quickrun_config = {}
-  let g:quickrun_config.mkd = {
-              \   'outputter' : 'null',
-              \   'command': 'open',
-              \   'cmdopt': '-a',
-              \   'args': 'Mou',
-              \   'exec': '%c %o %a %s',
-              \ }
-endif
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" VimShell の設定 {{{
-"-------------------------------------------------------------------------------
-
-" プロンプトの設定
-let g:vimshell_user_prompt = 'getcwd()'
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" Ctrlp の設定 {{{
-"-------------------------------------------------------------------------------
-
-" ref. http://celt.hatenablog.jp/entry/2014/07/11/205308
-" ag入ってたらagで検索させる
-" ついでにキャッシュファイルからの検索もさせない
-if executable('ag')
-  let g:ctrlp_use_caching = 0
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
-endif
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" vim-indent-guides の設定 {{{
-"-------------------------------------------------------------------------------
-
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_auto_colors=0
-let g:indent_guides_guide_size=shiftwidth()-1
-let g:indent_guides_exclude_filetypes=['help', 'vimfiler', 'unite', 'voomtree']
-hi IndentGuidesOdd  ctermbg=4
-hi IndentGuidesEven ctermbg=6
 
 " }}}
 "-------------------------------------------------------------------------------
