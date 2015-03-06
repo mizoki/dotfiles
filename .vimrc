@@ -335,9 +335,6 @@ augroup END
 " 初期のカラースキームを指定する
 colorscheme Tomorrow-Night-Eighties
 
-" Enable syntax
-syntax enable
-
 " 全てのモードでマウスを有効にする
 set mouse=a
 
