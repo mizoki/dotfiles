@@ -320,6 +320,22 @@ call neobundle#end()
 
 filetype plugin indent on
 
+" Disable default plugins {{{
+let g:loaded_vimballPlugin = 1
+let g:loaded_zipPlugin = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_gzip = 1
+let g:loaded_getscriptPlugin = 1
+
+" -------------------------------------------------------------------------- }}}
+
+" Disable kaoriya plugins {{{
+if has('kaoriya')
+  let plugin_autodate_disable = 1
+endif
+
+" -------------------------------------------------------------------------- }}}
+
 " }}}
 "-------------------------------------------------------------------------------
 
