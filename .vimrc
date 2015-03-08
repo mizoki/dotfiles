@@ -216,18 +216,6 @@ endif
 
 " -------------------------------------------------------------------------- }}}
 
-" nathanaelkane/vim-indent-guides {{{
-NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
-
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_auto_colors=0
-let g:indent_guides_guide_size=shiftwidth()-1
-let g:indent_guides_exclude_filetypes=['help', 'vimfiler', 'unite', 'voomtree']
-hi IndentGuidesOdd  ctermbg=4
-hi IndentGuidesEven ctermbg=6
-
-" -------------------------------------------------------------------------- }}}
-
 " thinca/vim-quickrun {{{
 NeoBundle 'thinca/vim-quickrun'              " Run commands quickly.
 
@@ -312,6 +300,8 @@ if has('mac')
   NeoBundle 'toyamarinyon/vim-swift'         " Adds Swift support to vim. It covers syntax, intenting, and more.
 endif
 
+NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
+
 NeoBundle 'w0ng/vim-hybrid'                  " A dark colour scheme for Vim & gVim
 NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
 NeoBundle 'chriskempson/vim-tomorrow-theme'  " Tomorrow Theme for Vim
@@ -347,9 +337,6 @@ endif
 augroup vimrc
   autocmd!
 augroup END
-
-" 初期のカラースキームを指定する
-colorscheme Tomorrow-Night-Eighties
 
 " 全てのモードでマウスを有効にする
 set mouse=a
@@ -404,10 +391,6 @@ autocmd vimrc QuickfixCmdPost grep cw
 set textwidth=0
 " デフォルトvimrc_exampleのtextwidth設定上書き
 autocmd vimrc FileType text setlocal textwidth=0
-
-" 全角スペースを視覚化
-highlight ZenkakuSpace term=underline cterm=underline ctermbg=White guibg=White
-match ZenkakuSpace /　/
 
 " タブと改行を可視化
 set list
@@ -704,6 +687,30 @@ augroup html
     autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>gc :!open -a 'Google Chrome' %<CR><CR>
   endif
 augroup END
+
+" }}}
+"-------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
+" Color Settings {{{
+"-------------------------------------------------------------------------------
+
+colorscheme Tomorrow-Night-Eighties
+
+" Display full-width space
+highlight ZenkakuSpace term=underline cterm=underline ctermbg=White guibg=White
+match ZenkakuSpace /　/
+
+" nathanaelkane/vim-indent-guides {{{
+
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_auto_colors=0
+let g:indent_guides_guide_size=shiftwidth()-1
+let g:indent_guides_exclude_filetypes=['help', 'vimfiler', 'unite', 'voomtree']
+hi IndentGuidesOdd  ctermbg=4
+hi IndentGuidesEven ctermbg=6
+
+" }}}
 
 " }}}
 "-------------------------------------------------------------------------------
