@@ -294,17 +294,36 @@ NeoBundle 'lilydjwg/colorizer'               " A Vim plugin to colorize all text
 NeoBundle 'mattn/gist-vim'                   " vimscript for gist
 NeoBundle 'mattn/qiita-vim'
 NeoBundle 'tomtom/tcomment_vim'              " An extensible & universal comment vim-plugin that also handles embedded filetypes
-NeoBundle 'tpope/vim-rails'                  " rails.vim: Ruby on Rails power tools
-NeoBundle 'todesking/ruby_hl_lvar.vim'       " Highlight Ruby local variables
-if has('mac')
-  NeoBundle 'toyamarinyon/vim-swift'         " Adds Swift support to vim. It covers syntax, intenting, and more.
-endif
 
 NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
 
 NeoBundle 'w0ng/vim-hybrid'                  " A dark colour scheme for Vim & gVim
 NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
 NeoBundle 'chriskempson/vim-tomorrow-theme'  " Tomorrow Theme for Vim
+
+" Ruby Development {{{
+
+" rails.vim: Ruby on Rails power tools
+NeoBundleLazy 'tpope/vim-rails', {
+      \ 'filetypes' : 'ruby'
+      \ }
+" Highlight Ruby local variables
+NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
+      \ 'filetypes' : 'ruby'
+      \ }
+
+" -------------------------------------------------------------------------- }}}
+
+" Swift Development {{{
+
+if has('mac')
+  " Adds Swift support to vim. It covers syntax, intenting, and more.
+  NeoBundleLazy 'toyamarinyon/vim-swift', {
+        \ 'filetypes' : 'swift'
+        \ }
+endif
+
+" -------------------------------------------------------------------------- }}}
 
 call neobundle#end()
 
