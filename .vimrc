@@ -714,6 +714,7 @@ augroup END
 " Color Settings {{{
 "-------------------------------------------------------------------------------
 
+syntax enable
 colorscheme Tomorrow-Night-Eighties
 
 " Display full-width space
