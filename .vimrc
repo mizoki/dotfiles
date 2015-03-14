@@ -568,11 +568,14 @@ command! -nargs=0 AlignReset call Align#AlignCtrl("default")
 " ctrlpvim/ctrlp.vim {{{
 NeoBundle 'ctrlpvim/ctrlp.vim'               " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder. http://ctrlpvim.github.com/ctrlp.vim
 
+" Save every MRU file path
+let g:ctrlp_tilde_homedir = 1
+" Enable per-session caching
+let g:ctrlp_use_caching = 1
+
 " ref. http://celt.hatenablog.jp/entry/2014/07/11/205308
 " ag入ってたらagで検索させる
-" ついでにキャッシュファイルからの検索もさせない
 if executable('ag')
-  let g:ctrlp_use_caching = 0
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
 endif
 
