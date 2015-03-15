@@ -608,7 +608,8 @@ let g:user_emmet_settings = {
   \  'html' : {
   \    'indentation' : '  ',
   \    'snippets' : {
-  \      'jq' : "<script type=\"text/javascript\" src=\"files/jquery/1.10.2/jquery.min.js\"></script>\n<script>\n\\$(function() {\n\t|\n})\n</script>",
+  \      'bt' : "<script type=\"text/javascript\" src=\"files/bower_components/jquery/dist/jquery.min.js\"></script>\n<script type=\"text/javascript\" src=\"files/bower_components/bootstrap/dist/js/bootstrap.min.js\"></script>\n<link rel=\"stylesheet\" href=\"files/bower_components/bootstrap/dist/css/bootstrap.min.css\">",
+  \      'jq' : "<script type=\"text/javascript\" src=\"files/bower_components/jquery/dist/jquery.min.js\"></script>\n<script>\n\\$(function() {\n\t|\n})\n</script>",
   \      'st' : "<style type=\"text/css\">\n\t<!--\n\t${cursor}\n\t-->\n</style>",
   \      'hs' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = '';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
   \      'hs:rw' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = 'rounded-white';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
