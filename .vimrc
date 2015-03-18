@@ -34,6 +34,31 @@ augroup vimrc
   autocmd!
 augroup END
 
+" vimrc_example.vimから設定をコピー {{{
+
+" MacVimはvimrc_example.vimを読み込むので実行しない
+if !has("mac")
+
+  " allow backspacing over everything in insert mode
+  set backspace=indent,eol,start
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  " Also don't do it when the mark is in the first line, that is the default
+  " position when opening a file.
+  autocmd vimrc BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+  " always set autoindenting on
+  set autoindent
+
+endif
+
+" -------------------------------------------------------------------------- }}}
+
 " 全てのモードでマウスを有効にする
 set mouse=a
 
@@ -128,10 +153,6 @@ set cursorline
 set undofile
 " Undoファイルの保存場所を変更
 set undodir=~/.vim/undo
-
-" バックスペースが効かない問題に対応する
-" ref. http://qiita.com/omega999/items/23aec6a7f6d6735d033f
-set backspace=indent,eol,start
 
 " Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=10
