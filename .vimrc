@@ -62,7 +62,7 @@ endif
 " 全てのモードでマウスを有効にする
 set mouse=a
 
-" ルーラーを表示
+" 行番号を表示
 set number
 
 " バックアップファイルを作成しない
@@ -91,7 +91,7 @@ set smartcase
 " 常にステータス行を表示 (詳細は:he laststatus)
 set laststatus=2
 " コマンドラインの高さ
-set cmdheight=2
+set cmdheight=1
 " コマンドをステータス行に表示
 set showcmd
 
