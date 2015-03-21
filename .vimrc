@@ -91,7 +91,7 @@ set smartcase
 " 常にステータス行を表示 (詳細は:he laststatus)
 set laststatus=2
 " コマンドラインの高さ
-set cmdheight=1
+set cmdheight=2
 " コマンドをステータス行に表示
 set showcmd
 
