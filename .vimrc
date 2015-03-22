@@ -117,12 +117,10 @@ autocmd vimrc FileType text setlocal textwidth=0
 set list
 set listchars=tab:»-,trail:␣,eol:⏎,extends:»,precedes:«,nbsp:%
 
+" クリップボードの設定
 " 選択時にクリップボードレジスタに値をコピーする
 set guioptions+=a
-
-" CUI用の設定
-" set clipboard+=autoselect
-set clipboard+=unnamed
+set clipboard+=autoselect
 
 " ツールバーを削除
 set guioptions-=T
