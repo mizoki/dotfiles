@@ -153,78 +153,8 @@ setopt COMBINING_CHARS
 # 関数の読み込み
 [[ -s "$HOME/.functions_common" ]] && source $HOME/.functions_common
 
+# サブコマンドの補完
+[[ -s "$HOME/.zsh_completion_common" ]] && source $HOME/.zsh_completion_common
+
 # PATHの重複項目を削除して、PATHの長さ順に並び替える
 export PATH=`echo $PATH | tr ':' '\n' | awk '{print length($0), $0}' | sort -nr | uniq | cut -d' ' -f2- | paste -d: -s -`
-
-# 'hub' subcommand completion
-# ref.
-#   http://blog.glidenote.com/blog/2012/05/03/zsh-completion/
-#   http://gihyo.jp/dev/serial/01/zsh-book/0005
-#   http://gihyo.jp/dev/serial/01/zsh-book
-_hub () {
-  local -a cmds
-  if (( CURRENT == 2));then
-    # 'repositories' is for https://github.com/kaosf/hub-repositories
-    cmds=( \
-      'init'         \
-      'add'          \
-      'rm'           \
-      'mv'           \
-      'status'       \
-      'commit'       \
-      'log'          \
-      'diff'         \
-      'show'         \
-      'branch'       \
-      'checkout'     \
-      'merge'        \
-      'tag'          \
-      'clone'        \
-      'fetch'        \
-      'pull'         \
-      'push'         \
-      'remote'       \
-      'reset'        \
-      'rebase'       \
-      'bisect'       \
-      'grep'         \
-      'pull-request' \
-      'fork'         \
-      'create'       \
-      'browse'       \
-      'compare'      \
-      'repositories' \
-      )
-    _describe -t commands "subcommand" cmds
-  fi
-  return 1;
-}
-compdef _hub hub
-
-_bb () {
-  local -a cmds
-    if (( CURRENT == 2));then
-      # 'browse', 'download-archive', 'fork', 'group-privilege' and 'services'
-      # are for https://bitbucket.org/kaosf/bitbucket-cli-sub-commands
-      cmds=( \
-          'create'            \
-          'update'            \
-          'delete'            \
-          'clone'             \
-          'create_from_local' \
-          'pull'              \
-          'download'          \
-          'list'              \
-          'privilege'         \
-          'browse'            \
-          'deploy-keys'       \
-          'download-archive'  \
-          'fork'              \
-          'group-privilege'   \
-          'services'          \
-          )
-           _describe -t commands "subcommand" cmds
-           fi
-           return 1;
-}
-compdef _bb bb
