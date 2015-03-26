@@ -367,12 +367,6 @@ nnoremap <silent> [Tab]p :tabprevious<CR>
 
 if (has("win32") || has("win64"))
 elseif (has("mac"))
-  " Google Chrome で Google検索
-  nnoremap <silent><Leader>sg :!open -a 'Google Chrome' https://www.google.co.jp/search?q=
-  " Safari で Google検索
-  nnoremap <silent><Leader>sf :!open -a 'Safari' https://www.google.co.jp/search?q=
-  " Geeknote を実行する
-  command! -nargs=+ Geeknote :!geeknote <args>
 endif
 
 " }}}
@@ -392,15 +386,12 @@ augroup html
   autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>o :!open %<CR><CR>
 
   " HTMLの編集時に編集中のファイルをw3mで開く
-  autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>w :!w3m %<CR><CR>
+  if executable('w3m')
+    autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>w :!w3m %<CR><CR>
+  endif
 
   " HTMLを編集するときはタブをスペースに変換する
   autocmd FileType html,xhtml,css,perl set expandtab
-
-  if has('mac')
-    " HTMLの編集時に編集中のファイルをGoogle Chromeで開く
-    autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>gc :!open -a 'Google Chrome' %<CR><CR>
-  endif
 augroup END
 
 " }}}
@@ -509,12 +500,6 @@ nnoremap <silent><Leader>ut :Unite tab<CR>
 "ref. http://kannokanno.hatenablog.com/entry/20120429/1335679101
 nnoremap <silent><Leader>uw :UniteWithCursorWord -no-quit line<CR>
 
-" unite-rails
-nnoremap <silent><Leader>rm :Unite rails/model<CR>
-nnoremap <silent><Leader>rv :Unite rails/view<CR>
-nnoremap <silent><Leader>rc :Unite rails/controller<CR>
-nnoremap <silent><Leader>rs :Unite rails/spec<CR>
-
 " Uniteのオプション設定
 let g:unite_enable_start_insert = 1 " 絞り込みモードで起動する
 let g:unite_winheight = 20          " 起動時のウインドウの高さ（def:20）
@@ -525,13 +510,13 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
 " grep検索
-nnoremap <silent><Leader>g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent><Leader>gg  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 
 " カーソル位置の単語をgrep検索
-nnoremap <silent><Leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>
+nnoremap <silent><Leader>gc :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>
 
 " grep検索結果の再呼出
-nnoremap <silent><Leader>r  :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent><Leader>gr  :<C-u>UniteResume search-buffer<CR>
 
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
