@@ -138,7 +138,6 @@ set ambiwidth=double
 set display+=lastline
 
 " バッファの内容が変更されていても、バッファの切り替えができるようにする
-" :q! を使うときには注意！！
 set hidden
 
 " 矩形ビジュアルモードで仮想編集を有効にする
@@ -296,12 +295,12 @@ cnoremap <C-y>          <C-r>*
 "}}}
 
 " Easy escape.
-"""inoremap jj <ESC>
-"""cnoremap <expr> j getcmdline()[getcmdpos()-2] ==# 'j' ? "\<BS>\<C-c>" : 'j'
-"""onoremap jj <ESC>
-"""
-"""inoremap j<Space> j
-"""onoremap j<Space> j
+inoremap jj <ESC>
+cnoremap <expr> j getcmdline()[getcmdpos()-2] ==# 'j' ? "\<BS>\<C-c>" : 'j'
+onoremap jj <ESC>
+
+inoremap j<Space> j
+onoremap j<Space> j
 
 " Set VoomToggle for markdown
 nnoremap <Leader>m :VoomToggle markdown<CR>
