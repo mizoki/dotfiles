@@ -27,4 +27,5 @@ bind main P ?git push origin -f %(branch)
 
 bind main <C-R> !zsh -c "git fetch --all --prune"
 
-bind main C !@zsh -c "echo %(commit) | pbcopy"
+bind main c !@zsh -c "echo %(commit) | pbcopy"
+bind main C ?git cherry-pick %(commit)
