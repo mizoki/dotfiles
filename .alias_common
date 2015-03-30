@@ -5,6 +5,9 @@ alias ls='ls --color'
 alias ll='ls -aFl'
 alias la='ls -aF'
 
+# Use ANSI color(-R) and do not clear screen(-X)
+alias less='less -RX'
+
 ## コピー時にファイルの変更日等の情報も一緒にコピーする
 alias cp='cp -p'
 
