@@ -637,6 +637,15 @@ let g:user_emmet_settings = {
 
 " -------------------------------------------------------------------------- }}}
 
+" tyru/open-browser.vim {{{
+NeoBundle 'tyru/open-browser.vim'
+
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+
+" -------------------------------------------------------------------------- }}}
+
 NeoBundle 'VOoM'                             " 1.0   Vim two-pane outliner
 NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
 NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
