@@ -294,14 +294,6 @@ cnoremap <C-k> <C-\>e getcmdpos() == 1 ?
 cnoremap <C-y>          <C-r>*
 "}}}
 
-" Easy escape.
-inoremap jj <ESC>
-cnoremap <expr> j getcmdline()[getcmdpos()-2] ==# 'j' ? "\<BS>\<C-c>" : 'j'
-onoremap jj <ESC>
-
-inoremap j<Space> j
-onoremap j<Space> j
-
 " Set VoomToggle for markdown
 nnoremap <Leader>m :VoomToggle markdown<CR>
 
