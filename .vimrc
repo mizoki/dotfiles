@@ -415,7 +415,6 @@ NeoBundle 'Shougo/vimproc', {
   \ },
 \ }
 
-
 " Shougo/vimshell {{{
 NeoBundle 'Shougo/vimshell'
 
@@ -654,6 +653,20 @@ NeoBundle 'tyru/open-browser.vim'
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+" -------------------------------------------------------------------------- }}}
+
+" mrtazz/simplenote.vim {{{
+NeoBundle 'mrtazz/simplenote.vim'            " vim plugin to interact with the simplenote service
+
+" Simplenote account settings
+" .simplenoterc
+" let g:SimplenoteUsername="hoge@example.com"
+" let g:SimplenotePassword="password"
+source ~/.simplenoterc
+
+" Set filetype
+let g:SimplenoteFiletype="mkd"
 
 " -------------------------------------------------------------------------- }}}
 
