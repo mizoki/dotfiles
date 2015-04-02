@@ -580,17 +580,28 @@ endif
 NeoBundle 'thinca/vim-quickrun'              " Run commands quickly.
 
 " デフォルトのキーマッピングを無効にする
-"let g:quickrun_no_default_key_mappings = 1
+let g:quickrun_no_default_key_mappings = 1
 
+" Keymap
+nnoremap <silent><Leader>rr :QuickRun<CR>
+
+" Default Settings
+let g:quickrun_config = {
+      \ '_' : {
+      \   'outputter/buffer/split' : ':botright 10sp',
+      \ },
+      \}
+
+" Markdown Viewer Settings for Mac
 if (has('mac'))
-  let g:quickrun_config = {}
   let g:quickrun_config.mkd = {
-              \   'outputter' : 'null',
-              \   'command': 'open',
-              \   'cmdopt': '-a',
-              \   'args': 'Mou',
-              \   'exec': '%c %o %a %s',
-              \ }
+        \
+        \   'outputter' : 'null',
+        \   'command': 'open',
+        \   'cmdopt': '-a',
+        \   'args': 'Marked\ 2',
+        \   'exec': '%c %o %a %s'
+        \ }
 endif
 
 " -------------------------------------------------------------------------- }}}
