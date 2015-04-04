@@ -545,17 +545,14 @@ endif
 
 NeoBundle 'Shougo/neosnippet-snippets'       " The standard snippets repository for neosnippet
 
-" Align {{{
-NeoBundle 'Align'                            " 27/31 Help folks to align text, eqns, declarations, tables, etc ( http://www.vim.org/scripts/script.php?script_id=294 )
+" junegunn/vim-easy-align {{{
+NeoBundle 'junegunn/vim-easy-align'          " A Vim alignment plugin
 
-" Alignプラグインのメニューを非表示にする
-let g:DrChipTopLvlMenu=""
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
 
-" Alignを日本語環境で使用するための設定
-let g:Align_xstrlen = 3
-
-" AlignCtrlの設定を初期状態に戻す(:AlignReset)
-command! -nargs=0 AlignReset call Align#AlignCtrl("default")
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " -------------------------------------------------------------------------- }}}
 
