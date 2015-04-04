@@ -665,6 +665,12 @@ source ~/.simplenoterc
 " Set filetype
 let g:SimplenoteFiletype="mkd"
 
+" Set datetime format
+let g:SimplenoteStrftime="%Y/%m/%d %H:%M:%S"
+
+" Set note list format
+let g:SimplenoteNoteFormat="%N%>[%F][%T][%D]"
+
 " -------------------------------------------------------------------------- }}}
 
 NeoBundle 'VOoM'                             " 1.0   Vim two-pane outliner
