@@ -673,6 +673,19 @@ let g:SimplenoteNoteFormat="%N%>[%F][%T][%D]"
 
 " -------------------------------------------------------------------------- }}}
 
+" kakkyz81/evervim {{{
+NeoBundle 'kakkyz81/evervim'                 " edit evernote on vim.
+
+" Evernote account settings
+" .evervimrc
+" let g:evervim_devtoken='my development token'
+source ~/.evervimrc
+
+" Use markdown
+let g:evervim_usemarkdown = 1
+
+" -------------------------------------------------------------------------- }}}
+
 NeoBundle 'VOoM'                             " 1.0   Vim two-pane outliner
 NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
 NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
