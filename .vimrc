@@ -477,15 +477,19 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " http://www.vim.org/scripts/script.php?script_id=3396
 NeoBundle 'Shougo/unite.vim'
 
+" set prefix of unite
+nnoremap [Unite] <Nop>
+nmap <Space>u [Unite]
+
 " Unite起動用のショートカット
-nnoremap <silent><Leader>b :Unite buffer<CR>
-nnoremap <silent><Leader>uf :Unite file<CR>
-nnoremap <silent><Leader>um :Unite file_mru<CR>
-nnoremap <silent><Leader>ur :Unite register<CR>
-nnoremap <silent><Leader>ut :Unite tab<CR>
+nnoremap <silent>[Unite]b :Unite buffer<CR>
+nnoremap <silent>[Unite]f :Unite file<CR>
+nnoremap <silent>[Unite]m :Unite file_mru<CR>
+nnoremap <silent>[Unite]r :Unite register<CR>
+nnoremap <silent>[Unite]t :Unite tab<CR>
 
 "ref. http://kannokanno.hatenablog.com/entry/20120429/1335679101
-nnoremap <silent><Leader>uw :UniteWithCursorWord -no-quit line<CR>
+nnoremap <silent>[Unite]w :UniteWithCursorWord -no-quit line<CR>
 
 " Uniteのオプション設定
 let g:unite_enable_start_insert = 1 " 絞り込みモードで起動する
@@ -497,13 +501,13 @@ let g:unite_enable_ignore_case = 1
 let g:unite_enable_smart_case = 1
 
 " grep検索
-nnoremap <silent><Leader>gg  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+nnoremap <silent>[Unite]gg  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 
 " カーソル位置の単語をgrep検索
-nnoremap <silent><Leader>gc :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>
+nnoremap <silent>[Unite]gc :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W><CR>
 
 " grep検索結果の再呼出
-nnoremap <silent><Leader>gr  :<C-u>UniteResume search-buffer<CR>
+nnoremap <silent>[Unite]gr  :<C-u>UniteResume search-buffer<CR>
 
 " unite grep に ag(The Silver Searcher) を使う
 if executable('ag')
