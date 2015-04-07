@@ -205,9 +205,6 @@ nnoremap <silent><Leader>spl :set spell!<CR>
 " ref. http://qiita.com/kseta/items/ba1754ec74254863e9ec
 vnoremap <C-c> :w !pbcopy<CR><CR>
 
-" Space でコマンドモード
-nnoremap <Space> :
-
 " Esc×2で検索結果のハイライトを解除する
 nnoremap <Esc><Esc> :nohlsearch<CR>
 
