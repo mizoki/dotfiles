@@ -519,7 +519,21 @@ endif
 " -------------------------------------------------------------------------- }}}
 
 NeoBundle 'Shougo/neomru.vim'                " MRU plugin includes unite.vim MRU sources
+
+" basyura/unite-rails {{{
 NeoBundle 'basyura/unite-rails'              " a unite.vim plugin for rails ( http://basyura.org )
+
+" set prefix of unite-rails
+nnoremap [Rails] <Nop>
+nmap <Space>r [Rails]
+
+" unite-rails keymap
+nnoremap <silent>[Rails]m :Unite rails/model<CR>
+nnoremap <silent>[Rails]v :Unite rails/view<CR>
+nnoremap <silent>[Rails]c :Unite rails/controller<CR>
+nnoremap <silent>[Rails]s :Unite rails/spec<CR>
+
+" -------------------------------------------------------------------------- }}}
 
 " Shougo/neosnippet.vim {{{
 NeoBundle 'Shougo/neosnippet.vim'            " neo-snippet plugin contains neocomplcache snippets source
