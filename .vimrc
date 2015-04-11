@@ -37,7 +37,7 @@ augroup END
 " vimrc_example.vimから設定をコピー {{{
 
 " MacVimはvimrc_example.vimを読み込むので実行しない
-if !has("mac")
+if !has("kaoriya")
 
   " allow backspacing over everything in insert mode
   set backspace=indent,eol,start
