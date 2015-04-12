@@ -6,11 +6,19 @@ scriptencoding utf-8
 "-------------------------------------------------------------------------------
 
 " 初期化処理中のみ（再読み込み時に実行しない）
-"if (has("vim_starting"))
-"  if (has('mac'))
-"  elseif ($HOSTNAME == "example.com")
-"  endif
-"endif
+if has("vim_starting")
+  if has('mac')
+    if !has('kaoriya')
+      " +kaoriya 以外のvimで使いたいスクリプトをコピーする
+      "
+      " mkdir -p ~/.vim/plugin
+      " cp /Applications/MacVim.app/Contents/Resources/vim/plugins/kaoriya/plugin/hz_ja.vim ~/.vim/plugin
+      " cp /Applications/MacVim.app/Contents/Resources/vim/plugins/kaoriya/plugin/cmdex.vim ~/.vim/plugin
+      set runtimepath+=~/.vim/plugin/
+    endif
+"  elseif $HOSTNAME == "example.com"
+  endif
+endif
 
 if (has("win32") || has("win64"))
   set runtimepath+=$HOME/.vim/
@@ -238,12 +246,10 @@ nnoremap [Window]= <C-W>+
 nnoremap [Window]- <C-W>-
 nnoremap [Window]+ <C-W>=
 
-if has('kaoriya')
-  " 作業用バッファの作成
-  nnoremap <silent><Leader>s :Scratch<CR>
-  " カレントディレクトリの変更
-  nnoremap <silent><Space>cd :CdCurrent<CR>
-endif
+" 作業用バッファの作成
+nnoremap <silent><Leader>s :Scratch<CR>
+" カレントディレクトリの変更
+nnoremap <silent><Space>cd :CdCurrent<CR>
 
 " Auto escape / and ? in search command.
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
