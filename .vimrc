@@ -674,26 +674,6 @@ vmap gx <Plug>(openbrowser-smart-search)
 
 " -------------------------------------------------------------------------- }}}
 
-" mrtazz/simplenote.vim {{{
-NeoBundle 'mrtazz/simplenote.vim'            " vim plugin to interact with the simplenote service
-
-" Simplenote account settings
-" .simplenoterc
-" let g:SimplenoteUsername="hoge@example.com"
-" let g:SimplenotePassword="password"
-source ~/.simplenoterc
-
-" Set filetype
-let g:SimplenoteFiletype="mkd"
-
-" Set datetime format
-let g:SimplenoteStrftime="%Y/%m/%d %H:%M:%S"
-
-" Set note list format
-let g:SimplenoteNoteFormat="%N%>[%F][%T][%D]"
-
-" -------------------------------------------------------------------------- }}}
-
 " kakkyz81/evervim {{{
 NeoBundle 'kakkyz81/evervim'                 " edit evernote on vim.
 
