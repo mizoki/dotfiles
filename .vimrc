@@ -674,19 +674,6 @@ vmap gx <Plug>(openbrowser-smart-search)
 
 " -------------------------------------------------------------------------- }}}
 
-" kakkyz81/evervim {{{
-NeoBundle 'kakkyz81/evervim'                 " edit evernote on vim.
-
-" Evernote account settings
-" .evervimrc
-" let g:evervim_devtoken='my development token'
-source ~/.evervimrc
-
-" Use markdown
-let g:evervim_usemarkdown = 1
-
-" -------------------------------------------------------------------------- }}}
-
 " fuenor/qfixhowm {{{
 NeoBundle 'fuenor/qfixhowm'                  " This is a test version of QFixHowm. ( http://sites.google.com/site/fudist/Home/qfixdev )
 
