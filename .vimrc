@@ -14,6 +14,7 @@ if has("vim_starting")
       " mkdir -p ~/.vim/plugin
       " cp /Applications/MacVim.app/Contents/Resources/vim/plugins/kaoriya/plugin/hz_ja.vim ~/.vim/plugin
       " cp /Applications/MacVim.app/Contents/Resources/vim/plugins/kaoriya/plugin/cmdex.vim ~/.vim/plugin
+      " cp /Applications/MacVim.app/Contents/Resources/vim/plugins/kaoriya/encode_japan.vim ~/.vim/plugin
       set runtimepath+=~/.vim/plugin/
     endif
 "  elseif $HOSTNAME == "example.com"
