@@ -1,5 +1,5 @@
 # Common Commands
-alias md='mkdir'
+alias md=mkdir
 
 alias ls='ls --color'
 alias ll='ls -aFl'
@@ -17,7 +17,7 @@ alias v=vim
 
 alias w3m='w3m -B'
 
-alias t='tmux'
+alias t=tmux
 
 # Mac
 if [ `uname` = 'Darwin' ]; then
