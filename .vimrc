@@ -439,7 +439,13 @@ let g:vimshell_user_prompt = 'getcwd()'
 " -------------------------------------------------------------------------- }}}
 
 " Shougo/vimfiler {{{
-NeoBundle 'Shougo/vimfiler'
+NeoBundleLazy 'Shougo/vimfiler', {
+  \ 'depends' : ["Shougo/unite.vim"],
+  \ 'autoload' : {
+  \   'commands' : [ "VimFilerTab", "VimFiler", "VimFilerExplorer", "VimFilerBufferDir" ],
+  \   'mappings' : ['<Plug>(vimfiler_switch)'],
+  \   'explorer' : 1,
+  \ }}
 
 " vimfilerをデフォルトのExplorerに指定
 let g:vimfiler_as_default_explorer = 1
