@@ -829,7 +829,14 @@ match ZenkakuSpace /　/
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_auto_colors=0
 let g:indent_guides_guide_size=shiftwidth()-1
-let g:indent_guides_exclude_filetypes=['help', 'vimfiler', 'unite', 'voomtree']
+let g:indent_guides_exclude_filetypes=[
+      \ 'diff',
+      \ 'help',
+      \ 'unite',
+      \ 'vimfiler',
+      \ 'vimshell',
+      \ 'voomtree',
+      \ ]
 hi IndentGuidesOdd  ctermbg=4
 hi IndentGuidesEven ctermbg=6
 
