@@ -629,7 +629,7 @@ let g:quickrun_config = {
 
 " Markdown Viewer Settings for Mac
 if (has('mac'))
-  let g:quickrun_config.mkd = {
+  let g:quickrun_config.markdown = {
         \
         \   'outputter' : 'null',
         \   'command': 'open',
@@ -706,7 +706,7 @@ if has('mac')
   " メモファイルのファイルフォーマット(改行コード)
   let howm_fileformat              = 'unix'
   " ファイルタイプ
-  let QFixHowm_FileType            = 'mkd'
+  let QFixHowm_FileType            = 'markdown'
   " タイトル記号
   let QFixHowm_Title               = '#'
   " タイトル行検索の正規表現を初期化
@@ -750,7 +750,6 @@ NeoBundle 'vim-scripts/sudo.vim'             " Allows one to edit a file with pr
 NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
 NeoBundle 'kana/vim-textobj-user'            " Vim plugin: Create your own text objects
 NeoBundle 'kana/vim-textobj-jabraces'        " Vim plugin: Text objects for Japanese braces
-NeoBundle 'plasticboy/vim-markdown'          " Markdown Vim Mode
 NeoBundle 'rking/ag.vim'                     " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
 NeoBundle 'thinca/vim-qfreplace'             " Perform the replacement in quickfix. ( ref. http://d.hatena.ne.jp/thinca/20081107/1225997310 )
 NeoBundle 'tpope/vim-fugitive'               " fugitive.vim: a Git wrapper so awesome, it should be illegal
