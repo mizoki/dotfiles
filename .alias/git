@@ -4,6 +4,7 @@ alias ga='git add'
 alias gaa='git add -A'
 alias gbr='git branch'
 alias gci='git commit'
+alias gcia='git commit --amend'
 alias gcifixup="git commit -m '[fixup]'"
 alias gcisquash="git commit -m '[squash]'"
 alias gco='git checkout'
