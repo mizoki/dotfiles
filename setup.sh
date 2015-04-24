@@ -12,6 +12,7 @@
 [ ! -s "$HOME/.gemrc" ] && ln -s $PWD/.gemrc $HOME/.gemrc
 [ ! -s "$HOME/.tmux.conf" ] && ln -s $PWD/.tmux.conf $HOME/.tmux.conf
 [ ! -s "$HOME/.vimperatorrc" ] && ln -s $PWD/.vimperatorrc $HOME/.vimperatorrc
+[ ! -s "$HOME/.pryrc" ] && ln -s $PWD/.pryrc $HOME/.pryrc
 
 if [ ! -d "$HOME/.alias" ]; then
   mkdir $HOME/.alias
