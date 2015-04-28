@@ -22,6 +22,9 @@ fi
 if [ `uname` = 'Darwin' ]; then
   [ ! -s "$HOME/.alias/mac" ] && ln -s $PWD/.alias/mac $HOME/.alias/mac
 fi
+if [ `uname` = 'Linux' ]; then
+  [ ! -s "$HOME/.alias/linux" ] && ln -s $PWD/.alias/linux $HOME/.alias/linux
+fi
 
 if [ ! -d "$HOME/.functions" ]; then
   mkdir $HOME/.functions

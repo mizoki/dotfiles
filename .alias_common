@@ -24,6 +24,11 @@ if [ `uname` = 'Darwin' ]; then
   [[ -s "$HOME/.alias/mac" ]] && source $HOME/.alias/mac
 fi
 
+# Linux
+if [ `uname` = 'Linux' ]; then
+  [[ -s "$HOME/.alias/linux" ]] && source $HOME/.alias/linux
+fi
+
 # Git
 [[ -s "$HOME/.alias/git" ]] && source $HOME/.alias/git
 
