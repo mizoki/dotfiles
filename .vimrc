@@ -499,7 +499,9 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Shougo/unite.vim {{{
 " http://www.vim.org/scripts/script.php?script_id=3396
-NeoBundle 'Shougo/unite.vim'
+NeoBundleLazy 'Shougo/unite.vim' , {
+      \   'autoload' : { 'commands' : [ 'Unite' ] }
+      \ }
 
 " set prefix of unite
 nnoremap [Unite] <Nop>
