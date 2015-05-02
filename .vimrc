@@ -745,10 +745,18 @@ let qfixmemo_template            = [
 
 " -------------------------------------------------------------------------- }}}
 
+" Shougo/vinarise.vim {{{
+
+" Ultimate hex editing system with Vim
+NeoBundleLazy 'Shougo/vinarise.vim', {
+      \ 'commands' : [{ 'name' : 'Vinarise', 'complete' : 'file' }]
+      \ }
+
+" -------------------------------------------------------------------------- }}}
+
 NeoBundle 'VOoM'                             " 1.0   Vim two-pane outliner
 NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
 NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
-NeoBundle 'Shougo/vinarise.vim'              " Ultimate hex editing system with Vim
 NeoBundle 'vim-scripts/sudo.vim'             " Allows one to edit a file with prevledges from an unprivledged session.
 NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
 NeoBundle 'kana/vim-textobj-user'            " Vim plugin: Create your own text objects
