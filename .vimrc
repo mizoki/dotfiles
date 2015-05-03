@@ -647,44 +647,52 @@ endif
 " -------------------------------------------------------------------------- }}}
 
 " mattn/emmet-vim {{{
-NeoBundle 'mattn/emmet-vim'                  " emmet for vim ( http://emmet.io/ )
 
-let g:user_emmet_settings = {
-  \  'lang' : 'ja',
-  \  'html' : {
-  \    'indentation' : '  ',
-  \    'snippets' : {
-  \      'bt' : "<script type=\"text/javascript\" src=\"files/bower_components/jquery/dist/jquery.min.js\"></script>\n<script type=\"text/javascript\" src=\"files/bower_components/bootstrap/dist/js/bootstrap.min.js\"></script>\n<link rel=\"stylesheet\" href=\"files/bower_components/bootstrap/dist/css/bootstrap.min.css\">",
-  \      'jq' : "<script type=\"text/javascript\" src=\"files/bower_components/jquery/dist/jquery.min.js\"></script>\n<script>\n\\$(function() {\n\t|\n})\n</script>",
-  \      'st' : "<style type=\"text/css\">\n\t<!--\n\t${cursor}\n\t-->\n</style>",
-  \      'hs' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = '';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
-  \      'hs:rw' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = 'rounded-white';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
-  \    },
-  \    'default_attributes': {
-  \      'a:ttl' : {'href': '', 'title': ''},
-  \      'a:ttg' : {'href': '', 'title': '', 'target': '_blank'},
-  \    },
-  \  },
-  \  'css' : {
-  \    'filters' : 'fc',
-  \    'snippets' : {
-  \      'box-shadow' : "-webkit-box-shadow: 0 0 0 # 000;\n-moz-box-shadow: 0 0 0 0 # 000;\nbox-shadow: 0 0 0 # 000;",
-  \    },
-  \  },
-  \  'javascript' : {
-  \    'snippets' : {
-  \      'jq' : "\\$(function() {\n\t\\${cursor}\\${child}\n});",
-  \      'jq:json' : "\\$.getJSON(\"${cursor}\", function(data) {\n\t\\${child}\n});",
-  \      'jq:each' : "\\$.each(data, function(index, item) {\n\t\\${child}\n});",
-  \      'fn' : "(function() {\n\t\\${cursor}\n})();",
-  \      'tm' : "setTimeout(function() {\n\t\\${cursor}\n}, 100);",
-  \    },
-  \    'use_pipe_for_cursor' : 0,
-  \  },
-  \  'xhtml': {
-  \    'indentation' : '  ',
-  \  },
-  \}
+" emmet for vim ( http://emmet.io/ )
+NeoBundleLazy 'mattn/emmet-vim', {
+      \ 'filetypes' : 'all'
+      \ }
+
+let s:bundle = neobundle#get('emmet-vim')
+function! s:bundle.hooks.on_source(bundle)
+  let g:user_emmet_settings = {
+        \  'lang' : 'ja',
+        \  'html' : {
+        \    'indentation' : '  ',
+        \    'snippets' : {
+        \      'bt' : "<script type=\"text/javascript\" src=\"files/bower_components/jquery/dist/jquery.min.js\"></script>\n<script type=\"text/javascript\" src=\"files/bower_components/bootstrap/dist/js/bootstrap.min.js\"></script>\n<link rel=\"stylesheet\" href=\"files/bower_components/bootstrap/dist/css/bootstrap.min.css\">",
+        \      'jq' : "<script type=\"text/javascript\" src=\"files/bower_components/jquery/dist/jquery.min.js\"></script>\n<script>\n\\$(function() {\n\t|\n})\n</script>",
+        \      'st' : "<style type=\"text/css\">\n\t<!--\n\t${cursor}\n\t-->\n</style>",
+        \      'hs' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = '';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
+        \      'hs:rw' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = 'rounded-white';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
+        \    },
+        \    'default_attributes': {
+        \      'a:ttl' : {'href': '', 'title': ''},
+        \      'a:ttg' : {'href': '', 'title': '', 'target': '_blank'},
+        \    },
+        \  },
+        \  'css' : {
+        \    'filters' : 'fc',
+        \    'snippets' : {
+        \      'box-shadow' : "-webkit-box-shadow: 0 0 0 # 000;\n-moz-box-shadow: 0 0 0 0 # 000;\nbox-shadow: 0 0 0 # 000;",
+        \    },
+        \  },
+        \  'javascript' : {
+        \    'snippets' : {
+        \      'jq' : "\\$(function() {\n\t\\${cursor}\\${child}\n});",
+        \      'jq:json' : "\\$.getJSON(\"${cursor}\", function(data) {\n\t\\${child}\n});",
+        \      'jq:each' : "\\$.each(data, function(index, item) {\n\t\\${child}\n});",
+        \      'fn' : "(function() {\n\t\\${cursor}\n})();",
+        \      'tm' : "setTimeout(function() {\n\t\\${cursor}\n}, 100);",
+        \    },
+        \    'use_pipe_for_cursor' : 0,
+        \  },
+        \  'xhtml': {
+        \    'indentation' : '  ',
+        \  },
+        \}
+endfunction
+unlet s:bundle
 
 " -------------------------------------------------------------------------- }}}
 
