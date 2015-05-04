@@ -556,18 +556,26 @@ NeoBundleLazy 'Shougo/neomru.vim', {
 " -------------------------------------------------------------------------- }}}
 
 " basyura/unite-rails {{{
-NeoBundle 'basyura/unite-rails'              " a unite.vim plugin for rails ( http://basyura.org )
 
-" set prefix of unite-rails
-nnoremap [Rails] <Nop>
-nmap <Space>r [Rails]
+" a unite.vim plugin for rails ( http://basyura.org )
+NeoBundleLazy 'basyura/unite-rails' , {
+      \ 'filetypes' : 'ruby'
+      \ }
 
-" unite-rails keymap
-nnoremap <silent>[Rails]m :Unite rails/model<CR>
-nnoremap <silent>[Rails]v :Unite rails/view<CR>
-nnoremap <silent>[Rails]c :Unite rails/controller<CR>
-nnoremap <silent>[Rails]s :Unite rails/spec<CR>
-nnoremap <silent>[Rails], :Unite rails/config<CR>
+let s:bundle = neobundle#get('unite-rails')
+function! s:bundle.hooks.on_source(bundle)
+  " set prefix of unite-rails
+  nnoremap [Rails] <Nop>
+  nmap <Space>r [Rails]
+
+  " unite-rails keymap
+  nnoremap <silent>[Rails]m :Unite rails/model<CR>
+  nnoremap <silent>[Rails]v :Unite rails/view<CR>
+  nnoremap <silent>[Rails]c :Unite rails/controller<CR>
+  nnoremap <silent>[Rails]s :Unite rails/spec<CR>
+  nnoremap <silent>[Rails], :Unite rails/config<CR>
+endfunction
+unlet s:bundle
 
 " -------------------------------------------------------------------------- }}}
 
