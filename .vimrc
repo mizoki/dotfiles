@@ -546,7 +546,14 @@ endif
 
 " -------------------------------------------------------------------------- }}}
 
-NeoBundle 'Shougo/neomru.vim'                " MRU plugin includes unite.vim MRU sources
+" Shougo/neomru.vim {{{
+
+" MRU plugin includes unite.vim MRU sources
+NeoBundleLazy 'Shougo/neomru.vim', {
+      \ 'filetypes' : 'all'
+      \ }
+
+" -------------------------------------------------------------------------- }}}
 
 " basyura/unite-rails {{{
 NeoBundle 'basyura/unite-rails'              " a unite.vim plugin for rails ( http://basyura.org )
