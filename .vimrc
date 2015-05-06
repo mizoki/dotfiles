@@ -712,11 +712,18 @@ unlet s:bundle
 " -------------------------------------------------------------------------- }}}
 
 " tyru/open-browser.vim {{{
-NeoBundle 'tyru/open-browser.vim'
 
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
+NeoBundleLazy 'tyru/open-browser.vim', {
+      \   'functions' : 'openbrowser#open',
+      \ }
+
+let s:bundle = neobundle#get('open-browser.vim')
+function! s:bundle.hooks.on_source(bundle)
+  let g:netrw_nogx = 1 " disable netrw's gx mapping.
+  nmap gx <Plug>(openbrowser-smart-search)
+  vmap gx <Plug>(openbrowser-smart-search)
+endfunction
+unlet s:bundle
 
 " -------------------------------------------------------------------------- }}}
 
