@@ -605,13 +605,21 @@ endif
 NeoBundle 'Shougo/neosnippet-snippets'       " The standard snippets repository for neosnippet
 
 " junegunn/vim-easy-align {{{
-NeoBundle 'junegunn/vim-easy-align'          " A Vim alignment plugin
 
-" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-vmap <Enter> <Plug>(EasyAlign)
+" A Vim alignment plugin
+NeoBundleLazy 'junegunn/vim-easy-align', {
+      \ 'filetypes' : 'all'
+      \ }
 
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+let s:bundle = neobundle#get('vim-easy-align')
+function! s:bundle.hooks.on_source(bundle)
+  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+  vmap <Enter> <Plug>(EasyAlign)
+
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
+endfunction
+unlet s:bundle
 
 " -------------------------------------------------------------------------- }}}
 
