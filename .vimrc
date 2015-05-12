@@ -303,6 +303,16 @@ cnoremap <C-y>          <C-r>*
 " Set VoomToggle for markdown
 nnoremap <Leader>m :VoomToggle markdown<CR>
 
+" ref.
+" http://qiita.com/inodev/items/4f4d5412e65c2564b273
+"検索語が画面の真ん中に来るようにする
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
+
 " }}}
 "-------------------------------------------------------------------------------
 
