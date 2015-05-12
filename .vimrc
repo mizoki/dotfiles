@@ -825,7 +825,6 @@ NeoBundle 'thinca/vim-qfreplace'             " Perform the replacement in quickf
 NeoBundle 'tpope/vim-fugitive'               " fugitive.vim: a Git wrapper so awesome, it should be illegal
 NeoBundle 'rhysd/committia.vim'              " A Vim plugin for more pleasant editing on commit messages
 NeoBundle 'tpope/vim-endwise'                " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc ( http://www.vim.org/scripts/script.php?script_id=2386 )
-NeoBundle 'lilydjwg/colorizer'               " A Vim plugin to colorize all text in the form #rrggbb or #rgb.
 NeoBundle 'tomtom/tcomment_vim'              " An extensible & universal comment vim-plugin that also handles embedded filetypes
 
 NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
