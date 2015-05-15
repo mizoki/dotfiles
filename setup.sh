@@ -35,3 +35,13 @@ if [ ! -d "$HOME/.peco" ]; then
   mkdir $HOME/.peco
 fi
 [ ! -s "$HOME/.peco/config.json" ] && ln -s $PWD/.peco/config.json $HOME/.peco/config.json
+
+if [ ! -d "$HOME/.config/powerline" ]; then
+  mkdir -p $HOME/.config/powerline
+  ln -s $PWD/config/powerline/config.json $HOME/.config/powerline/config.json
+fi
+
+if [ ! -d "$HOME/.config/powerline/themes/tmux" ]; then
+  mkdir -p $HOME/.config/powerline/themes/tmux
+  ln -s $PWD/config/powerline/themes/tmux/default.json $HOME/.config/powerline/themes/tmux/default.json
+fi
