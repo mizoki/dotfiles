@@ -103,9 +103,12 @@ set cmdheight=2
 " コマンドをステータス行に表示
 set showcmd
 
-" ステータス行の設定
-set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%r%h%w
-set statusline+=%=%{fugitive#statusline()}[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
+" Powerline is not installed
+if !(executable('powerline-daemon'))
+  " ステータス行の設定
+  set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%r%h%w
+  set statusline+=%=%{fugitive#statusline()}[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
+endif
 
 " Tabをスペースに変換する
 set expandtab
@@ -142,8 +145,13 @@ set guioptions-=T
 "日本語の行の連結時には空白を入力しない。
 set formatoptions+=mM
 
-"□や○の文字があってもカーソル位置がずれないようにする。
-set ambiwidth=double
+" Powerline is not installed
+if !(executable('powerline-daemon'))
+  "□や○の文字があってもカーソル位置がずれないようにする。
+  set ambiwidth=double
+else
+  set ambiwidth=single
+endif
 
 "画面最後の行をできる限り表示する。
 set display+=lastline
@@ -821,6 +829,17 @@ NeoBundleLazy 'Shougo/vinarise.vim', {
 NeoBundleLazy 'vim-scripts/sudo.vim', {
       \ 'filetypes' : 'all'
       \ }
+
+" -------------------------------------------------------------------------- }}}
+
+" powerline/powerline {{{
+
+if executable('powerline-daemon')
+  NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+  " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+  set noshowmode
+endif
 
 " -------------------------------------------------------------------------- }}}
 
