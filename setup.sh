@@ -43,3 +43,20 @@ fi
 
 [ ! -d "$HOME/.config/powerline/themes/tmux" ] && mkdir -p $HOME/.config/powerline/themes/tmux
 [ ! -s "$HOME/.config/powerline/themes/tmux/default.json" ] && ln -s $PWD/config/powerline/themes/tmux/default.json $HOME/.config/powerline/themes/tmux/default.json
+
+[ ! -d "$HOME/.config/powerline/themes/vim" ] && mkdir -p $HOME/.config/powerline/themes/vim
+for f in \
+  __main__.json \
+  cmdwin.json \
+  default.json \
+  help.json \
+  plugin_commandt.json \
+  plugin_gundo-preview.json \
+  plugin_gundo.json \
+  plugin_nerdtree.json \
+  quickfix.json \
+  tabline.json \
+
+do
+  [ ! -s "$HOME/.config/powerline/themes/vim/$f" ] && ln -s $PWD/config/powerline/themes/vim/$f $HOME/.config/powerline/themes/vim/$f
+done
