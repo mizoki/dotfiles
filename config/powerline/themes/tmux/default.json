@@ -10,10 +10,7 @@
 				"priority": 50
 			},
 			{
-				"function": "powerline.segments.common.bat.battery",
-				"args": {
-					"format": "🔋 {capacity:3.0%}"
-				}
+				"function": "powerline.segments.common.net.hostname"
 			},
 			{
 				"function": "powerline.segments.common.time.date",
@@ -30,7 +27,10 @@
 				}
 			},
 			{
-				"function": "powerline.segments.common.net.hostname"
+				"function": "powerline.segments.common.bat.battery",
+				"args": {
+					"format": "🔋 {capacity:3.0%}"
+				}
 			}
 		]
 	}
