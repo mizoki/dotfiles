@@ -60,3 +60,15 @@ for f in \
 do
   [ ! -s "$HOME/.config/powerline/themes/vim/$f" ] && ln -s $PWD/config/powerline/themes/vim/$f $HOME/.config/powerline/themes/vim/$f
 done
+
+[ ! -d "$HOME/.config/powerline/themes/shell" ] && mkdir -p $HOME/.config/powerline/themes/shell
+for f in \
+  __main__.json \
+  continuation.json \
+  default.json \
+  default_leftonly.json \
+  select.json \
+
+do
+  [ ! -s "$HOME/.config/powerline/themes/shell/$f" ] && ln -s $PWD/config/powerline/themes/shell/$f $HOME/.config/powerline/themes/shell/$f
+done
