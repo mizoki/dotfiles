@@ -28,8 +28,9 @@
 			},
 			{
 				"function": "powerline.segments.common.bat.battery",
+				"before": "🔋 ",
 				"args": {
-					"format": "🔋 {capacity:3.0%}"
+					"format": "{capacity:3.0%}"
 				}
 			}
 		]
