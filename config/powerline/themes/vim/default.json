@@ -24,11 +24,6 @@
 				"priority": 10
 			},
 			{
-				"function": "branch",
-				"exclude_modes": ["nc"],
-				"priority": 30
-			},
-			{
 				"function": "readonly_indicator",
 				"draw_soft_divider": false,
 				"after": " "
@@ -81,6 +76,11 @@
 			}
 		],
 		"right": [
+			{
+				"function": "branch",
+				"exclude_modes": ["nc"],
+				"priority": 30
+			},
 			{
 				"function": "file_format",
 				"draw_soft_divider": false,
