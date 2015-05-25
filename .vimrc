@@ -944,8 +944,8 @@ let g:indent_guides_exclude_filetypes=[
       \ 'vimshell',
       \ 'voomtree',
       \ ]
-hi IndentGuidesOdd  ctermbg=4
-hi IndentGuidesEven ctermbg=6
+hi IndentGuidesOdd  ctermbg=4, guibg=darkblue
+hi IndentGuidesEven ctermbg=6, guibg=darkcyan
 
 " }}}
 
