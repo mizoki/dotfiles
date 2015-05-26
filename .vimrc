@@ -16,18 +16,16 @@ if has("vim_starting")
       " cp /Applications/MacVim.app/Contents/Resources/vim/plugins/kaoriya/plugin/cmdex.vim ~/.vim/plugin
       set runtimepath+=~/.vim/plugin/
     endif
+  endif
 
-    if has('gui_running')
-      if has('gui_macvim')
-        if executable('powerline-daemon')
-          set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-        endif
-        set columns=9999
-        set lines=999
+  if has('gui_running')
+    if has('gui_macvim')
+      if executable('powerline-daemon')
+        set guifont=Source\ Code\ Pro\ for\ Powerline:h14
       endif
     endif
-
-"  elseif $HOSTNAME == "example.com"
+    set columns=9999
+    set lines=999
   endif
 endif
 
