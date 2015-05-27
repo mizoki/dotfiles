@@ -775,54 +775,6 @@ unlet s:bundle
 
 " -------------------------------------------------------------------------- }}}
 
-" fuenor/qfixhowm {{{
-NeoBundle 'fuenor/qfixhowm'                  " This is a test version of QFixHowm. ( http://sites.google.com/site/fudist/Home/qfixdev )
-
-let QFixHowm_Key                 = 'g'
-" メモファイルの保存先
-let howm_dir                     = '~/Dropbox/Documents'
-" メモファイルのファイル名
-let howm_filename                = '%Y/%m/%Y-%m-%d-%H%M%S.md'
-" メモファイルのファイルエンコーディング
-let howm_fileencoding            = 'utf-8'
-" メモファイルのファイルフォーマット(改行コード)
-let howm_fileformat              = 'unix'
-" ファイルタイプ
-let QFixHowm_FileType            = 'markdown'
-" タイトル記号
-let QFixHowm_Title               = '#'
-" タイトル行検索の正規表現を初期化
-let QFixMRU_Title                = {}
-" MRU登録用の正規表現(Vim)を指定
-let QFixMRU_Title['mkd']         = '^###[^#]'
-" タイトル行検索の正規表現(grep)を指定
-let QFixMRU_Title['mkd_regxp']   = '^###[^#]'
-" 休日定義ファイル
-let calendar_holidayfile         = '~/.vim/bundle/qfixhowm/misc/holiday/Sche-Hd-0000-00-00-000000.utf8'
-" タイトル行付加
-let qfixmemo_use_addtitle        = 0
-" タイムスタンプ付加
-let qfixmemo_use_addtime         = 0
-" タイムスタンプアップデート
-let qfixmemo_use_updatetime      = 0
-"タイムスタンプを自動で付加しない
-let QFixHowm_SaveTime            = -1
-" ファイル末の空行を削除
-let qfixmemo_use_deletenulllines = 1
-" キーワードリンク作成
-let qfixmemo_use_keyword         = 0
-" MRUの表示数
-let QFixMRU_Entries              = 20
-" 最近更新したエントリ一覧の日数
-let qfixmemo_RecentDays          = 10
-" テンプレート
-let qfixmemo_template            = [
-      \'%TITLE% ',
-      \'',
-      \]
-
-" -------------------------------------------------------------------------- }}}
-
 " Shougo/vinarise.vim {{{
 
 " Ultimate hex editing system with Vim
