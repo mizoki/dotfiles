@@ -868,7 +868,7 @@ NeoBundle 'chriskempson/vim-tomorrow-theme'  " Tomorrow Theme for Vim
 
 " rails.vim: Ruby on Rails power tools
 NeoBundleLazy 'tpope/vim-rails', {
-      \ 'filetypes' : 'ruby'
+      \ 'filetypes' : ['ruby', 'eruby']
       \ }
 " Highlight Ruby local variables
 NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
