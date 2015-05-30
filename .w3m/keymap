@@ -1,0 +1,6 @@
+# CHARSET の変更
+keymap C-O CHARSET
+# タブを閉じる
+keymap Q CLOSE_TAB
+# 画像表示
+keymap X DISPLAY_IMAGE

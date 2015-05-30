@@ -72,3 +72,6 @@ for f in \
 do
   [ ! -s "$HOME/.config/powerline/themes/shell/$f" ] && ln -s $PWD/config/powerline/themes/shell/$f $HOME/.config/powerline/themes/shell/$f
 done
+
+[ ! -d "$HOME/.w3m" ] && mkdir -p $HOME/.w3m
+[ ! -s "$HOME/.w3m/keymap" ] && ln -s $PWD/.w3m/keymap $HOME/.w3m/keymap
