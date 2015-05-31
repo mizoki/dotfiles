@@ -845,6 +845,16 @@ unlet s:bundle
 
 " -------------------------------------------------------------------------- }}}
 
+" haya14busa/vim-migemo {{{
+
+if executable('cmigemo')
+  NeoBundleLazy 'haya14busa/vim-migemo', {
+      \ 'filetypes' : 'all'
+      \ }
+endif
+
+" -------------------------------------------------------------------------- }}}
+
 NeoBundle 'VOoM'                             " 1.0   Vim two-pane outliner
 NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
 NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
