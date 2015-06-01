@@ -839,7 +839,7 @@ function! s:bundle.hooks.on_source(bundle)
   let g:memolist_vimfiler = 1
 
   " use arbitrary vimfler option (default -split -winwidth=50)
-  let g:memolist_vimfiler_option = "-horizontal"
+  let g:memolist_vimfiler_option = "-horizontal -sort-type=Filename"
 endfunction
 unlet s:bundle
 
