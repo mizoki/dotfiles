@@ -141,9 +141,14 @@ set list
 set listchars=tab:»-,trail:␣,eol:⏎,extends:»,precedes:«,nbsp:%
 
 " クリップボードの設定
+if has('unnamedplus')
+  set clipboard=unnamedplus
+else
+  set clipboard=unnamed
+endif
 " 選択時にクリップボードレジスタに値をコピーする
-set guioptions+=a
-set clipboard+=autoselect
+"set guioptions+=a
+"set clipboard+=autoselect
 
 " ツールバーを削除
 set guioptions-=T
