@@ -885,6 +885,27 @@ NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
       \ 'filetypes' : 'ruby'
       \ }
 
+" thinca/vim-ref {{{
+" ref. https://github.com/kaosf/dotfiles/commit/efb7250ca9a7d3727a8fcec91581642cc89a491d
+"
+" Commands to setup
+"   gem install refe2
+"   rbenv rehash
+"   bitclust setup
+" ref. http://qiita.com/masa2sei/items/85a2c2cc3721c79a5322
+
+NeoBundleLazy 'thinca/vim-ref', {
+      \ 'filetypes' : 'ruby'
+      \ }
+
+let s:bundle = neobundle#get('vim-ref')
+function! s:bundle.hooks.on_source(bundle)
+  let g:ref_refe_cmd = $HOME . '/.rbenv/shims/refe'
+endfunction
+unlet s:bundle
+
+" -------------------------------------------------------------------------- }}}
+
 " -------------------------------------------------------------------------- }}}
 
 " Swift Development {{{
