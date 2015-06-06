@@ -231,12 +231,13 @@ vnoremap : ;
 " スペルチェックのオン・オフ
 nnoremap <silent><Leader>spl :set spell!<CR>
 
-" Ctrl+C でクリップボードへコピー (linux OS用)
-" ref. https://github.com/mizoki/rpbcopy
-" vnoremap <C-C> :!pbcopy<CR>
-
+" Ctrl+C でクリップボードへコピー
 " ref. http://qiita.com/kseta/items/ba1754ec74254863e9ec
-vnoremap <C-c> :w !pbcopy<CR><CR>
+if executable('pbcopy')
+  vnoremap <C-c> :w !pbcopy<CR><CR>
+elseif executable('xsel')
+  vnoremap <C-c> :w !xsel -ib<CR><CR>
+endif
 
 " Esc×2で検索結果のハイライトを解除する
 nnoremap <Esc><Esc> :nohlsearch<CR>
