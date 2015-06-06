@@ -10,6 +10,13 @@ alias less='less -RX'
 # Use GNU Source-highlight (install via Homebrew)
 [[ -s "/usr/local/opt/source-highlight/bin/src-hilite-lesspipe.sh" ]] && export LESSOPEN="| /usr/local/opt/source-highlight/bin/src-hilite-lesspipe.sh %s"
 
+# diff (Use Unified format)
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
+
 ## コピー時にファイルの変更日等の情報も一緒にコピーする
 alias cp='cp -p'
 
