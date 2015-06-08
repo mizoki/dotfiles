@@ -7,17 +7,6 @@ scriptencoding utf-8
 
 " 初期化処理中のみ（再読み込み時に実行しない）
 if has("vim_starting")
-  if has('mac')
-    if !has('kaoriya')
-      " +kaoriya 以外のvimで使いたいスクリプトをコピーする
-      "
-      " mkdir -p ~/.vim/plugin
-      " cp /Applications/MacVim.app/Contents/Resources/vim/plugins/kaoriya/plugin/hz_ja.vim ~/.vim/plugin
-      " cp /Applications/MacVim.app/Contents/Resources/vim/plugins/kaoriya/plugin/cmdex.vim ~/.vim/plugin
-      set runtimepath+=~/.vim/plugin/
-    endif
-  endif
-
   if has('gui_running')
     if has('gui_macvim')
       if executable('powerline-daemon')
