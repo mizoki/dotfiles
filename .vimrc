@@ -312,9 +312,6 @@ cnoremap <C-k> <C-\>e getcmdpos() == 1 ?
 cnoremap <C-y>          <C-r>*
 "}}}
 
-" Set VoomToggle for markdown
-nnoremap <Leader>m :VoomToggle markdown<CR>
-
 " ref.
 " http://qiita.com/inodev/items/4f4d5412e65c2564b273
 "検索語が画面の真ん中に来るようにする
@@ -850,7 +847,22 @@ endif
 
 " -------------------------------------------------------------------------- }}}
 
-NeoBundle 'VOoM'                             " 1.0   Vim two-pane outliner
+" VOoM {{{
+
+" Vim two-pane outliner
+NeoBundleLazy 'VOoM', {
+      \ 'filetypes' : [ 'html', 'markdown' ]
+      \ }
+
+let s:bundle = neobundle#get('VOoM')
+function! s:bundle.hooks.on_source(bundle)
+  " Set VoomToggle for markdown
+  nnoremap <Leader>m :VoomToggle markdown<CR>
+endfunction
+unlet s:bundle
+
+" -------------------------------------------------------------------------- }}}
+
 NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
 NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
 NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
