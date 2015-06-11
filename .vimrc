@@ -710,7 +710,7 @@ function! s:bundle.hooks.on_source(bundle)
         \    },
         \    'default_attributes': {
         \      'a:ttl' : {'href': '', 'title': ''},
-        \      'a:ttg' : {'href': '', 'title': '', 'target': '_blank'},
+        \      'a:ttg' : {'href': '', 'target': '_blank'},
         \    },
         \  },
         \  'css' : {
