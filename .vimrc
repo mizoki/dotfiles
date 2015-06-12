@@ -450,10 +450,14 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 
 " Shougo/vimshell {{{
-NeoBundle 'Shougo/vimshell'
+NeoBundleLazy "Shougo/vimshell", { 'autoload' : { 'commands' :  [ "VimShell" ] } }
 
-" プロンプトの設定
-let g:vimshell_user_prompt = 'getcwd()'
+let s:bundle = neobundle#get("vimshell")
+function! s:bundle.hooks.on_source(bundle)
+  " プロンプトの設定
+  let g:vimshell_user_prompt = 'getcwd()'
+endfunction
+unlet s:bundle
 
 " -------------------------------------------------------------------------- }}}
 
