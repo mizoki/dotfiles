@@ -885,11 +885,20 @@ NeoBundleLazy 'kana/vim-textobj-jabraces', {
 
 " -------------------------------------------------------------------------- }}}
 
+" thinca/vim-qfreplace {{{
+
+" Perform the replacement in quickfix.
+" ref. http://d.hatena.ne.jp/thinca/20081107/1225997310
+NeoBundleLazy 'thinca/vim-qfreplace', {
+      \ 'filetypes' : 'all'
+      \ }
+
+" -------------------------------------------------------------------------- }}}
+
 NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
 NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
 NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
 NeoBundle 'rking/ag.vim'                     " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
-NeoBundle 'thinca/vim-qfreplace'             " Perform the replacement in quickfix. ( ref. http://d.hatena.ne.jp/thinca/20081107/1225997310 )
 NeoBundle 'tpope/vim-fugitive'               " fugitive.vim: a Git wrapper so awesome, it should be illegal
 NeoBundle 'rhysd/committia.vim'              " A Vim plugin for more pleasant editing on commit messages
 NeoBundle 'tpope/vim-endwise'                " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc ( http://www.vim.org/scripts/script.php?script_id=2386 )
