@@ -450,7 +450,7 @@ NeoBundle 'Shougo/vimproc', {
 \ }
 
 " Shougo/vimshell {{{
-NeoBundleLazy "Shougo/vimshell", { 'autoload' : { 'commands' :  [ "VimShell" ] } }
+NeoBundleLazy "Shougo/vimshell", { 'autoload' : { 'commands' :  [ "VimShell", "VimShellPop" ] } }
 
 let s:bundle = neobundle#get("vimshell")
 function! s:bundle.hooks.on_source(bundle)
