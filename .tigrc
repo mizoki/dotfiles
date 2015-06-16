@@ -17,6 +17,8 @@ bind generic l scroll-right
 bind generic <C-F> move-page-down
 bind generic <C-B> move-page-up
 
+bind main A ?git rebase --committer-date-is-author-date %(commit)
+bind diff A ?git rebase --committer-date-is-author-date %(commit)
 bind main B ?git rebase -i %(commit)
 bind diff B ?git rebase -i %(commit)
 bind main V ?git revert %(commit)
