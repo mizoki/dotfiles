@@ -32,397 +32,6 @@ endif
 "-------------------------------------------------------------------------------
 
 "-------------------------------------------------------------------------------
-" 設定の変更 {{{
-"-------------------------------------------------------------------------------
-
-" vimrc グループのautocmdを初期化
-augroup vimrc
-  autocmd!
-augroup END
-
-" vimrc_example.vimから設定をコピー {{{
-
-" MacVimはvimrc_example.vimを読み込むので実行しない
-if !has("kaoriya")
-
-  " allow backspacing over everything in insert mode
-  set backspace=indent,eol,start
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd vimrc BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-
-  " always set autoindenting on
-  set autoindent
-
-endif
-
-" -------------------------------------------------------------------------- }}}
-
-" 全てのモードでマウスを有効にする
-set mouse=a
-
-" 行番号を表示
-set number
-
-" バックアップファイルを作成しない
-set nobackup
-
-" vimgrepを標準のgrepプログラムに指定する
-set grepprg=internal
-
-" viminfoの設定を変更
-set viminfo='50,<50,s10,:200,@200,/200,h,rA:,rB:"
-
-" ヘルプ検索の優先順位
-set helplang=ja,en
-
-" スペルチェックの言語
-set spelllang=en,cjk
-
-" インクリメント・デクリメントの設定
-set nrformats=hex,alpha
-
-" 検索時に大文字小文字を無視 (noignorecase:無視しない)
-set ignorecase
-" 大文字小文字の両方が含まれている場合は大文字小文字を区別
-set smartcase
-
-" 常にステータス行を表示 (詳細は:he laststatus)
-set laststatus=2
-" コマンドラインの高さ
-set cmdheight=2
-" コマンドをステータス行に表示
-set showcmd
-
-" Powerline is not installed
-if !(executable('powerline-daemon'))
-  " ステータス行の設定
-  set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%r%h%w
-  set statusline+=%=%{fugitive#statusline()}[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
-endif
-
-" Tabをスペースに変換する
-set expandtab
-" タブの幅を2文字に設定する
-set tabstop=2
-set shiftwidth=2
-
-" Grep検索時にQuickFixリストを自動で表示する
-autocmd vimrc QuickfixCmdPost grep cw
-
-" テキストの最大幅（フォーマット時に手動で設定する）
-set textwidth=0
-" デフォルトvimrc_exampleのtextwidth設定上書き
-autocmd vimrc FileType text setlocal textwidth=0
-
-" 80桁目にラインを入れる
-set colorcolumn=80
-
-" タブと改行を可視化
-set list
-set listchars=tab:»-,trail:␣,eol:⏎,extends:»,precedes:«,nbsp:%
-
-" クリップボードの設定
-if has('unnamedplus')
-  set clipboard=unnamedplus
-else
-  set clipboard=unnamed
-endif
-" 選択時にクリップボードレジスタに値をコピーする
-"set guioptions+=a
-"set clipboard+=autoselect
-
-" ツールバーを削除
-set guioptions-=T
-
-" メニューを削除
-"""set guioptions-=m
-
-"日本語の行の連結時には空白を入力しない。
-set formatoptions+=mM
-
-" Powerline is not installed
-if !(executable('powerline-daemon'))
-  "□や○の文字があってもカーソル位置がずれないようにする。
-  set ambiwidth=double
-else
-  set ambiwidth=single
-endif
-
-"画面最後の行をできる限り表示する。
-set display+=lastline
-
-" バッファの内容が変更されていても、バッファの切り替えができるようにする
-set hidden
-
-" 矩形ビジュアルモードで仮想編集を有効にする
-set virtualedit=block
-
-" カーソルがある画面上の行をCursorLineで強調する
-set cursorline
-
-" Enable undofile
-set undofile
-" Undoファイルの保存場所を変更
-set undodir=~/.vim/undo
-
-" Minimal number of screen lines to keep above and below the cursor.
-set scrolloff=10
-
-" ref. http://itchyny.hatenablog.com/entry/2014/12/25/090000
-" Determines the maximum number of items to show in the popup menu for Insert mode completion.
-set pumheight=10
-
-" tagsジャンプの時に複数ある時は一覧表示
-nnoremap <C-]> g<C-]>
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" キーマップの変更 {{{
-"-------------------------------------------------------------------------------
-
-let g:mapleader = ","     "Set mapleader
-if (has("win32") || has("win64"))
-  " 設定ファイル再読込
-  nnoremap <silent><Leader>ss :source ~/_vimrc<CR>
-  " 設定ファイル編集
-  nnoremap <silent><Leader>ee :e ~/_vimrc<CR>
-  " プリント設定
-  nnoremap <silent><Leader>ps :e ~/macros/printrc.vim<CR>
-  " このファイルを編集したら、このファイルを再読込する
-  autocmd vimrc BufWritePost _vimrc source ~/_vimrc
-elseif (has("mac") || has("unix"))
-  " 設定ファイル再読込
-  nnoremap <silent><Leader>ss :source ~/.vimrc<CR>
-  " 設定ファイル編集
-  nnoremap <silent><Leader>ee :e ~/.vimrc<CR>
-  " プリント設定
-  nnoremap <silent><Leader>ps :e ~/Dropbox/Data/Vim/macros/printrc.vim<CR>
-  " このファイルを編集したら、このファイルを再読込する
-  autocmd vimrc BufWritePost .vimrc source ~/.vimrc
-endif
-
-" Switch to command mode with semi colon key (For US keyboard)
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
-
-" スペルチェックのオン・オフ
-nnoremap <silent><Leader>spl :set spell!<CR>
-
-" Ctrl+C でクリップボードへコピー
-" ref. http://qiita.com/kseta/items/ba1754ec74254863e9ec
-if executable('pbcopy')
-  vnoremap <C-c> :w !pbcopy<CR><CR>
-elseif executable('xsel')
-  vnoremap <C-c> :w !xsel -ib<CR><CR>
-endif
-
-" Esc×2で検索結果のハイライトを解除する
-nnoremap <Esc><Esc> :nohlsearch<CR>
-
-" 分割ウインドウ操作関係のプレフィックス
-nnoremap [Window] <Nop>
-nmap s [Window]
-
-" ウインドウの分割
-nnoremap [Window]s :split<CR>
-nnoremap [Window]v :vsplit<CR>
-
-" 分割ウインドウを閉じる
-nnoremap [Window]q <C-W>q
-
-" 分割ウインドウ間の移動
-nnoremap [Window]j <C-W>j
-nnoremap [Window]k <C-W>k
-nnoremap [Window]l <C-W>l
-nnoremap [Window]h <C-W>h
-
-" 分割ウインドウ自体の移動
-nnoremap [Window]J <C-W>J
-nnoremap [Window]K <C-W>K
-nnoremap [Window]L <C-W>L
-nnoremap [Window]H <C-W>H
-
-" 分割ウインドウの大きさを調整
-nnoremap [Window], <C-W><
-nnoremap [Window]. <C-W>>
-nnoremap [Window]= <C-W>+
-nnoremap [Window]- <C-W>-
-nnoremap [Window]+ <C-W>=
-
-" 作業用バッファの作成
-nnoremap <silent><Leader>s :Scratch<CR>
-" カレントディレクトリの変更
-nnoremap <silent><Space>cd :CdCurrent<CR>
-
-" Auto escape / and ? in search command.
-cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
-
-" Enable to move freely
-" ref.
-"   :help virtualedit
-"   http://qiita.com/ka_/items/8e7a5e681db857b2ee26#comment-8d7a434b595f023cd12c
-set virtualedit=all
-
-" Settings of cursor movement
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
-vnoremap j gj
-vnoremap k gk
-vnoremap gj j
-vnoremap gk k
-vnoremap ff <Esc>
-
-" ref.
-" https://github.com/Shougo/shougo-s-github/blob/master/vim/rc/mappings.rc.vim
-" https://github.com/Shougo/shougo-s-github/blob/d0c3785c4a3913ba3fc02e184de8d51c9356e535/vim/rc/mappings.rc.vim#L42-L62
-"
-" Command-line mode keymappings:"{{{
-" <C-a>, A: move to head.
-cnoremap <C-a>          <Home>
-" <C-b>: previous char.
-cnoremap <C-b>          <Left>
-" <C-d>: delete char.
-cnoremap <C-d>          <Del>
-" <C-e>, E: move to end.
-cnoremap <C-e>          <End>
-" <C-f>: next char.
-cnoremap <C-f>          <Right>
-" <C-n>: next history.
-cnoremap <C-n>          <Down>
-" <C-p>: previous history.
-cnoremap <C-p>          <Up>
-" <C-k>, K: delete to end.
-cnoremap <C-k> <C-\>e getcmdpos() == 1 ?
-      \ '' : getcmdline()[:getcmdpos()-2]<CR>
-" <C-y>: paste.
-cnoremap <C-y>          <C-r>*
-"}}}
-
-" ref.
-" http://qiita.com/inodev/items/4f4d5412e65c2564b273
-"検索語が画面の真ん中に来るようにする
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
-nmap g* g*zz
-nmap g# g#zz
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" コマンドの定義 {{{
-"-------------------------------------------------------------------------------
-
-" Tab関係の設定 {{{
-" Anywhere SID.
-function! s:SID_PREFIX()
-  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
-endfunction
-
-" Set tabline.
-function! s:my_tabline()  "{{{
-  let s = ''
-  for i in range(1, tabpagenr('$'))
-    let bufnrs = tabpagebuflist(i)
-    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
-    let no = i  " display 0-origin tabpagenr.
-    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
-    let title = fnamemodify(bufname(bufnr), ':t')
-    let title = '[ ' . title . ' ]'
-    let s .= '%'.i.'T'
-    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
-    let s .= ' ' . no . ':' . title
-    let s .= mod
-    let s .= '%#TabLineFill# '
-  endfor
-  let s .= '%#TabLineFill#%T%=%#TabLine#'
-  return s
-endfunction "}}}
-let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-"""set showtabline=2 " 常にタブラインを表示
-
-" The prefix key.
-nnoremap [Tab] <Nop>
-nmap t [Tab]
-" Tab jump
-for n in range(1, 9)
-  execute 'nnoremap <silent> [Tab]'.n  ':<C-u>tabnext'.n.'<CR>'
-endfor
-" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
-
-nnoremap <silent> [Tab]c :tablast <bar> tabnew<CR>
-" tc 新しいタブを一番右に作る
-nnoremap <silent> [Tab]x :tabclose<CR>
-" tx タブを閉じる
-nnoremap <silent> [Tab]n :tabnext<CR>
-" tn 次のタブ
-nnoremap <silent> [Tab]p :tabprevious<CR>
-" tp 前のタブ
-
-" -------------------------------------------------------------------------- }}}
-
-" Capture コマンドの設定 {{{
-" Ref. http://qiita.com/sgur/items/9e243f13caa4ff294fa8
-command! -nargs=+ -complete=command Capture QuickRun -type vim -src <q-args>
-
-"----------------------------------------------------------------------------}}}
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" 外部アプリケーションの設定 {{{
-"-------------------------------------------------------------------------------
-
-if (has("win32") || has("win64"))
-elseif (has("mac"))
-endif
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
-" HTML編集用の設定 {{{
-"-------------------------------------------------------------------------------
-
-" htmlグループのautocmdを設定
-augroup html
-  autocmd!
-  " HTMLの閉じタグの自動入力
-  autocmd FileType html,xhtml,css,perl inoremap <buffer> </ </<C-x><C-o>
-
-  " HTMLの編集時に編集中のファイルを標準のブラウザで開く
-  autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>o :!open %<CR><CR>
-
-  " HTMLの編集時に編集中のファイルをw3mで開く
-  if executable('w3m')
-    autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>w :!w3m %<CR><CR>
-  endif
-
-  " HTMLを編集するときはタブをスペースに変換する
-  autocmd FileType html,xhtml,css,perl set expandtab
-augroup END
-
-" }}}
-"-------------------------------------------------------------------------------
-
-"-------------------------------------------------------------------------------
 " プラグインの設定 {{{
 "-------------------------------------------------------------------------------
 
@@ -974,6 +583,397 @@ if has('kaoriya')
 endif
 
 " -------------------------------------------------------------------------- }}}
+
+" }}}
+"-------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
+" 設定の変更 {{{
+"-------------------------------------------------------------------------------
+
+" vimrc グループのautocmdを初期化
+augroup vimrc
+  autocmd!
+augroup END
+
+" vimrc_example.vimから設定をコピー {{{
+
+" MacVimはvimrc_example.vimを読み込むので実行しない
+if !has("kaoriya")
+
+  " allow backspacing over everything in insert mode
+  set backspace=indent,eol,start
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside an event handler
+  " (happens when dropping a file on gvim).
+  " Also don't do it when the mark is in the first line, that is the default
+  " position when opening a file.
+  autocmd vimrc BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+
+  " always set autoindenting on
+  set autoindent
+
+endif
+
+" -------------------------------------------------------------------------- }}}
+
+" 全てのモードでマウスを有効にする
+set mouse=a
+
+" 行番号を表示
+set number
+
+" バックアップファイルを作成しない
+set nobackup
+
+" vimgrepを標準のgrepプログラムに指定する
+set grepprg=internal
+
+" viminfoの設定を変更
+set viminfo='50,<50,s10,:200,@200,/200,h,rA:,rB:"
+
+" ヘルプ検索の優先順位
+set helplang=ja,en
+
+" スペルチェックの言語
+set spelllang=en,cjk
+
+" インクリメント・デクリメントの設定
+set nrformats=hex,alpha
+
+" 検索時に大文字小文字を無視 (noignorecase:無視しない)
+set ignorecase
+" 大文字小文字の両方が含まれている場合は大文字小文字を区別
+set smartcase
+
+" 常にステータス行を表示 (詳細は:he laststatus)
+set laststatus=2
+" コマンドラインの高さ
+set cmdheight=2
+" コマンドをステータス行に表示
+set showcmd
+
+" Powerline is not installed
+if !(executable('powerline-daemon'))
+  " ステータス行の設定
+  set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%r%h%w
+  set statusline+=%=%{fugitive#statusline()}[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
+endif
+
+" Tabをスペースに変換する
+set expandtab
+" タブの幅を2文字に設定する
+set tabstop=2
+set shiftwidth=2
+
+" Grep検索時にQuickFixリストを自動で表示する
+autocmd vimrc QuickfixCmdPost grep cw
+
+" テキストの最大幅（フォーマット時に手動で設定する）
+set textwidth=0
+" デフォルトvimrc_exampleのtextwidth設定上書き
+autocmd vimrc FileType text setlocal textwidth=0
+
+" 80桁目にラインを入れる
+set colorcolumn=80
+
+" タブと改行を可視化
+set list
+set listchars=tab:»-,trail:␣,eol:⏎,extends:»,precedes:«,nbsp:%
+
+" クリップボードの設定
+if has('unnamedplus')
+  set clipboard=unnamedplus
+else
+  set clipboard=unnamed
+endif
+" 選択時にクリップボードレジスタに値をコピーする
+"set guioptions+=a
+"set clipboard+=autoselect
+
+" ツールバーを削除
+set guioptions-=T
+
+" メニューを削除
+"""set guioptions-=m
+
+"日本語の行の連結時には空白を入力しない。
+set formatoptions+=mM
+
+" Powerline is not installed
+if !(executable('powerline-daemon'))
+  "□や○の文字があってもカーソル位置がずれないようにする。
+  set ambiwidth=double
+else
+  set ambiwidth=single
+endif
+
+"画面最後の行をできる限り表示する。
+set display+=lastline
+
+" バッファの内容が変更されていても、バッファの切り替えができるようにする
+set hidden
+
+" 矩形ビジュアルモードで仮想編集を有効にする
+set virtualedit=block
+
+" カーソルがある画面上の行をCursorLineで強調する
+set cursorline
+
+" Enable undofile
+set undofile
+" Undoファイルの保存場所を変更
+set undodir=~/.vim/undo
+
+" Minimal number of screen lines to keep above and below the cursor.
+set scrolloff=10
+
+" ref. http://itchyny.hatenablog.com/entry/2014/12/25/090000
+" Determines the maximum number of items to show in the popup menu for Insert mode completion.
+set pumheight=10
+
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
+
+" }}}
+"-------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
+" キーマップの変更 {{{
+"-------------------------------------------------------------------------------
+
+let g:mapleader = ","     "Set mapleader
+if (has("win32") || has("win64"))
+  " 設定ファイル再読込
+  nnoremap <silent><Leader>ss :source ~/_vimrc<CR>
+  " 設定ファイル編集
+  nnoremap <silent><Leader>ee :e ~/_vimrc<CR>
+  " プリント設定
+  nnoremap <silent><Leader>ps :e ~/macros/printrc.vim<CR>
+  " このファイルを編集したら、このファイルを再読込する
+  autocmd vimrc BufWritePost _vimrc source ~/_vimrc
+elseif (has("mac") || has("unix"))
+  " 設定ファイル再読込
+  nnoremap <silent><Leader>ss :source ~/.vimrc<CR>
+  " 設定ファイル編集
+  nnoremap <silent><Leader>ee :e ~/.vimrc<CR>
+  " プリント設定
+  nnoremap <silent><Leader>ps :e ~/Dropbox/Data/Vim/macros/printrc.vim<CR>
+  " このファイルを編集したら、このファイルを再読込する
+  autocmd vimrc BufWritePost .vimrc source ~/.vimrc
+endif
+
+" Switch to command mode with semi colon key (For US keyboard)
+nnoremap ; :
+nnoremap : ;
+vnoremap ; :
+vnoremap : ;
+
+" スペルチェックのオン・オフ
+nnoremap <silent><Leader>spl :set spell!<CR>
+
+" Ctrl+C でクリップボードへコピー
+" ref. http://qiita.com/kseta/items/ba1754ec74254863e9ec
+if executable('pbcopy')
+  vnoremap <C-c> :w !pbcopy<CR><CR>
+elseif executable('xsel')
+  vnoremap <C-c> :w !xsel -ib<CR><CR>
+endif
+
+" Esc×2で検索結果のハイライトを解除する
+nnoremap <Esc><Esc> :nohlsearch<CR>
+
+" 分割ウインドウ操作関係のプレフィックス
+nnoremap [Window] <Nop>
+nmap s [Window]
+
+" ウインドウの分割
+nnoremap [Window]s :split<CR>
+nnoremap [Window]v :vsplit<CR>
+
+" 分割ウインドウを閉じる
+nnoremap [Window]q <C-W>q
+
+" 分割ウインドウ間の移動
+nnoremap [Window]j <C-W>j
+nnoremap [Window]k <C-W>k
+nnoremap [Window]l <C-W>l
+nnoremap [Window]h <C-W>h
+
+" 分割ウインドウ自体の移動
+nnoremap [Window]J <C-W>J
+nnoremap [Window]K <C-W>K
+nnoremap [Window]L <C-W>L
+nnoremap [Window]H <C-W>H
+
+" 分割ウインドウの大きさを調整
+nnoremap [Window], <C-W><
+nnoremap [Window]. <C-W>>
+nnoremap [Window]= <C-W>+
+nnoremap [Window]- <C-W>-
+nnoremap [Window]+ <C-W>=
+
+" 作業用バッファの作成
+nnoremap <silent><Leader>s :Scratch<CR>
+" カレントディレクトリの変更
+nnoremap <silent><Space>cd :CdCurrent<CR>
+
+" Auto escape / and ? in search command.
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+
+" Enable to move freely
+" ref.
+"   :help virtualedit
+"   http://qiita.com/ka_/items/8e7a5e681db857b2ee26#comment-8d7a434b595f023cd12c
+set virtualedit=all
+
+" Settings of cursor movement
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+vnoremap j gj
+vnoremap k gk
+vnoremap gj j
+vnoremap gk k
+vnoremap ff <Esc>
+
+" ref.
+" https://github.com/Shougo/shougo-s-github/blob/master/vim/rc/mappings.rc.vim
+" https://github.com/Shougo/shougo-s-github/blob/d0c3785c4a3913ba3fc02e184de8d51c9356e535/vim/rc/mappings.rc.vim#L42-L62
+"
+" Command-line mode keymappings:"{{{
+" <C-a>, A: move to head.
+cnoremap <C-a>          <Home>
+" <C-b>: previous char.
+cnoremap <C-b>          <Left>
+" <C-d>: delete char.
+cnoremap <C-d>          <Del>
+" <C-e>, E: move to end.
+cnoremap <C-e>          <End>
+" <C-f>: next char.
+cnoremap <C-f>          <Right>
+" <C-n>: next history.
+cnoremap <C-n>          <Down>
+" <C-p>: previous history.
+cnoremap <C-p>          <Up>
+" <C-k>, K: delete to end.
+cnoremap <C-k> <C-\>e getcmdpos() == 1 ?
+      \ '' : getcmdline()[:getcmdpos()-2]<CR>
+" <C-y>: paste.
+cnoremap <C-y>          <C-r>*
+"}}}
+
+" ref.
+" http://qiita.com/inodev/items/4f4d5412e65c2564b273
+"検索語が画面の真ん中に来るようにする
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
+
+" }}}
+"-------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
+" コマンドの定義 {{{
+"-------------------------------------------------------------------------------
+
+" Tab関係の設定 {{{
+" Anywhere SID.
+function! s:SID_PREFIX()
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+
+" Set tabline.
+function! s:my_tabline()  "{{{
+  let s = ''
+  for i in range(1, tabpagenr('$'))
+    let bufnrs = tabpagebuflist(i)
+    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+    let no = i  " display 0-origin tabpagenr.
+    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+    let title = fnamemodify(bufname(bufnr), ':t')
+    let title = '[ ' . title . ' ]'
+    let s .= '%'.i.'T'
+    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+    let s .= ' ' . no . ':' . title
+    let s .= mod
+    let s .= '%#TabLineFill# '
+  endfor
+  let s .= '%#TabLineFill#%T%=%#TabLine#'
+  return s
+endfunction "}}}
+let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+"""set showtabline=2 " 常にタブラインを表示
+
+" The prefix key.
+nnoremap [Tab] <Nop>
+nmap t [Tab]
+" Tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> [Tab]'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+
+nnoremap <silent> [Tab]c :tablast <bar> tabnew<CR>
+" tc 新しいタブを一番右に作る
+nnoremap <silent> [Tab]x :tabclose<CR>
+" tx タブを閉じる
+nnoremap <silent> [Tab]n :tabnext<CR>
+" tn 次のタブ
+nnoremap <silent> [Tab]p :tabprevious<CR>
+" tp 前のタブ
+
+" -------------------------------------------------------------------------- }}}
+
+" Capture コマンドの設定 {{{
+" Ref. http://qiita.com/sgur/items/9e243f13caa4ff294fa8
+command! -nargs=+ -complete=command Capture QuickRun -type vim -src <q-args>
+
+"----------------------------------------------------------------------------}}}
+
+" }}}
+"-------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
+" 外部アプリケーションの設定 {{{
+"-------------------------------------------------------------------------------
+
+if (has("win32") || has("win64"))
+elseif (has("mac"))
+endif
+
+" }}}
+"-------------------------------------------------------------------------------
+
+"-------------------------------------------------------------------------------
+" HTML編集用の設定 {{{
+"-------------------------------------------------------------------------------
+
+" htmlグループのautocmdを設定
+augroup html
+  autocmd!
+  " HTMLの閉じタグの自動入力
+  autocmd FileType html,xhtml,css,perl inoremap <buffer> </ </<C-x><C-o>
+
+  " HTMLの編集時に編集中のファイルを標準のブラウザで開く
+  autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>o :!open %<CR><CR>
+
+  " HTMLの編集時に編集中のファイルをw3mで開く
+  if executable('w3m')
+    autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>w :!w3m %<CR><CR>
+  endif
+
+  " HTMLを編集するときはタブをスペースに変換する
+  autocmd FileType html,xhtml,css,perl set expandtab
+augroup END
 
 " }}}
 "-------------------------------------------------------------------------------
