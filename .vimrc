@@ -515,9 +515,15 @@ NeoBundle 'tomtom/tcomment_vim'              " An extensible & universal comment
 
 NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
 
-NeoBundle 'w0ng/vim-hybrid'                  " A dark colour scheme for Vim & gVim
-NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
-NeoBundle 'chriskempson/vim-tomorrow-theme'  " Tomorrow Theme for Vim
+
+" color schemes {{{
+
+" NeoBundle 'w0ng/vim-hybrid'                  " A dark colour scheme for Vim & gVim
+" NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
+" NeoBundle 'chriskempson/vim-tomorrow-theme'  " Tomorrow Theme for Vim
+NeoBundle 'jpo/vim-railscasts-theme'         " A vim color scheme based on the Railscasts Textmate theme.
+
+" -------------------------------------------------------------------------- }}}
 
 " Ruby Development {{{
 
@@ -983,7 +989,7 @@ augroup END
 "-------------------------------------------------------------------------------
 
 syntax enable
-colorscheme Tomorrow-Night-Eighties
+colorscheme railscasts
 
 " Display full-width space
 highlight ZenkakuSpace term=underline cterm=underline ctermbg=White guibg=White
