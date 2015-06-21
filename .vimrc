@@ -895,6 +895,13 @@ nmap # #zz
 nmap g* g*zz
 nmap g# g#zz
 
+" Cursor movement in insert mode
+" ref. http://qiita.com/y_uuki/items/14389dbaaa43d25f3254
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
 " }}}
 "-------------------------------------------------------------------------------
 
