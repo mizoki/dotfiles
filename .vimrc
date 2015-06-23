@@ -2,21 +2,27 @@ set encoding=utf-8
 scriptencoding utf-8
 
 "-------------------------------------------------------------------------------
-" ■各OS固有の設定 {{{
+" 初期設定 {{{
 "-------------------------------------------------------------------------------
 
 " 初期化処理中のみ（再読み込み時に実行しない）
 if has("vim_starting")
   if has('gui_running')
-    if has('gui_macvim')
-      if executable('powerline-daemon')
-        set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-      endif
+    if has('gui_macvim') && executable('powerline-daemon')
+      set guifont=Source\ Code\ Pro\ for\ Powerline:h14
     endif
     set columns=9999
     set lines=999
   endif
 endif
+
+" vimrc グループのautocmdを初期化
+augroup vimrc
+  autocmd!
+augroup END
+
+" Set mapleader
+let g:mapleader = ","
 
 if (has("win32") || has("win64"))
   set runtimepath+=$HOME/.vim/
@@ -597,11 +603,6 @@ endif
 " 設定の変更 {{{
 "-------------------------------------------------------------------------------
 
-" vimrc グループのautocmdを初期化
-augroup vimrc
-  autocmd!
-augroup END
-
 " vimrc_example.vimから設定をコピー {{{
 
 " MacVimはvimrc_example.vimを読み込むので実行しない
@@ -763,7 +764,6 @@ endif
 " キーマップの変更 {{{
 "-------------------------------------------------------------------------------
 
-let g:mapleader = ","     "Set mapleader
 if (has("win32") || has("win64"))
   " 設定ファイル再読込
   nnoremap <silent><Leader>ss :source ~/_vimrc<CR>
