@@ -902,6 +902,12 @@ inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 
+" 日本語入力がオンのままでも挿入モードに移行する
+" ref. http://qiita.com/ssh0/items/9e7f0d8b8f033183dd0b
+nnoremap あ a
+nnoremap い i
+nnoremap お o
+
 " }}}
 "-------------------------------------------------------------------------------
 
