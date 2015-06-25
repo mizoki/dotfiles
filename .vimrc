@@ -1013,7 +1013,19 @@ augroup END
 "-------------------------------------------------------------------------------
 
 syntax enable
-colorscheme railscasts
+
+if neobundle#is_sourced('vim-hybrid')
+  colorscheme hybrid
+elseif neobundle#is_sourced('vim-colors-solarized')
+  set background=dark
+  colorscheme solarized
+elseif neobundle#is_sourced('vim-tomorrow-theme')
+  colorscheme Tomorrow-Night-Eighties
+elseif neobundle#is_sourced('vim-railscasts-theme')
+  colorscheme railscasts
+else
+  colorscheme desert
+endif
 
 " Display full-width space
 highlight ZenkakuSpace term=underline cterm=underline ctermbg=White guibg=White
