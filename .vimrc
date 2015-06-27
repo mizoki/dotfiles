@@ -1028,14 +1028,14 @@ augroup END
 
 syntax enable
 
-if neobundle#is_sourced('vim-hybrid')
+if neobundle#is_installed('vim-hybrid') && neobundle#is_sourced('vim-hybrid')
   colorscheme hybrid
-elseif neobundle#is_sourced('vim-colors-solarized')
+elseif neobundle#is_installed('vim-colors-solarized') && neobundle#is_sourced('vim-colors-solarized')
   set background=dark
   colorscheme solarized
-elseif neobundle#is_sourced('vim-tomorrow-theme')
+elseif neobundle#is_installed('vim-tomorrow-theme') && neobundle#is_sourced('vim-tomorrow-theme')
   colorscheme Tomorrow-Night-Eighties
-elseif neobundle#is_sourced('vim-railscasts-theme')
+elseif neobundle#is_installed('vim-railscasts-theme') && neobundle#is_sourced('vim-railscasts-theme')
   colorscheme railscasts
 else
   colorscheme desert
