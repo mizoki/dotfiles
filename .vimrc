@@ -510,11 +510,32 @@ NeoBundleLazy 'thinca/vim-qfreplace', {
 
 " -------------------------------------------------------------------------- }}}
 
+" tpope/vim-fugitive {{{
+
+" fugitive.vim: a Git wrapper so awesome, it should be illegal
+NeoBundle 'tpope/vim-fugitive'
+
+" set prefix of vim-fugitive
+nnoremap [Git] <Nop>
+nmap <space>g [Git]
+
+" keymaps
+nnoremap <silent>[Git]b :Gblame<CR>
+nnoremap <silent>[Git]d :Gdiff<CR>
+nnoremap <silent>[Git]f :Gfetch<CR>
+nnoremap <silent>[Git]s :Gstatus<CR>
+nnoremap <silent>[Git]w :Gbrowse<CR>
+
+if executable('tig')
+  nnoremap <silent>[Git]t :silent !tig --all<CR>:redraw!<CR>
+endif
+
+" -------------------------------------------------------------------------- }}}
+
 NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
 NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
 NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
 NeoBundle 'rking/ag.vim'                     " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
-NeoBundle 'tpope/vim-fugitive'               " fugitive.vim: a Git wrapper so awesome, it should be illegal
 NeoBundle 'rhysd/committia.vim'              " A Vim plugin for more pleasant editing on commit messages
 NeoBundle 'tpope/vim-endwise'                " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc ( http://www.vim.org/scripts/script.php?script_id=2386 )
 NeoBundle 'tomtom/tcomment_vim'              " An extensible & universal comment vim-plugin that also handles embedded filetypes
