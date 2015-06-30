@@ -219,6 +219,7 @@ unlet s:bundle
 
 " Shougo/neosnippet.vim {{{
 NeoBundle 'Shougo/neosnippet.vim'            " neo-snippet plugin contains neocomplcache snippets source
+NeoBundle 'Shougo/neosnippet-snippets'       " The standard snippets repository for neosnippet
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -239,8 +240,6 @@ if has('conceal')
 endif
 
 " -------------------------------------------------------------------------- }}}
-
-NeoBundle 'Shougo/neosnippet-snippets'       " The standard snippets repository for neosnippet
 
 " junegunn/vim-easy-align {{{
 
@@ -358,6 +357,7 @@ unlet s:bundle
 " -------------------------------------------------------------------------- }}}
 
 " mattn/gist-vim {{{
+" Run 'NeoBundleSource gist-vim' before using
 
 " vimscript for gist
 NeoBundleLazy 'mattn/gist-vim'
@@ -365,6 +365,7 @@ NeoBundleLazy 'mattn/gist-vim'
 " -------------------------------------------------------------------------- }}}
 
 " mattn/qiita-vim {{{
+" Run 'NeoBundleSource qiita-vim' before using
 
 NeoBundleLazy 'mattn/qiita-vim'
 
