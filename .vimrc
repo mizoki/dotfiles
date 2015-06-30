@@ -483,24 +483,6 @@ unlet s:bundle
 
 " -------------------------------------------------------------------------- }}}
 
-" kana/vim-textobj-user {{{
-
-" Vim plugin: Create your own text objects
-NeoBundleLazy 'kana/vim-textobj-user', {
-      \ 'filetypes' : 'all'
-      \ }
-
-" -------------------------------------------------------------------------- }}}
-
-" kana/vim-textobj-jabraces {{{
-
-" Vim plugin: Text objects for Japanese braces
-NeoBundleLazy 'kana/vim-textobj-jabraces', {
-      \ 'filetypes' : 'all'
-      \ }
-
-" -------------------------------------------------------------------------- }}}
-
 " thinca/vim-qfreplace {{{
 
 " Perform the replacement in quickfix.
@@ -543,6 +525,12 @@ NeoBundle 'tomtom/tcomment_vim'              " An extensible & universal comment
 
 NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
 
+" text object {{{
+
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-jabraces'
+
+" -------------------------------------------------------------------------- }}}
 
 " color schemes {{{
 
