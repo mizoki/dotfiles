@@ -647,6 +647,9 @@ set number
 " バックアップファイルを作成しない
 set nobackup
 
+" do not create a swap file
+set noswapfile
+
 " vimgrepを標準のgrepプログラムに指定する
 set grepprg=internal
 
