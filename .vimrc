@@ -965,14 +965,14 @@ for n in range(1, 9)
 endfor
 " t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 
+" 新しいタブを一番右に作る
 nnoremap <silent> [Tab]c :tablast <bar> tabnew<CR>
-" tc 新しいタブを一番右に作る
-nnoremap <silent> [Tab]x :tabclose<CR>
-" tx タブを閉じる
+" タブを閉じる
+nnoremap <silent> [Tab]q :tabclose<CR>
+" 次のタブ
 nnoremap <silent> [Tab]n :tabnext<CR>
-" tn 次のタブ
+" 前のタブ
 nnoremap <silent> [Tab]p :tabprevious<CR>
-" tp 前のタブ
 
 " -------------------------------------------------------------------------- }}}
 

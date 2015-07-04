@@ -9,12 +9,9 @@
 				"segments": [
 					{
 						"function": "tabnr",
-						"after": " ",
+            "before": "[",
+						"after": "] ",
 						"priority": 5
-					},
-					{
-						"function": "file_directory",
-						"priority": 40
 					},
 					{
 						"function": "file_name",
