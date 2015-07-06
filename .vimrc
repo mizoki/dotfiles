@@ -1016,6 +1016,14 @@ elseif (has("mac"))
   nnoremap <silent>[App]p :!open %:p:h<CR>:redraw!<CR>
   " }}}
 
+elseif (has('unix') && !has('mac'))
+
+  " open the parent directory {{{
+  if executable('thunar')
+    nnoremap <silent>[App]p :!thunar %:p:h<CR>:redraw!<CR>
+  endif
+  " }}}
+
 endif
 
 " }}}
