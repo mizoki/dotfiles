@@ -989,6 +989,10 @@ command! -nargs=+ -complete=command Capture QuickRun -type vim -src <q-args>
 " 外部アプリケーションの設定 {{{
 "-------------------------------------------------------------------------------
 
+" set prefix of execute of external applications
+nnoremap [App] <Nop>
+nmap <space>a [App]
+
 if (has("win32") || has("win64"))
 elseif (has("mac"))
 
@@ -1006,6 +1010,10 @@ elseif (has("mac"))
     endfunction
     command! -nargs=* Dash call <SID>dash(<f-args>)
   endif
+  " }}}
+
+  " open the parent directory {{{
+  nnoremap <silent>[App]p :!open %:p:h<CR>:redraw!<CR>
   " }}}
 
 endif
