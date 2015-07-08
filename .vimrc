@@ -201,7 +201,7 @@ NeoBundleLazy 'Shougo/neomru.vim', {
 
 " a unite.vim plugin for rails ( http://basyura.org )
 NeoBundleLazy 'basyura/unite-rails' , {
-      \ 'filetypes' : 'ruby'
+      \ 'filetypes' : ['ruby', 'eruby']
       \ }
 
 let s:bundle = neobundle#get('unite-rails')
@@ -553,7 +553,7 @@ NeoBundleLazy 'tpope/vim-rails', {
       \ }
 " Highlight Ruby local variables
 NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
-      \ 'filetypes' : 'ruby'
+      \ 'filetypes' : ['ruby', 'eruby']
       \ }
 
 " thinca/vim-ref {{{
@@ -566,7 +566,7 @@ NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
 " ref. http://qiita.com/masa2sei/items/85a2c2cc3721c79a5322
 
 NeoBundleLazy 'thinca/vim-ref', {
-      \ 'filetypes' : 'ruby'
+      \ 'filetypes' : ['ruby', 'eruby']
       \ }
 
 let s:bundle = neobundle#get('vim-ref')
