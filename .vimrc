@@ -9,7 +9,11 @@ scriptencoding utf-8
 if has("vim_starting")
   if has('gui_running')
     if has('gui_macvim') && executable('powerline-daemon')
+      " For MacVim
       set guifont=Source\ Code\ Pro\ for\ Powerline:h14
+    elseif executable('powerline-daemon')
+      " For ArchLinux
+      set guifont=Source\ Code\ Pro\ for\ Powerline\ 14
     endif
     set columns=9999
     set lines=999
