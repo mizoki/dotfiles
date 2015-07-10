@@ -529,8 +529,18 @@ NeoBundleLazy 'tpope/vim-endwise', {
 
 " -------------------------------------------------------------------------- }}}
 
+" str2numchar.vim {{{
+
+" String convert to Numeric Character Reference
+" http://www.vim.org/scripts/script.php?script_id=1646
+NeoBundleLazy 'str2numchar.vim', {
+      \ 'autoload' : {
+      \   'commands' : [ 'Str2NumChar', 'Str2HexLiteral' ]}
+      \ }
+
+" -------------------------------------------------------------------------- }}}
+
 NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
-NeoBundle 'str2numchar.vim'                  " 0.1   String convert to Numeric Character Reference ( http://www.vim.org/scripts/script.php?script_id=1646 )
 NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
 NeoBundle 'rking/ag.vim'                     " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
 NeoBundle 'rhysd/committia.vim'              " A Vim plugin for more pleasant editing on commit messages
