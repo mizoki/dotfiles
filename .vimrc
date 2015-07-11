@@ -543,7 +543,6 @@ NeoBundleLazy 'str2numchar.vim', {
 NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
 NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
 NeoBundle 'rking/ag.vim'                     " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
-NeoBundle 'rhysd/committia.vim'              " A Vim plugin for more pleasant editing on commit messages
 NeoBundle 'tomtom/tcomment_vim'              " An extensible & universal comment vim-plugin that also handles embedded filetypes
 
 NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
