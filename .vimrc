@@ -1062,7 +1062,9 @@ augroup html
   autocmd FileType html,xhtml,css,perl inoremap <buffer> </ </<C-x><C-o>
 
   " HTMLの編集時に編集中のファイルを標準のブラウザで開く
-  autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>o :!open %<CR><CR>
+  if has('mac')
+    autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>o :!open %<CR><CR>
+  endif
 
   " HTMLの編集時に編集中のファイルをw3mで開く
   if executable('w3m')
