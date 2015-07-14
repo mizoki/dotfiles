@@ -637,7 +637,7 @@ endif
 
 " vimrc_example.vimから設定をコピー {{{
 
-" MacVimはvimrc_example.vimを読み込むので実行しない
+" MacVim-KaoriYaはvimrc_example.vimを読み込むので実行しない
 if !has("kaoriya")
 
   " allow backspacing over everything in insert mode
@@ -655,6 +655,14 @@ if !has("kaoriya")
 
   " always set autoindenting on
   set autoindent
+
+  " Convenient command to see the difference between the current buffer and the
+  " file it was loaded from, thus the changes you made.
+  " Only define it when not defined already.
+  if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+        \ | wincmd p | diffthis
+  endif
 
 endif
 
