@@ -147,6 +147,9 @@ NeoBundleLazy 'Shougo/unite.vim', {
       \ 'depends' : 'Shougo/neomru.vim',
       \ }
 
+" MRU plugin includes unite.vim MRU sources
+NeoBundleLazy 'Shougo/neomru.vim'
+
 " set prefix of unite
 nnoremap [Unite] <Nop>
 nmap <Space>u [Unite]
@@ -185,15 +188,6 @@ if executable('ag')
   let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
   let g:unite_source_grep_recursive_opt = ''
 endif
-
-" -------------------------------------------------------------------------- }}}
-
-" Shougo/neomru.vim {{{
-
-" MRU plugin includes unite.vim MRU sources
-NeoBundleLazy 'Shougo/neomru.vim', {
-      \ 'filetypes' : 'all'
-      \ }
 
 " -------------------------------------------------------------------------- }}}
 
