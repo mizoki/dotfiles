@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ $# -gt 1 ]; then
+  echo "Usage: git wip [<commit message>]"
+  exit 22
+fi
+
+commit_msg=$1
+
+if [ "$commit_msg" = "" ]; then
+  commit_msg=`date "+%Y%m%d%H%M%S"`
+fi
+
+git add -A
+git commit -m "[WIP] $commit_msg"

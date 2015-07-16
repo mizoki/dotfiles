@@ -31,6 +31,9 @@ if [ ! -d "$HOME/.functions" ]; then
 fi
 [ ! -s "$HOME/.functions/peco_function.sh" ] && ln -s $PWD/.functions/peco_function.sh $HOME/.functions/peco_function.sh
 
+[ ! -d "$HOME/local/bin" ] && mkdir -p $HOME/local/bin
+[ ! -s "$HOME/local/bin/git-wip" ] && ln -s $PWD/git-subcommand/git-wip $HOME/local/bin/git-wip
+
 if [ ! -d "$HOME/.peco" ]; then
   mkdir $HOME/.peco
 fi
