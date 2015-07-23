@@ -1076,6 +1076,8 @@ augroup html
   " HTMLの編集時に編集中のファイルを標準のブラウザで開く
   if has('mac')
     autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>o :!open %<CR><CR>
+  elseif executable('exo-open')
+    autocmd FileType html,xhtml,css,perl nnoremap <silent><Leader>o :!exo-open --launch WebBrowser %<CR>
   endif
 
   " HTMLの編集時に編集中のファイルをw3mで開く
