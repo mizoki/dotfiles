@@ -863,10 +863,29 @@ nnoremap [Window]v :vsplit<CR>
 nnoremap [Window]q <C-W>q
 
 " 分割ウインドウ間の移動
+
+" Ref.
+" https://github.com/kaosf/dotfiles/commit/50f38c9951b8f84aa11ef1a541b22df8900b7f00
+" Switch tabs by same key mappings for moving windows
+function! s:movewinleft()
+  let before = winnr()
+  wincmd h
+  if before == winnr()
+    tabprevious
+  endif
+endfunction
+function! s:movewinright()
+  let before = winnr()
+  wincmd l
+  if before == winnr()
+    tabnext
+  endif
+endfunction
+
 nnoremap [Window]j <C-W>j
 nnoremap [Window]k <C-W>k
-nnoremap [Window]l <C-W>l
-nnoremap [Window]h <C-W>h
+nnoremap [Window]l :call <SID>movewinright()<CR>
+nnoremap [Window]h :call <SID>movewinleft()<CR>
 
 " 分割ウインドウ自体の移動
 nnoremap [Window]J <C-W>J
