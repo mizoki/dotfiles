@@ -572,6 +572,10 @@ NeoBundleLazy 'tpope/vim-rails', {
 NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
       \ 'filetypes' : ['ruby', 'eruby']
       \ }
+" Make text objects with various ruby block structures.
+NeoBundleLazy 'rhysd/vim-textobj-ruby', {
+      \ 'filetypes' : ['ruby', 'eruby']
+      \ }
 
 " -------------------------------------------------------------------------- }}}
 
