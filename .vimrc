@@ -978,6 +978,15 @@ nnoremap あ a
 nnoremap い i
 nnoremap お o
 
+" increment, decrement of multiple lines
+" ref.
+" http://vim-jp.org/blog/2015/06/30/visual-ctrl-a-ctrl-x.html
+"
+" memo.
+" g<C-a> or g<C-x> : Create a serial number
+vnoremap <C-a> <C-a>gv
+vnoremap <C-x> <C-x>gv
+
 " }}}
 "-------------------------------------------------------------------------------
 
