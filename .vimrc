@@ -557,8 +557,8 @@ NeoBundle 'kana/vim-textobj-jabraces'
 
 " NeoBundle 'w0ng/vim-hybrid'                  " A dark colour scheme for Vim & gVim
 " NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
-" NeoBundle 'chriskempson/vim-tomorrow-theme'  " Tomorrow Theme for Vim
-NeoBundle 'jpo/vim-railscasts-theme'         " A vim color scheme based on the Railscasts Textmate theme.
+NeoBundle 'chriskempson/vim-tomorrow-theme'  " Tomorrow Theme for Vim
+" NeoBundle 'jpo/vim-railscasts-theme'         " A vim color scheme based on the Railscasts Textmate theme.
 
 " -------------------------------------------------------------------------- }}}
 
