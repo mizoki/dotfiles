@@ -272,6 +272,18 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
 endif
 
+" set prefix of CtrlP
+nnoremap [CtrlP] <Nop>
+nmap <Space>c [CtrlP]
+
+" CtrlP keymaps
+nnoremap <silent>[CtrlP]p :CtrlP<CR>
+nnoremap <silent>[CtrlP]b :CtrlPBuffer<CR>
+nnoremap <silent>[CtrlP]m :CtrlPMRUFiles<CR>
+nnoremap <silent>[CtrlP]c :CtrlPCurFile<CR>
+nnoremap <silent>[CtrlP]l :CtrlPLine<CR>
+nnoremap <silent>[CtrlP]z :CtrlPClearAllCaches<CR>
+
 " -------------------------------------------------------------------------- }}}
 
 " thinca/vim-quickrun {{{
