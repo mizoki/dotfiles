@@ -14,6 +14,9 @@ if has("vim_starting")
     elseif executable('powerline-daemon')
       " For ArchLinux
       set guifont=Source\ Code\ Pro\ for\ Powerline\ 14
+    elseif has('gui_win32')
+      " For Windows
+      set guifont=Ricty:h14
     endif
     set columns=9999
     set lines=999
@@ -59,14 +62,16 @@ call neobundle#begin(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \ 'windows' : 'make -f make_mingw32.mak',
-    \ 'cygwin' : 'make -f make_cygwin.mak',
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak',
-  \ },
-\ }
+if !((has("win32") || has("win64")) && has("kaoriya"))
+  NeoBundle 'Shougo/vimproc', {
+    \ 'build' : {
+      \ 'windows' : 'make -f make_mingw32.mak',
+      \ 'cygwin' : 'make -f make_cygwin.mak',
+      \ 'mac' : 'make -f make_mac.mak',
+      \ 'unix' : 'make -f make_unix.mak',
+    \ },
+  \ }
+endif
 
 " Shougo/vimshell {{{
 NeoBundleLazy "Shougo/vimshell", { 'autoload' : { 'commands' :  [ "VimShell", "VimShellPop" ] } }
