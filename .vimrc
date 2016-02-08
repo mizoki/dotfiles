@@ -149,7 +149,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 NeoBundleLazy 'Shougo/unite.vim', {
       \ 'commands' : [{ 'name' : 'Unite',
       \                 'complete' : 'customlist,unite#complete_source'}],
-      \ 'depends' : 'Shougo/neomru.vim',
+      \ 'depends' : ['Shougo/neomru.vim', 'basyura/unite-rails'],
       \ }
 
 " MRU plugin includes unite.vim MRU sources
@@ -199,24 +199,18 @@ endif
 " basyura/unite-rails {{{
 
 " a unite.vim plugin for rails ( http://basyura.org )
-NeoBundleLazy 'basyura/unite-rails' , {
-      \ 'filetypes' : ['ruby', 'eruby']
-      \ }
+NeoBundleLazy 'basyura/unite-rails'
 
-let s:bundle = neobundle#get('unite-rails')
-function! s:bundle.hooks.on_source(bundle)
-  " set prefix of unite-rails
-  nnoremap [Rails] <Nop>
-  nmap <Space>r [Rails]
+" set prefix of unite-rails
+nnoremap [Rails] <Nop>
+nmap <Space>r [Rails]
 
-  " unite-rails keymap
-  nnoremap <silent>[Rails]m :Unite rails/model<CR>
-  nnoremap <silent>[Rails]v :Unite rails/view<CR>
-  nnoremap <silent>[Rails]c :Unite rails/controller<CR>
-  nnoremap <silent>[Rails]s :Unite rails/spec<CR>
-  nnoremap <silent>[Rails], :Unite rails/config<CR>
-endfunction
-unlet s:bundle
+" unite-rails keymap
+nnoremap <silent>[Rails]m :Unite rails/model<CR>
+nnoremap <silent>[Rails]v :Unite rails/view<CR>
+nnoremap <silent>[Rails]c :Unite rails/controller<CR>
+nnoremap <silent>[Rails]s :Unite rails/spec<CR>
+nnoremap <silent>[Rails], :Unite rails/config<CR>
 
 " -------------------------------------------------------------------------- }}}
 
