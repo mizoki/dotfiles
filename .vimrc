@@ -663,6 +663,7 @@ endif
 
 " 全てのモードでマウスを有効にする
 set mouse=a
+set ttymouse=xterm2
 
 " 行番号を表示
 set number
