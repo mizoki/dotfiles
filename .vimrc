@@ -55,44 +55,35 @@ if (has("vim_starting"))
   if &compatible
     set nocompatible
   endif
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
+  set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 endif
 
-call neobundle#begin(expand('~/.vim/bundle'))
+call dein#begin(expand('~/.vim/dein'))
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#add('Shougo/dein.vim')
 
 if !((has("win32") || has("win64")) && has("kaoriya"))
-  NeoBundle 'Shougo/vimproc', {
-    \ 'build' : {
-      \ 'windows' : 'make -f make_mingw32.mak',
-      \ 'cygwin' : 'make -f make_cygwin.mak',
-      \ 'mac' : 'make -f make_mac.mak',
-      \ 'unix' : 'make -f make_unix.mak',
-    \ },
-  \ }
+  call dein#add('Shougo/vimproc.vim', {
+        \ 'build': {
+        \     'windows': 'tools\\update-dll-mingw',
+        \     'cygwin': 'make -f make_cygwin.mak',
+        \     'mac': 'make -f make_mac.mak',
+        \     'linux': 'make',
+        \     'unix': 'gmake',
+        \    },
+        \ })
 endif
 
 " Shougo/vimshell {{{
-NeoBundleLazy "Shougo/vimshell", { 'autoload' : { 'commands' :  [ "VimShell", "VimShellPop" ] } }
+call dein#add('Shougo/vimshell')
 
-let s:bundle = neobundle#get("vimshell")
-function! s:bundle.hooks.on_source(bundle)
-  " プロンプトの設定
-  let g:vimshell_user_prompt = 'getcwd()'
-endfunction
-unlet s:bundle
+" プロンプトの設定
+let g:vimshell_user_prompt = 'getcwd()'
 
 " -------------------------------------------------------------------------- }}}
 
 " Shougo/vimfiler {{{
-NeoBundleLazy 'Shougo/vimfiler', {
-  \ 'depends' : ["Shougo/unite.vim"],
-  \ 'autoload' : {
-  \   'commands' : [ "VimFilerTab", "VimFiler", "VimFilerExplorer", "VimFilerBufferDir" ],
-  \   'mappings' : ['<Plug>(vimfiler_switch)'],
-  \   'explorer' : 1,
-  \ }}
+call dein#add('Shougo/vimfiler')
 
 " vimfilerをデフォルトのExplorerに指定
 let g:vimfiler_as_default_explorer = 1
@@ -116,29 +107,32 @@ nnoremap <silent><Leader>f :VimFilerExplore -split -winwidth=30 -find -no-quit<C
 " -------------------------------------------------------------------------- }}}
 
 " Shougo/neocomplcache or Shougo/neocomplete  {{{
-NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
+if has('lua')
+  call dein#add('Shougo/neocomplete')
 
-if neobundle#is_installed('neocomplete')
-    " neocomplete用設定
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_ignore_case = 1
-    let g:neocomplete#enable_smart_case = 1
-    if !exists('g:neocomplete#keyword_patterns')
-        let g:neocomplete#keyword_patterns = {}
-    endif
-    let g:neocomplete#keyword_patterns._ = '\h\w*'
-elseif neobundle#is_installed('neocomplcache')
-    " neocomplcache用設定
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_enable_ignore_case = 1
-    let g:neocomplcache_enable_smart_case = 1
-    if !exists('g:neocomplcache_keyword_patterns')
-        let g:neocomplcache_keyword_patterns = {}
-    endif
-    let g:neocomplcache_keyword_patterns._ = '\h\w*'
-    let g:neocomplcache_enable_camel_case_completion = 1
-    let g:neocomplcache_enable_underbar_completion = 1
+  " neocomplete用設定
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_ignore_case = 1
+  let g:neocomplete#enable_smart_case = 1
+  if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+  endif
+  let g:neocomplete#keyword_patterns._ = '\h\w*'
+else
+  call dein#add('Shougo/neocomplcache')
+
+  " neocomplcache用設定
+  let g:neocomplcache_enable_at_startup = 1
+  let g:neocomplcache_enable_ignore_case = 1
+  let g:neocomplcache_enable_smart_case = 1
+  if !exists('g:neocomplcache_keyword_patterns')
+    let g:neocomplcache_keyword_patterns = {}
+  endif
+  let g:neocomplcache_keyword_patterns._ = '\h\w*'
+  let g:neocomplcache_enable_camel_case_completion = 1
+  let g:neocomplcache_enable_underbar_completion = 1
 endif
+
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
@@ -146,14 +140,10 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Shougo/unite.vim {{{
 " http://www.vim.org/scripts/script.php?script_id=3396
-NeoBundleLazy 'Shougo/unite.vim', {
-      \ 'commands' : [{ 'name' : 'Unite',
-      \                 'complete' : 'customlist,unite#complete_source'}],
-      \ 'depends' : ['Shougo/neomru.vim', 'basyura/unite-rails'],
-      \ }
+call dein#add('Shougo/unite.vim')
 
 " MRU plugin includes unite.vim MRU sources
-NeoBundleLazy 'Shougo/neomru.vim'
+call dein#add('Shougo/neomru.vim')
 
 " set prefix of unite
 nnoremap [Unite] <Nop>
@@ -199,7 +189,7 @@ endif
 " basyura/unite-rails {{{
 
 " a unite.vim plugin for rails ( http://basyura.org )
-NeoBundleLazy 'basyura/unite-rails'
+call dein#add('basyura/unite-rails')
 
 " set prefix of unite-rails
 nnoremap [Rails] <Nop>
@@ -215,8 +205,8 @@ nnoremap <silent>[Rails], :Unite rails/config<CR>
 " -------------------------------------------------------------------------- }}}
 
 " Shougo/neosnippet.vim {{{
-NeoBundle 'Shougo/neosnippet.vim'            " neo-snippet plugin contains neocomplcache snippets source
-NeoBundle 'Shougo/neosnippet-snippets'       " The standard snippets repository for neosnippet
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
 
 " Plugin key-mappings.
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -241,24 +231,18 @@ endif
 " junegunn/vim-easy-align {{{
 
 " A Vim alignment plugin
-NeoBundleLazy 'junegunn/vim-easy-align', {
-      \ 'filetypes' : 'all'
-      \ }
+call dein#add('junegunn/vim-easy-align')
 
-let s:bundle = neobundle#get('vim-easy-align')
-function! s:bundle.hooks.on_source(bundle)
-  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-  vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
 
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
-endfunction
-unlet s:bundle
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " -------------------------------------------------------------------------- }}}
 
 " ctrlpvim/ctrlp.vim {{{
-NeoBundle 'ctrlpvim/ctrlp.vim'               " Active fork of kien/ctrlp.vim—Fuzzy file, buffer, mru, tag, etc finder. http://ctrlpvim.github.com/ctrlp.vim
+call dein#add('ctrlpvim/ctrlp.vim')
 
 " Save every MRU file path
 let g:ctrlp_tilde_homedir = 1
@@ -286,7 +270,7 @@ nnoremap <silent>[CtrlP]z :CtrlPClearAllCaches<CR>
 " -------------------------------------------------------------------------- }}}
 
 " thinca/vim-quickrun {{{
-NeoBundle 'thinca/vim-quickrun'              " Run commands quickly.
+call dein#add('thinca/vim-quickrun')
 
 " デフォルトのキーマッピングを無効にする
 let g:quickrun_no_default_key_mappings = 1
@@ -309,7 +293,6 @@ let g:quickrun_config._ = {
 " Markdown Viewer Settings for Mac
 if (has('mac'))
   let g:quickrun_config.markdown = {
-        \
         \   'outputter' : 'null',
         \   'command': 'open',
         \   'cmdopt': '-a',
@@ -323,106 +306,84 @@ endif
 " mattn/emmet-vim {{{
 
 " emmet for vim ( http://emmet.io/ )
-NeoBundleLazy 'mattn/emmet-vim', {
-      \ 'filetypes' : 'all'
-      \ }
+call dein#add('mattn/emmet-vim')
 
-let s:bundle = neobundle#get('emmet-vim')
-function! s:bundle.hooks.on_source(bundle)
-  let g:user_emmet_settings = {
-        \  'lang' : 'ja',
-        \  'html' : {
-        \    'indentation' : '  ',
-        \    'snippets' : {
-        \      'bt' : "<script type=\"text/javascript\" src=\"files/bower_components/jquery/dist/jquery.min.js\"></script>\n<script type=\"text/javascript\" src=\"files/bower_components/bootstrap/dist/js/bootstrap.min.js\"></script>\n<link rel=\"stylesheet\" href=\"files/bower_components/bootstrap/dist/css/bootstrap.min.css\">",
-        \      'jq' : "<script type=\"text/javascript\" src=\"files/bower_components/jquery/dist/jquery.min.js\"></script>\n<script>\n\\$(function() {\n\t|\n})\n</script>",
-        \      'st' : "<style type=\"text/css\">\n\t<!--\n\t${cursor}\n\t-->\n</style>",
-        \      'hs' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = '';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
-        \      'hs:rw' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = 'rounded-white';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
-        \    },
-        \    'default_attributes': {
-        \      'a:ttl' : {'href': '', 'title': ''},
-        \      'a:ttg' : {'href': '', 'target': '_blank'},
-        \    },
-        \  },
-        \  'css' : {
-        \    'filters' : 'fc',
-        \    'snippets' : {
-        \      'box-shadow' : "-webkit-box-shadow: 0 0 0 # 000;\n-moz-box-shadow: 0 0 0 0 # 000;\nbox-shadow: 0 0 0 # 000;",
-        \    },
-        \  },
-        \  'javascript' : {
-        \    'snippets' : {
-        \      'jq' : "\\$(function() {\n\t\\${cursor}\\${child}\n});",
-        \      'jq:json' : "\\$.getJSON(\"${cursor}\", function(data) {\n\t\\${child}\n});",
-        \      'jq:each' : "\\$.each(data, function(index, item) {\n\t\\${child}\n});",
-        \      'fn' : "(function() {\n\t\\${cursor}\n})();",
-        \      'tm' : "setTimeout(function() {\n\t\\${cursor}\n}, 100);",
-        \    },
-        \    'use_pipe_for_cursor' : 0,
-        \  },
-        \  'xhtml': {
-        \    'indentation' : '  ',
-        \  },
-        \}
-endfunction
-unlet s:bundle
+let g:user_emmet_settings = {
+      \  'lang' : 'ja',
+      \  'html' : {
+      \    'indentation' : '  ',
+      \    'snippets' : {
+      \      'bt' : "<script type=\"text/javascript\" src=\"files/bower_components/jquery/dist/jquery.min.js\"></script>\n<script type=\"text/javascript\" src=\"files/bower_components/bootstrap/dist/js/bootstrap.min.js\"></script>\n<link rel=\"stylesheet\" href=\"files/bower_components/bootstrap/dist/css/bootstrap.min.css\">",
+      \      'jq' : "<script type=\"text/javascript\" src=\"files/bower_components/jquery/dist/jquery.min.js\"></script>\n<script>\n\\$(function() {\n\t|\n})\n</script>",
+      \      'st' : "<style type=\"text/css\">\n\t<!--\n\t${cursor}\n\t-->\n</style>",
+      \      'hs' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = '';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
+      \      'hs:rw' : "<script type=\"text/javascript\" src=\"files/highslide/highslide.js\"></script>\n<link rel=\"stylesheet\" href=\"files/highslide/highslide.css\" type=\"text/css\">\n<script type=\"text/javascript\">\n\ths.graphicsDir = 'files/highslide/graphics/';\n\ths.outlineType = 'rounded-white';\n\ths.captionEval = 'this.thumb.alt';\n</script>",
+      \    },
+      \    'default_attributes': {
+      \      'a:ttl' : {'href': '', 'title': ''},
+      \      'a:ttg' : {'href': '', 'target': '_blank'},
+      \    },
+      \  },
+      \  'css' : {
+      \    'filters' : 'fc',
+      \    'snippets' : {
+      \      'box-shadow' : "-webkit-box-shadow: 0 0 0 # 000;\n-moz-box-shadow: 0 0 0 0 # 000;\nbox-shadow: 0 0 0 # 000;",
+      \    },
+      \  },
+      \  'javascript' : {
+      \    'snippets' : {
+      \      'jq' : "\\$(function() {\n\t\\${cursor}\\${child}\n});",
+      \      'jq:json' : "\\$.getJSON(\"${cursor}\", function(data) {\n\t\\${child}\n});",
+      \      'jq:each' : "\\$.each(data, function(index, item) {\n\t\\${child}\n});",
+      \      'fn' : "(function() {\n\t\\${cursor}\n})();",
+      \      'tm' : "setTimeout(function() {\n\t\\${cursor}\n}, 100);",
+      \    },
+      \    'use_pipe_for_cursor' : 0,
+      \  },
+      \  'xhtml': {
+      \    'indentation' : '  ',
+      \  },
+      \}
 
 " -------------------------------------------------------------------------- }}}
 
 " mattn/gist-vim {{{
-" Run 'NeoBundleSource gist-vim' before using
-
-" vimscript for gist
-NeoBundleLazy 'mattn/gist-vim'
+call dein#add('mattn/gist-vim')
 
 " -------------------------------------------------------------------------- }}}
 
 " mattn/qiita-vim {{{
-" Run 'NeoBundleSource qiita-vim' before using
-
-NeoBundleLazy 'mattn/qiita-vim'
+call dein#add('mattn/qiita-vim')
 
 " -------------------------------------------------------------------------- }}}
 
 " tyru/open-browser.vim {{{
+call dein#add('tyru/open-browser.vim')
 
-NeoBundleLazy 'tyru/open-browser.vim', {
-      \   'functions' : 'openbrowser#open',
-      \ }
-
-let s:bundle = neobundle#get('open-browser.vim')
-function! s:bundle.hooks.on_source(bundle)
-  let g:netrw_nogx = 1 " disable netrw's gx mapping.
-  nmap gx <Plug>(openbrowser-smart-search)
-  vmap gx <Plug>(openbrowser-smart-search)
-endfunction
-unlet s:bundle
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 " -------------------------------------------------------------------------- }}}
 
 " Shougo/vinarise.vim {{{
 
 " Ultimate hex editing system with Vim
-NeoBundleLazy 'Shougo/vinarise.vim', {
-      \ 'commands' : [{ 'name' : 'Vinarise', 'complete' : 'file' }]
-      \ }
+call dein#add('Shougo/vinarise.vim')
 
 " -------------------------------------------------------------------------- }}}
 
 " vim-scripts/sudo.vim {{{
 
 " Allows one to edit a file with prevledges from an unprivledged session.
-NeoBundleLazy 'vim-scripts/sudo.vim', {
-      \ 'filetypes' : 'all'
-      \ }
+call dein#add('vim-scripts/sudo.vim')
 
 " -------------------------------------------------------------------------- }}}
 
 " powerline/powerline {{{
 
 if executable('powerline-daemon')
-  NeoBundle 'powerline/powerline', {'rtp': 'powerline/bindings/vim/'}
+  call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim/'})
 
   " Hide the default mode text (e.g. -- INSERT -- below the statusline)
   set noshowmode
@@ -431,11 +392,7 @@ endif
 " -------------------------------------------------------------------------- }}}
 
 " glidenote/memolist.vim {{{
-
-NeoBundleLazy 'glidenote/memolist.vim', {
-      \ 'autoload' : {
-      \   'commands' : [ 'MemoNew', 'MemoList', 'MemoGrep' ]},
-      \ }
+call dein#add('glidenote/memolist.vim')
 
 " set prefix of memolist
 nnoremap [Memo] <Nop>
@@ -447,36 +404,30 @@ nnoremap <silent>[Memo]l :MemoList<CR>
 nnoremap <silent>[Memo]g :MemoGrep<CR>
 nnoremap <silent>[Memo]f :execute 'CtrlP' '~/Dropbox/Documents'<CR>
 
-let s:bundle = neobundle#get('memolist.vim')
-function! s:bundle.hooks.on_source(bundle)
-  " memo directory
-  let g:memolist_path = '~/Dropbox/Documents'
+" memo directory
+let g:memolist_path = '~/Dropbox/Documents'
 
-  " template directory
-  let g:memolist_template_dir_path = '~/Dropbox/Documents/memolist/template'
+" template directory
+let g:memolist_template_dir_path = '~/Dropbox/Documents/memolist/template'
 
-  " suffix type (default markdown)
-  let g:memolist_memo_suffix = 'md'
+" suffix type (default markdown)
+let g:memolist_memo_suffix = 'md'
 
-  " date format (default %Y-%m-%d %H:%M)
-  let g:memolist_memo_date = '%Y/%m/%d %H:%M'
+" date format (default %Y-%m-%d %H:%M)
+let g:memolist_memo_date = '%Y/%m/%d %H:%M'
 
-  " use vimfler (default 0)
-  let g:memolist_vimfiler = 1
+" use vimfler (default 0)
+let g:memolist_vimfiler = 1
 
-  " use arbitrary vimfler option (default -split -winwidth=50)
-  let g:memolist_vimfiler_option = "-horizontal -sort-type=Time"
-endfunction
-unlet s:bundle
+" use arbitrary vimfler option (default -split -winwidth=50)
+let g:memolist_vimfiler_option = "-horizontal -sort-type=Time"
 
 " -------------------------------------------------------------------------- }}}
 
 " haya14busa/vim-migemo {{{
 
 if executable('cmigemo')
-  NeoBundleLazy 'haya14busa/vim-migemo', {
-      \ 'filetypes' : 'all'
-      \ }
+  call dein#add('haya14busa/vim-migemo')
 endif
 
 " -------------------------------------------------------------------------- }}}
@@ -484,16 +435,10 @@ endif
 " VOoM {{{
 
 " Vim two-pane outliner
-NeoBundleLazy 'VOoM', {
-      \ 'filetypes' : [ 'html', 'markdown' ]
-      \ }
+call dein#add('VOoM')
 
-let s:bundle = neobundle#get('VOoM')
-function! s:bundle.hooks.on_source(bundle)
-  " Set VoomToggle for markdown
-  nnoremap <Leader>m :VoomToggle markdown<CR>
-endfunction
-unlet s:bundle
+" Set VoomToggle for markdown
+nnoremap <Leader>m :VoomToggle markdown<CR>
 
 " -------------------------------------------------------------------------- }}}
 
@@ -501,16 +446,14 @@ unlet s:bundle
 
 " Perform the replacement in quickfix.
 " ref. http://d.hatena.ne.jp/thinca/20081107/1225997310
-NeoBundleLazy 'thinca/vim-qfreplace', {
-      \ 'filetypes' : 'all'
-      \ }
+call dein#add('thinca/vim-qfreplace')
 
 " -------------------------------------------------------------------------- }}}
 
 " tpope/vim-fugitive {{{
 
 " fugitive.vim: a Git wrapper so awesome, it should be illegal
-NeoBundle 'tpope/vim-fugitive'
+call dein#add('tpope/vim-fugitive')
 
 " set prefix of vim-fugitive
 nnoremap [Git] <Nop>
@@ -533,9 +476,7 @@ endif
 
 " endwise.vim: wisely add 'end' in ruby, endfunction/endif/more in vim script, etc
 " http://www.vim.org/scripts/script.php?script_id=2386
-NeoBundleLazy 'tpope/vim-endwise', {
-      \ 'filetypes' : ['ruby', 'eruby', 'sh', 'zsh', 'vim', 'objc']
-      \ }
+call dein#add('tpope/vim-endwise')
 
 " -------------------------------------------------------------------------- }}}
 
@@ -543,50 +484,43 @@ NeoBundleLazy 'tpope/vim-endwise', {
 
 " String convert to Numeric Character Reference
 " http://www.vim.org/scripts/script.php?script_id=1646
-NeoBundleLazy 'str2numchar.vim', {
-      \ 'autoload' : {
-      \   'commands' : [ 'Str2NumChar', 'Str2HexLiteral' ]}
-      \ }
+call dein#add('str2numchar.vim')
 
 " -------------------------------------------------------------------------- }}}
 
-NeoBundle 'surround.vim'                     " 1.6   Delete/change/add parentheses/quotes/XML-tags/much more with ease ( http://www.vim.org/scripts/script.php?script_id=1697 )
-NeoBundle 'mattn/webapi-vim'                 " vim interface to Web API
-NeoBundle 'rking/ag.vim'                     " Vim plugin for the_silver_searcher, 'ag', a replacement for the Perl module / CLI script 'ack'
-NeoBundle 'tomtom/tcomment_vim'              " An extensible & universal comment vim-plugin that also handles embedded filetypes
-
-NeoBundle 'nathanaelkane/vim-indent-guides'  " A Vim plugin for visually displaying indent levels in code
+call dein#add('surround.vim')
+call dein#add('mattn/webapi-vim')
+call dein#add('rking/ag.vim')
+call dein#add('tomtom/tcomment_vim')
+call dein#add('nathanaelkane/vim-indent-guides')
 
 " text object {{{
-
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-jabraces'
+call dein#add('kana/vim-textobj-user')
+call dein#add('kana/vim-textobj-jabraces')
 
 " -------------------------------------------------------------------------- }}}
 
 " color schemes {{{
 
-" NeoBundle 'w0ng/vim-hybrid'                  " A dark colour scheme for Vim & gVim
-" NeoBundle 'altercation/vim-colors-solarized' " precision colorscheme for the vim text editor
-NeoBundle 'chriskempson/vim-tomorrow-theme'  " Tomorrow Theme for Vim
-" NeoBundle 'jpo/vim-railscasts-theme'         " A vim color scheme based on the Railscasts Textmate theme.
+" call dein#add('w0ng/vim-hybrid')
+" call dein#add('altercation/vim-colors-solarized')
+call dein#add('chriskempson/vim-tomorrow-theme')
+" call dein#add('jpo/vim-railscasts-theme')
 
 " -------------------------------------------------------------------------- }}}
 
 " Ruby Development {{{
 
 " rails.vim: Ruby on Rails power tools
-NeoBundleLazy 'tpope/vim-rails', {
-      \ 'filetypes' : ['ruby', 'eruby']
-      \ }
+call dein#add('tpope/vim-rails')
+
 " Highlight Ruby local variables
-NeoBundleLazy 'todesking/ruby_hl_lvar.vim', {
-      \ 'filetypes' : ['ruby', 'eruby']
-      \ }
+call dein#add('todesking/ruby_hl_lvar.vim', {
+      \ 'on_ft': ['ruby', 'eruby']
+      \ })
+
 " Make text objects with various ruby block structures.
-NeoBundleLazy 'rhysd/vim-textobj-ruby', {
-      \ 'filetypes' : ['ruby', 'eruby']
-      \ }
+call dein#add('rhysd/vim-textobj-ruby')
 
 " -------------------------------------------------------------------------- }}}
 
@@ -594,14 +528,12 @@ NeoBundleLazy 'rhysd/vim-textobj-ruby', {
 
 if has('mac')
   " Adds Swift support to vim. It covers syntax, intenting, and more.
-  NeoBundleLazy 'toyamarinyon/vim-swift', {
-        \ 'filetypes' : 'swift'
-        \ }
+  call dein#add('toyamarinyon/vim-swift')
 endif
 
 " -------------------------------------------------------------------------- }}}
 
-call neobundle#end()
+call dein#end()
 
 filetype plugin indent on
 
@@ -1142,14 +1074,14 @@ augroup END
 
 syntax enable
 
-if neobundle#is_installed('vim-hybrid') && neobundle#is_sourced('vim-hybrid')
+if !dein#check_install(['vim-hybrid']) && dein#is_sourced('vim-hybrid')
   colorscheme hybrid
-elseif neobundle#is_installed('vim-colors-solarized') && neobundle#is_sourced('vim-colors-solarized')
+elseif !dein#check_install(['vim-colors-solarized']) && dein#is_sourced('vim-colors-solarized')
   set background=dark
   colorscheme solarized
-elseif neobundle#is_installed('vim-tomorrow-theme') && neobundle#is_sourced('vim-tomorrow-theme')
+elseif !dein#check_install(['vim-tomorrow-theme']) && dein#is_sourced('vim-tomorrow-theme')
   colorscheme Tomorrow-Night-Eighties
-elseif neobundle#is_installed('vim-railscasts-theme') && neobundle#is_sourced('vim-railscasts-theme')
+elseif !dein#check_install(['vim-railscasts-theme']) && dein#is_sourced('vim-railscasts-theme')
   colorscheme railscasts
 else
   colorscheme desert
