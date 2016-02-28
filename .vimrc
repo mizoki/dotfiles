@@ -199,6 +199,7 @@ nmap <Space>r [Rails]
 nnoremap <silent>[Rails]m :Unite rails/model<CR>
 nnoremap <silent>[Rails]v :Unite rails/view<CR>
 nnoremap <silent>[Rails]c :Unite rails/controller<CR>
+nnoremap <silent>[Rails]l :Unite rails/lib<CR>
 nnoremap <silent>[Rails]s :Unite rails/spec<CR>
 nnoremap <silent>[Rails], :Unite rails/config<CR>
 
