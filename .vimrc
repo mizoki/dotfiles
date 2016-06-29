@@ -142,6 +142,9 @@ call dein#add('Shougo/unite.vim')
 " MRU plugin includes unite.vim MRU sources
 call dein#add('Shougo/neomru.vim')
 
+" outline source for unite.vim http://d.hatena.ne.jp/h1mesuke/20101107/p1
+call dein#add('Shougo/unite-outline')
+
 " set prefix of unite
 nnoremap [Unite] <Nop>
 nmap <Space>u [Unite]
@@ -150,6 +153,7 @@ nmap <Space>u [Unite]
 nnoremap <silent>[Unite]b :Unite buffer<CR>
 nnoremap <silent>[Unite]f :Unite file<CR>
 nnoremap <silent>[Unite]m :Unite file_mru<CR>
+nnoremap <silent>[Unite]o :Unite -no-quit -vertical -winwidth=60 outline<CR>
 nnoremap <silent>[Unite]r :Unite register<CR>
 nnoremap <silent>[Unite]t :Unite tab<CR>
 
