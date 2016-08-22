@@ -63,12 +63,7 @@ call dein#begin(expand('~/.vim/dein'))
 call dein#add('Shougo/dein.vim')
 
 if !((has("win32") || has("win64")) && has("kaoriya"))
-  call dein#add('Shougo/vimproc.vim', {
-        \ 'build': {
-        \     'mac': 'make -f make_mac.mak',
-        \     'unix': 'make -f make_unix.mak',
-        \    },
-        \ })
+  call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 endif
 
 " Shougo/vimshell {{{
