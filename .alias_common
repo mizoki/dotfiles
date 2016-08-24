@@ -9,6 +9,8 @@ alias la='ls -aF'
 alias less='less -RX'
 # Use GNU Source-highlight (install via Homebrew)
 [[ -s "/usr/local/opt/source-highlight/bin/src-hilite-lesspipe.sh" ]] && export LESSOPEN="| /usr/local/opt/source-highlight/bin/src-hilite-lesspipe.sh %s"
+# Use GNU Source-highlight (Arch Linux)
+[[ -s "/usr/bin/src-hilite-lesspipe.sh" ]] && export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 
 # diff (Use Unified format)
 if [[ -x `which colordiff` ]]; then
