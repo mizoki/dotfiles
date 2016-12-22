@@ -339,29 +339,12 @@ let g:user_emmet_settings = {
 
 " -------------------------------------------------------------------------- }}}
 
-" mattn/gist-vim {{{
-call dein#add('mattn/gist-vim')
-
-" -------------------------------------------------------------------------- }}}
-
-" mattn/qiita-vim {{{
-call dein#add('mattn/qiita-vim')
-
-" -------------------------------------------------------------------------- }}}
-
 " tyru/open-browser.vim {{{
 call dein#add('tyru/open-browser.vim')
 
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
-
-" -------------------------------------------------------------------------- }}}
-
-" Shougo/vinarise.vim {{{
-
-" Ultimate hex editing system with Vim
-call dein#add('Shougo/vinarise.vim')
 
 " -------------------------------------------------------------------------- }}}
 
@@ -421,16 +404,6 @@ let g:memolist_vimfiler_option = "-horizontal -sort-type=Time"
 if executable('cmigemo')
   call dein#add('haya14busa/vim-migemo')
 endif
-
-" -------------------------------------------------------------------------- }}}
-
-" VOoM {{{
-
-" Vim two-pane outliner
-call dein#add('VOoM')
-
-" Set VoomToggle for markdown
-nnoremap <Leader>m :VoomToggle markdown<CR>
 
 " -------------------------------------------------------------------------- }}}
 
