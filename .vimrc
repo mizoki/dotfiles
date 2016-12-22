@@ -78,7 +78,7 @@ let g:vimshell_user_prompt = 'getcwd()'
 call dein#add('Shougo/vimfiler')
 
 " vimfilerをデフォルトのExplorerに指定
-let g:vimfiler_as_default_explorer = 1
+"let g:vimfiler_as_default_explorer = 1
 
 " Enable file operation commands.
 let g:vimfiler_safe_mode_by_default = 0
@@ -93,6 +93,8 @@ if has('mac')
   augroup END
 endif
 
+" Vimfiler
+nnoremap <silent><Leader>e :VimFiler<CR>
 " Tree View Filer
 nnoremap <silent><Leader>f :VimFilerExplore -split -winwidth=30 -find -no-quit<CR>
 
@@ -549,10 +551,10 @@ let g:loaded_vimball           = 1
 let g:loaded_vimballPlugin     = 1
 let g:loaded_getscript         = 1
 let g:loaded_getscriptPlugin   = 1
-let g:loaded_netrw             = 1
-let g:loaded_netrwPlugin       = 1
-let g:loaded_netrwSettings     = 1
-let g:loaded_netrwFileHandlers = 1
+"let g:loaded_netrw             = 1
+"let g:loaded_netrwPlugin       = 1
+"let g:loaded_netrwSettings     = 1
+"let g:loaded_netrwFileHandlers = 1
 
 " -------------------------------------------------------------------------- }}}
 
