@@ -31,16 +31,6 @@ augroup END
 " Set mapleader
 let g:mapleader = ","
 
-if (has("win32") || has("win64"))
-  set runtimepath+=$HOME/.vim/
-  " シェルにPowerShellを使用する
-  set shell=powershell
-  set shellcmdflag="-c"
-  set shellquote="\'"
-  set shellxquote="\'"
-  set shellredir=">"
-endif
-
 " }}}
 "-------------------------------------------------------------------------------
 
