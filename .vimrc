@@ -631,7 +631,7 @@ set helplang=ja,en
 set spelllang=en,cjk
 
 " インクリメント・デクリメントの設定
-set nrformats=hex,alpha
+set nrformats=hex,alpha,bin
 
 " 検索時に大文字小文字を無視 (noignorecase:無視しない)
 set ignorecase
