@@ -5,24 +5,6 @@ scriptencoding utf-8
 " 初期設定 {{{
 "-------------------------------------------------------------------------------
 
-" 初期化処理中のみ（再読み込み時に実行しない）
-if has("vim_starting")
-  if has('gui_running')
-    if has('gui_macvim') && executable('powerline-daemon')
-      " For MacVim
-      set guifont=Source\ Code\ Pro\ for\ Powerline:h14
-    elseif executable('powerline-daemon')
-      " For ArchLinux
-      set guifont=Source\ Code\ Pro\ for\ Powerline\ 14
-    elseif has('gui_win32')
-      " For Windows
-      set guifont=Ricty:h14
-    endif
-    set columns=9999
-    set lines=999
-  endif
-endif
-
 " vimrc グループのautocmdを初期化
 augroup vimrc
   autocmd!
@@ -645,12 +627,6 @@ endif
 " 選択時にクリップボードレジスタに値をコピーする
 "set guioptions+=a
 "set clipboard+=autoselect
-
-" ツールバーを削除
-set guioptions-=T
-
-" メニューを削除
-"""set guioptions-=m
 
 "日本語の行の連結時には空白を入力しない。
 set formatoptions+=mM
