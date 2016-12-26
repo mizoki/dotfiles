@@ -480,6 +480,13 @@ endif
 
 " -------------------------------------------------------------------------- }}}
 
+" Markdown {{{
+
+call dein#add('godlygeek/tabular')
+call dein#add('plasticboy/vim-markdown')
+
+" -------------------------------------------------------------------------- }}}
+
 call dein#end()
 
 filetype plugin indent on
