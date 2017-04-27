@@ -657,9 +657,6 @@ set hidden
 " 矩形ビジュアルモードで仮想編集を有効にする
 set virtualedit=block
 
-" カーソルがある画面上の行をCursorLineで強調する
-set cursorline
-
 " Enable undofile
 set undofile
 " Undoファイルの保存場所を変更
