@@ -431,11 +431,11 @@ call dein#add('tpope/vim-endwise')
 
 " String convert to Numeric Character Reference
 " http://www.vim.org/scripts/script.php?script_id=1646
-call dein#add('str2numchar.vim')
+call dein#add('vim-scripts/str2numchar.vim')
 
 " -------------------------------------------------------------------------- }}}
 
-call dein#add('surround.vim')
+call dein#add('vim-scripts/surround.vim')
 call dein#add('mattn/webapi-vim')
 call dein#add('rking/ag.vim')
 call dein#add('tomtom/tcomment_vim')
