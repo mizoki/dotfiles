@@ -1031,14 +1031,15 @@ augroup END
 
 syntax enable
 
-if !dein#check_install(['vim-hybrid']) && dein#is_sourced('vim-hybrid')
+if dein#is_sourced('vim-hybrid')
+  set background=dark
   colorscheme hybrid
-elseif !dein#check_install(['vim-colors-solarized']) && dein#is_sourced('vim-colors-solarized')
+elseif dein#is_sourced('vim-colors-solarized')
   set background=dark
   colorscheme solarized
-elseif !dein#check_install(['vim-tomorrow-theme']) && dein#is_sourced('vim-tomorrow-theme')
+elseif dein#is_sourced('vim-tomorrow-theme')
   colorscheme Tomorrow-Night-Eighties
-elseif !dein#check_install(['vim-railscasts-theme']) && dein#is_sourced('vim-railscasts-theme')
+elseif dein#is_sourced('vim-railscasts-theme')
   colorscheme railscasts
 else
   colorscheme desert
