@@ -5,5 +5,9 @@
     "Selected": ["underline", "on_cyan", "black"],
     "Query": ["blue", "bold"],
     "Matched": ["red", "on_cyan", "bold"]
+  },
+  "Keymap": {
+    "ArrowLeft": "peco.ScrollLeft",
+    "ArrowRight": "peco.ScrollRight"
   }
 }
