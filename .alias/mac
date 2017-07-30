@@ -4,10 +4,10 @@
 alias ql='qlmanage -p "$@" >& /dev/null'
 
 # Disable to MacBook internal keyboard
-alias disablekeyboard='sudo kextunload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext'
+# alias disablekeyboard='sudo kextunload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext'
 
 # Enable to MacBook internal keyboard
-alias enablekeyboard='sudo kextload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext'
+# alias enablekeyboard='sudo kextload /System/Library/Extensions/AppleUSBTopCase.kext/Contents/PlugIns/AppleUSBTCKeyboard.kext'
 
 # Marked 2
 alias marked='open -a "Marked 2"'
