@@ -487,6 +487,8 @@ call dein#add('plasticboy/vim-markdown')
 
 " -------------------------------------------------------------------------- }}}
 
+call dein#add('vim-scripts/todo-txt.vim')
+
 call dein#end()
 
 filetype plugin indent on
