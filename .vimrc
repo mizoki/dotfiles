@@ -469,6 +469,16 @@ call dein#add('todesking/ruby_hl_lvar.vim', {
 " Make text objects with various ruby block structures.
 call dein#add('rhysd/vim-textobj-ruby')
 
+" Lovely rspec runner for vim
+call dein#add('itmammoth/run-rspec.vim')
+
+let g:run_rspec_bin = 'bundle exec rspec'
+
+" The Vim RuboCop plugin runs RuboCop and displays the results in Vim
+call dein#add('ngmy/vim-rubocop')
+
+let g:vimrubocop_rubocop_cmd = 'bundle exec rubocop'
+
 " -------------------------------------------------------------------------- }}}
 
 " Swift Development {{{
