@@ -428,11 +428,6 @@ call dein#add('chriskempson/vim-tomorrow-theme')
 " rails.vim: Ruby on Rails power tools
 call dein#add('tpope/vim-rails')
 
-" Highlight Ruby local variables
-call dein#add('todesking/ruby_hl_lvar.vim', {
-      \ 'on_ft': ['ruby', 'eruby']
-      \ })
-
 " Make text objects with various ruby block structures.
 call dein#add('rhysd/vim-textobj-ruby')
 
