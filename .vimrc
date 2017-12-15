@@ -348,39 +348,6 @@ endif
 
 " -------------------------------------------------------------------------- }}}
 
-" glidenote/memolist.vim {{{
-call dein#add('glidenote/memolist.vim')
-
-" set prefix of memolist
-nnoremap [Memo] <Nop>
-nmap <Space>m [Memo]
-
-" memolist keymap
-nnoremap <silent>[Memo]c :MemoNew<CR>
-nnoremap <silent>[Memo]l :MemoList<CR>
-nnoremap <silent>[Memo]g :MemoGrep<CR>
-nnoremap <silent>[Memo]f :execute 'CtrlP' '~/Dropbox/Documents'<CR>
-
-" memo directory
-let g:memolist_path = '~/Dropbox/Documents'
-
-" template directory
-let g:memolist_template_dir_path = '~/Dropbox/Documents/memolist/template'
-
-" suffix type (default markdown)
-let g:memolist_memo_suffix = 'md'
-
-" date format (default %Y-%m-%d %H:%M)
-let g:memolist_memo_date = '%Y/%m/%d %H:%M'
-
-" use vimfler (default 0)
-let g:memolist_vimfiler = 1
-
-" use arbitrary vimfler option (default -split -winwidth=50)
-let g:memolist_vimfiler_option = "-horizontal -sort-type=Time"
-
-" -------------------------------------------------------------------------- }}}
-
 " haya14busa/vim-migemo {{{
 
 if executable('cmigemo')
