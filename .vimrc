@@ -402,6 +402,15 @@ call dein#add('vim-scripts/str2numchar.vim')
 
 " -------------------------------------------------------------------------- }}}
 
+" bronson/vim-trailing-whitespace {{{
+
+" Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
+call dein#add('bronson/vim-trailing-whitespace')
+
+let g:extra_whitespace_ignored_filetypes = ['unite', 'markdown']
+
+" -------------------------------------------------------------------------- }}}
+
 call dein#add('vim-scripts/surround.vim')
 call dein#add('mattn/webapi-vim')
 call dein#add('rking/ag.vim')
