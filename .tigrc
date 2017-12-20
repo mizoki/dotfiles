@@ -13,6 +13,8 @@ set split-view-height = 80%     # Height of the bottom view for horizontal split
 set mouse = yes      # Enable mouse support?
 set mouse-scroll = 2 # Number of lines to scroll via the mouse
 
+set diff-highlight = true
+
 # User-defined commands
 bind generic H view-help
 bind generic h scroll-left
