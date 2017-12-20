@@ -44,3 +44,6 @@ bind main <C-R> !zsh -c "git fetch --all --prune"
 
 bind main c !@zsh -c "echo %(commit) | pbcopy"
 bind main C ?git cherry-pick %(commit)
+
+bind status C !git commit -v
+bind stage  C !git commit -v
