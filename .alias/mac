@@ -11,3 +11,6 @@ alias ql='qlmanage -p "$@" >& /dev/null'
 
 # Marked 2
 alias marked='open -a "Marked 2"'
+
+# MacVim
+[[ -s '/Applications/MacVim.app/Contents/MacOS/Vim' ]] && alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
