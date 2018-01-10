@@ -7,6 +7,7 @@ alias gci='git commit'
 alias gcia='git commit --amend'
 alias gcif="git commit -m '[fixup]'"
 alias gcis="git commit -m '[squash]'"
+alias gciv='git commit -v'
 alias gco='git checkout'
 alias gf='git fetch'
 alias gfa='git fetch --all'
