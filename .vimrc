@@ -602,8 +602,8 @@ set textwidth=0
 " デフォルトvimrc_exampleのtextwidth設定上書き
 autocmd vimrc FileType text setlocal textwidth=0
 
-" 80桁目にラインを入れる
-set colorcolumn=80
+" 120桁目にラインを入れる
+set colorcolumn=120
 
 " タブと改行を可視化
 set list
