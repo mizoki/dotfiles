@@ -425,8 +425,9 @@ call dein#add('kana/vim-textobj-jabraces')
 
 " call dein#add('w0ng/vim-hybrid')
 " call dein#add('altercation/vim-colors-solarized')
-call dein#add('chriskempson/vim-tomorrow-theme')
+" call dein#add('chriskempson/vim-tomorrow-theme')
 " call dein#add('jpo/vim-railscasts-theme')
+call dein#add('dracula/vim')
 
 " -------------------------------------------------------------------------- }}}
 
@@ -1022,6 +1023,8 @@ elseif dein#is_sourced('vim-tomorrow-theme')
   colorscheme Tomorrow-Night-Eighties
 elseif dein#is_sourced('vim-railscasts-theme')
   colorscheme railscasts
+elseif dein#is_sourced('dracula/vim')
+  colorscheme dracula
 else
   colorscheme desert
 endif
