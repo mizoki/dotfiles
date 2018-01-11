@@ -464,6 +464,8 @@ endif
 call dein#add('godlygeek/tabular')
 call dein#add('plasticboy/vim-markdown')
 
+let g:vim_markdown_new_list_item_indent = 2
+
 " -------------------------------------------------------------------------- }}}
 
 call dein#end()
