@@ -949,6 +949,19 @@ command! -nargs=+ -complete=command Capture QuickRun -type vim -src <q-args>
 
 "----------------------------------------------------------------------------}}}
 
+
+" Terminal {{{
+
+if (executable('zsh'))
+  command! Zsh terminal ++close ++rows=20 zsh
+endif
+
+if (executable('pry'))
+  command! Pry terminal ++close ++rows=20 pry
+endif
+
+"----------------------------------------------------------------------------}}}
+
 " }}}
 "-------------------------------------------------------------------------------
 
