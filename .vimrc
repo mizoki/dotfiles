@@ -431,6 +431,29 @@ call dein#add('dracula/vim')
 
 " -------------------------------------------------------------------------- }}}
 
+" syntax check {{{
+
+" Syntax checking hacks for vim
+call dein#add('vim-syntastic/syntastic')
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = { 'mode': 'passive',
+      \ 'active_filetypes': ['ruby'] }
+
+let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_ruby_rubocop_exec = 'docker-compose'
+let g:syntastic_ruby_rubocop_args = 'run --rm --no-deps ruby bundle exec rubocop'
+
+" -------------------------------------------------------------------------- }}}
+
 " Ruby Development {{{
 
 " rails.vim: Ruby on Rails power tools
