@@ -467,11 +467,6 @@ call dein#add('itmammoth/run-rspec.vim')
 
 let g:run_rspec_bin = 'docker-compose exec -e RAILS_ENV=test ruby bundle exec rspec'
 
-" The Vim RuboCop plugin runs RuboCop and displays the results in Vim
-call dein#add('ngmy/vim-rubocop')
-
-let g:vimrubocop_rubocop_cmd = 'docker-compose run --rm --no-deps ruby bundle exec rubocop'
-
 " -------------------------------------------------------------------------- }}}
 
 " Swift Development {{{
