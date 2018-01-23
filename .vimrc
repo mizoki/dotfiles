@@ -436,10 +436,6 @@ call dein#add('dracula/vim')
 " Syntax checking hacks for vim
 call dein#add('vim-syntastic/syntastic')
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0 "It's too late via docker
@@ -602,7 +598,13 @@ set showcmd
 " Powerline is not installed
 if !(executable('powerline-daemon'))
   " ステータス行の設定
-  set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}%r%h%w
+  set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
+  if dein#is_sourced('syntastic')
+    set statusline+=\ %#warningmsg#
+    set statusline+=%{SyntasticStatuslineFlag()}
+    set statusline+=%*
+  endif
+  set statusline+=%r%h%w
   set statusline+=%=%{fugitive#statusline()}[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
 endif
 
