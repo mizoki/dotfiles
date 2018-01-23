@@ -888,6 +888,13 @@ nnoremap お o
 vnoremap <C-a> <C-a>gv
 vnoremap <C-x> <C-x>gv
 
+" location list
+nnoremap <silent><Leader>K :lfirst<CR>
+nnoremap <silent><Leader>J :llast<CR>
+nnoremap <silent><Leader>j :lnext<CR>
+nnoremap <silent><Leader>k :lprevious<CR>
+nnoremap <silent><Leader>q :lclose<CR>
+
 " }}}
 "-------------------------------------------------------------------------------
 
