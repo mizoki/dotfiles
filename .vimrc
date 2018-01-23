@@ -1071,6 +1071,7 @@ elseif dein#is_sourced('vim') " dracula/vim
     highlight Comment term=bold ctermfg=darkblue
     highlight Folded term=standout ctermfg=63 ctermbg=235
     highlight Todo term=standout cterm=bold ctermfg=255, ctermbg=63
+    highlight PmenuSel ctermfg=0 ctermbg=255
   endif
 else
   colorscheme desert
