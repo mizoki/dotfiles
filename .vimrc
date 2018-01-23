@@ -1063,8 +1063,15 @@ elseif dein#is_sourced('vim-tomorrow-theme')
   colorscheme Tomorrow-Night-Eighties
 elseif dein#is_sourced('vim-railscasts-theme')
   colorscheme railscasts
-elseif dein#is_sourced('dracula/vim')
+elseif dein#is_sourced('vim') " dracula/vim
   colorscheme dracula
+  if !has('gui_running')
+    highlight Search term=reverse ctermfg=0 ctermbg=3
+    highlight StatusLine term=bold cterm=bold ctermfg=255 ctermbg=61
+    highlight Comment term=bold ctermfg=darkblue
+    highlight Folded term=standout ctermfg=63 ctermbg=235
+    highlight Todo term=standout cterm=bold ctermfg=255, ctermbg=63
+  endif
 else
   colorscheme desert
 endif
@@ -1088,12 +1095,6 @@ let g:indent_guides_exclude_filetypes=[
       \ ]
 hi IndentGuidesOdd  ctermbg=4, guibg=darkblue
 hi IndentGuidesEven ctermbg=6, guibg=darkcyan
-
-" }}}
-
-" highlight group {{{
-
-highlight Search term=reverse ctermfg=0 ctermbg=3 guifg=Black guibg=Yellow
 
 " }}}
 
