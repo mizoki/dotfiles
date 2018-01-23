@@ -1089,6 +1089,12 @@ hi IndentGuidesEven ctermbg=6, guibg=darkcyan
 
 " }}}
 
+" highlight group {{{
+
+highlight Search term=reverse ctermfg=0 ctermbg=3 guifg=Black guibg=Yellow
+
+" }}}
+
 " }}}
 "-------------------------------------------------------------------------------
 
