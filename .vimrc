@@ -947,7 +947,7 @@ let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 
 " The prefix key.
 nnoremap [Tab] <Nop>
-nmap t [Tab]
+nmap <silent><Leader>t [Tab]
 " Tab jump
 for n in range(1, 9)
   execute 'nnoremap <silent> [Tab]'.n  ':<C-u>tabnext'.n.'<CR>'
@@ -974,12 +974,13 @@ command! -nargs=+ -complete=command Capture QuickRun -type vim -src <q-args>
 
 " Terminal {{{
 
-if (executable('zsh'))
-  command! Zsh terminal ++close ++rows=20 zsh
-endif
+nnoremap [Terminal] <Nop>
+nmap t [Terminal]
+
+nnoremap <silent>[Terminal]t :terminal ++close ++rows=20<CR>
 
 if (executable('pry'))
-  command! Pry terminal ++close ++rows=20 pry
+  nnoremap <silent>[Terminal]p :terminal ++close ++rows=20 pry<CR>
 endif
 
 "----------------------------------------------------------------------------}}}
