@@ -248,7 +248,11 @@ call dein#add('thinca/vim-quickrun')
 let g:quickrun_no_default_key_mappings = 1
 
 " Keymap
-nnoremap <silent><Leader>rr :QuickRun<CR>
+nnoremap [QuickRun] <Nop>
+nmap <silent><Leader>r [QuickRun]
+
+nnoremap <silent>[QuickRun]e :QuickRun<CR>
+nnoremap <silent>[QuickRun]r :QuickRun ruby.rspec<CR>
 
 " Default Settings
 let g:quickrun_config = get(g:, 'quickrun_config', {})
@@ -272,6 +276,15 @@ if (has('mac'))
         \   'exec': '%c %o %a %s'
         \ }
 endif
+
+" Ruby RSpec
+let g:quickrun_config['ruby.rspec'] = {
+      \ 'runner': 'terminal',
+      \ 'command': 'docker-compose',
+      \ 'cmdopt': 'exec -e RAILS_ENV=test ruby bundle exec rspec',
+      \ 'args': '--colour --format progress',
+      \ 'exec': '%c %o %a %s:.',
+      \ }
 
 " -------------------------------------------------------------------------- }}}
 
