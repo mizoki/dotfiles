@@ -459,7 +459,7 @@ let g:syntastic_mode_map = { 'mode': 'passive',
 
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = 'docker-compose'
-let g:syntastic_ruby_rubocop_args = 'run --rm --no-deps ruby bundle exec rubocop'
+let g:syntastic_ruby_rubocop_args = 'run --rm --no-deps ruby bundle exec rubocop -D --rails'
 
 " -------------------------------------------------------------------------- }}}
 
