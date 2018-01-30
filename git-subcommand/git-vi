@@ -1,0 +1,17 @@
+#!/bin/sh
+
+editor=`which vim 2> /dev/null`
+if [ -x $editor ]; then
+  files=""
+  for file in `git status -s | cut -c4-`; do
+    if [ -f $file ]; then
+      files="$files $file"
+    elif [ -d $file ]; then
+      for f in `find $file -type f`; do
+        files="$files $f"
+      done
+    fi
+  done
+
+  $editor $files
+fi
