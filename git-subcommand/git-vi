@@ -3,7 +3,7 @@
 editor=`which vim 2> /dev/null`
 if [ -x $editor ]; then
   files=""
-  for file in `git status -s | cut -c4-`; do
+  for file in `git status --short | grep '^\(\sM\|??\)' | cut -c4-`; do
     if [ -f $file ]; then
       files="$files $file"
     elif [ -d $file ]; then
