@@ -745,6 +745,9 @@ if has("vim_starting") && !has('gui_running') && has('vertsplit')
   let &t_RV .= "\e[?6;69h\e[1;3s\e[3;9H\e[6n\e[0;0s\e[?6;69l"
 endif
 
+" Use highlight search
+set hlsearch
+
 " }}}
 "-------------------------------------------------------------------------------
 
