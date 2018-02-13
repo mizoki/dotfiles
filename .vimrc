@@ -1104,12 +1104,17 @@ elseif dein#is_sourced('vim-railscasts-theme')
 elseif dein#is_sourced('vim') " dracula/vim
   colorscheme dracula
   if !has('gui_running')
+    highlight LineNr term=underline ctermfg=141
     highlight Search term=reverse ctermfg=0 ctermbg=3
-    highlight StatusLine term=bold cterm=bold ctermfg=255 ctermbg=61
-    highlight Comment term=bold ctermfg=darkblue
-    highlight Folded term=standout ctermfg=63 ctermbg=235
+    highlight StatusLine term=bold cterm=bold ctermfg=255 ctermbg=31
+    highlight Comment term=bold ctermfg=117
+    highlight Folded term=standout ctermfg=75 ctermbg=235
     highlight Todo term=standout cterm=bold ctermfg=255, ctermbg=63
     highlight PmenuSel ctermfg=0 ctermbg=255
+    highlight DiffAdd term=bold cterm=bold ctermfg=231 ctermbg=70
+    highlight DiffChange term=bold ctermfg=231 ctermbg=28
+    highlight DiffDelete term=bold ctermfg=196
+    highlight DiffText term=reverse cterm=bold ctermfg=231 ctermbg=33
   endif
 else
   colorscheme desert
