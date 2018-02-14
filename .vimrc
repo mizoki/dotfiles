@@ -461,7 +461,7 @@ call dein#add('kana/vim-textobj-jabraces')
 " call dein#add('altercation/vim-colors-solarized')
 " call dein#add('chriskempson/vim-tomorrow-theme')
 " call dein#add('jpo/vim-railscasts-theme')
-call dein#add('dracula/vim')
+call dein#add('mizoki/dracula-vim')
 
 " -------------------------------------------------------------------------- }}}
 
@@ -1101,7 +1101,7 @@ elseif dein#is_sourced('vim-tomorrow-theme')
   colorscheme Tomorrow-Night-Eighties
 elseif dein#is_sourced('vim-railscasts-theme')
   colorscheme railscasts
-elseif dein#is_sourced('vim') " dracula/vim
+elseif dein#is_sourced('dracula-vim')
   colorscheme dracula
   if !has('gui_running')
     highlight LineNr term=underline ctermfg=141
