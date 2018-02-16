@@ -1001,10 +1001,18 @@ command! -nargs=+ -complete=command Capture QuickRun -type vim -src <q-args>
 nnoremap [Terminal] <Nop>
 nmap t [Terminal]
 
-nnoremap <silent>[Terminal]t :terminal ++close ++rows=20<CR>
+if has('nvim')
+  nnoremap <silent>[Terminal]t :20split term://$SHELL<CR>
+else
+  nnoremap <silent>[Terminal]t :terminal ++close ++rows=20<CR>
+endif
 
 if (executable('pry'))
-  nnoremap <silent>[Terminal]p :terminal ++close ++rows=20 pry<CR>
+  if has('nvim')
+    nnoremap <silent>[Terminal]p :20split term://pry<CR>
+  else
+    nnoremap <silent>[Terminal]p :terminal ++close ++rows=20 pry<CR>
+  endif
 endif
 
 "----------------------------------------------------------------------------}}}
