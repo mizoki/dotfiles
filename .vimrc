@@ -1114,7 +1114,7 @@ elseif dein#is_sourced('dracula-vim')
   if !has('gui_running')
     highlight LineNr term=underline ctermfg=141
     highlight Search term=reverse ctermfg=0 ctermbg=3
-    highlight StatusLine term=bold cterm=bold ctermfg=255 ctermbg=31
+    highlight StatusLine term=bold cterm=bold ctermfg=231 ctermbg=141
     highlight Comment term=bold ctermfg=117
     highlight Folded term=standout ctermfg=75 ctermbg=235
     highlight Todo term=standout cterm=bold ctermfg=255, ctermbg=63
