@@ -70,8 +70,11 @@ nnoremap <silent><Leader>f :VimFilerExplore -split -winwidth=30 -find -no-quit<C
 
 " -------------------------------------------------------------------------- }}}
 
-" Shougo/neocomplcache or Shougo/neocomplete  {{{
-if has('lua')
+" Shougo/deoplete.nvim or Shougo/neocomplcache or Shougo/neocomplete  {{{
+if has('nvim')
+  call dein#add('Shougo/deoplete.nvim')
+  let g:deoplete#enable_at_startup = 1
+elseif has('lua')
   call dein#add('Shougo/neocomplete')
 
   " neocomplete用設定
