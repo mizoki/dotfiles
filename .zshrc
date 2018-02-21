@@ -147,6 +147,10 @@ setopt extended_glob
 # 補完時に濁点・半濁点を <3099> <309a> のように表示させない
 setopt COMBINING_CHARS
 
+# Disable stop and restart of terminal output
+stty stop undef
+stty start undef
+
 # エイリアスの読み込み
 [[ -s "$HOME/.alias_common" ]] && source $HOME/.alias_common
 
