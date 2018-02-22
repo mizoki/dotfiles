@@ -15,7 +15,12 @@ set mouse-scroll = 2 # Number of lines to scroll via the mouse
 
 # diff settings
 set diff-highlight = true
-color diff-header black white
+
+# color settings
+color diff-header black cyan
+color cursor      black yellow bold
+color title-blur  black blue
+color title-focus black blue   bold
 
 # User-defined commands
 bind generic H view-help
