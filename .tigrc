@@ -31,6 +31,7 @@ bind generic 1 move-first-line
 bind generic 9 move-last-line
 bind generic <C-F> move-page-down
 bind generic <C-B> move-page-up
+bind generic ~ :goto %(commit)^
 
 bind main A ?git rebase --committer-date-is-author-date %(commit)
 bind diff A ?git rebase --committer-date-is-author-date %(commit)
