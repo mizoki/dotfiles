@@ -1,5 +1,5 @@
 # 補完用のファイルの読み込み
 [[ -d "$HOME/.zsh/zsh-completions/src/" ]] && fpath=($HOME/.zsh/zsh-completions/src $fpath)
 
-# peco用の関数の読み込み
-[[ -s "$HOME/.functions/peco_function.sh" ]] && source $HOME/.functions/peco_function.sh
+# filter用の関数の読み込み
+[[ -s "$HOME/.functions/filter_function.sh" ]] && source $HOME/.functions/filter_function.sh
