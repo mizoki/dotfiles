@@ -172,6 +172,7 @@ nnoremap <silent>[Rails]a :Unite rails/asset<CR>
 nnoremap <silent>[Rails]c :Unite rails/controller<CR>
 nnoremap <silent>[Rails]d :Unite rails/db<CR>
 nnoremap <silent>[Rails]h :Unite rails/helper<CR>
+nnoremap <silent>[Rails]j :Unite rails/job<CR>
 nnoremap <silent>[Rails]l :Unite rails/lib<CR>
 nnoremap <silent>[Rails]m :Unite rails/model<CR>
 nnoremap <silent>[Rails]s :Unite rails/spec<CR>
