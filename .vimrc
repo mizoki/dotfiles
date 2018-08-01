@@ -486,6 +486,15 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_ruby_rubocop_exec = 'docker-compose'
 let g:syntastic_ruby_rubocop_args = 'run --rm --no-deps ruby bundle exec rubocop -D --rails'
 
+" set prefix of Syntastic
+nnoremap [Syntastic] <Nop>
+nmap <Space>s [Syntastic]
+
+" Syntastic keymap
+nnoremap <silent>[Syntastic]c :SyntasticCheck<CR>
+nnoremap <silent>[Syntastic]i :SyntasticInfo<CR>
+nnoremap <silent>[Syntastic]r :SyntasticReset<CR>
+
 " -------------------------------------------------------------------------- }}}
 
 " Ruby Development {{{
