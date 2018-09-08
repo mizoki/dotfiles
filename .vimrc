@@ -512,6 +512,14 @@ let g:run_rspec_bin = 'docker-compose exec -e RAILS_ENV=test ruby bundle exec rs
 
 " -------------------------------------------------------------------------- }}}
 
+" Go Development {{{
+
+call dein#add('fatih/vim-go')
+
+let g:go_fmt_command = "goimports"
+
+" -------------------------------------------------------------------------- }}}
+
 " Swift Development {{{
 
 if has('mac')
