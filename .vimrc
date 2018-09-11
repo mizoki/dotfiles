@@ -23,6 +23,15 @@ let g:mapleader = ","
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
+" To install dein.vim if dein.vim is not installed.
+let s:dein_dir = '~/.vim/dein/repos/github.com/Shougo/dein.vim'
+if !isdirectory(expand(s:dein_dir))
+  if executable('git')
+    echo 'install dein.vim ...'
+    call system('git clone https://github.com/Shougo/dein.vim ' . s:dein_dir)
+  endif
+endif
+
 if (has("vim_starting"))
   if &compatible
     set nocompatible
@@ -539,6 +548,10 @@ let g:vim_markdown_new_list_item_indent = 2
 " -------------------------------------------------------------------------- }}}
 
 call dein#end()
+
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
 
 filetype plugin indent on
 
