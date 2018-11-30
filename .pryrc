@@ -27,3 +27,9 @@ end
 
 Pry.config.commands.alias_command 'w', 'whereami'
 Pry.config.commands.alias_command '.cls', '.clear'
+
+# Hit Enter to repeat last command
+# Ref. https://qiita.com/k0kubun/items/b118e9ccaef8707c4d9f
+Pry::Commands.command /^$/, "repeat last command" do
+  _pry_.run_command Pry.history.to_a.last
+end
