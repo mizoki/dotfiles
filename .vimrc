@@ -1033,7 +1033,7 @@ command! -nargs=+ -complete=command Capture QuickRun -type vim -src <q-args>
 " Terminal {{{
 
 nnoremap [Terminal] <Nop>
-nmap t [Terminal]
+nmap <Space>t [Terminal]
 
 if has('nvim')
   nnoremap <silent>[Terminal]t :20split term://$SHELL<CR>
