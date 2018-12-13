@@ -266,6 +266,7 @@ nmap <silent><Leader>r [QuickRun]
 
 nnoremap <silent>[QuickRun]e :QuickRun<CR>
 nnoremap <silent>[QuickRun]r :QuickRun ruby.rspec<CR>
+nnoremap <silent>[QuickRun]q :bw! \[quickrun\ output\]<CR>
 
 " Default Settings
 let g:quickrun_config = get(g:, 'quickrun_config', {})
