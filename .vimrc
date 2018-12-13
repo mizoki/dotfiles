@@ -878,10 +878,15 @@ nnoremap [Window]= <C-W>+
 nnoremap [Window]- <C-W>-
 nnoremap [Window]+ <C-W>=
 
-" 作業用バッファの作成
-nnoremap <silent><Leader>s :Scratch<CR>
-" カレントディレクトリの変更
-nnoremap <silent><Space>cd :CdCurrent<CR>
+if has('kaoriya')
+  " 作業用バッファの作成
+  nnoremap <silent><Leader>s :Scratch<CR>
+  " カレントディレクトリの変更
+  nnoremap <silent><Space>cd :CdCurrent<CR>
+else
+  " Markdown用の作業バッファの作成
+  nnoremap <silent><Leader>s :OpenTempBuffer markdown<CR>
+endif
 
 " Auto escape / and ? in search command.
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
@@ -1048,6 +1053,12 @@ if (executable('pry'))
     nnoremap <silent>[Terminal]p :terminal ++close ++rows=20 pry<CR>
   endif
 endif
+
+"----------------------------------------------------------------------------}}}
+
+" create temp buffer {{{
+
+command! -bar -nargs=1 OpenTempBuffer new | setlocal buftype=nofile bufhidden=hide filetype=<args> noswapfile
 
 "----------------------------------------------------------------------------}}}
 
