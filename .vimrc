@@ -479,6 +479,17 @@ call dein#add('mizoki/dracula-vim')
 
 " -------------------------------------------------------------------------- }}}
 
+" Syntax Check {{{
+
+call dein#add('w0rp/ale')
+
+let g:ale_open_list = 1
+let g:ale_linters = {
+      \ 'ruby': ['rubocop'],
+      \ }
+
+" -------------------------------------------------------------------------- }}}
+
 " Ruby Development {{{
 
 " rails.vim: Ruby on Rails power tools
@@ -642,6 +653,22 @@ if !(executable('powerline-daemon'))
   " ステータス行の設定
   set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
   set statusline+=%r%h%w
+  if dein#is_sourced('ale')
+    function! LinterStatus() abort
+        let l:counts = ale#statusline#Count(bufnr(''))
+
+        let l:all_errors = l:counts.error + l:counts.style_error
+        let l:all_non_errors = l:counts.total - l:all_errors
+
+        return l:counts.total == 0 ? '[OK]' : printf(
+        \   '[W(%d),E(%d)]',
+        \   all_non_errors,
+        \   all_errors
+        \)
+    endfunction
+
+    set statusline+=%=%{LinterStatus()}
+  endif
   set statusline+=%=%{fugitive#statusline()}[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
 endif
 
