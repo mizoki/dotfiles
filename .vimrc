@@ -479,34 +479,6 @@ call dein#add('mizoki/dracula-vim')
 
 " -------------------------------------------------------------------------- }}}
 
-" syntax check {{{
-
-" Syntax checking hacks for vim
-call dein#add('vim-syntastic/syntastic')
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0 "It's too late via docker
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_mode_map = { 'mode': 'passive',
-      \ 'active_filetypes': ['ruby'] }
-
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_ruby_rubocop_exec = 'docker-compose'
-let g:syntastic_ruby_rubocop_args = 'run --rm --no-deps ruby bundle exec rubocop -D --rails'
-
-" set prefix of Syntastic
-nnoremap [Syntastic] <Nop>
-nmap <Space>s [Syntastic]
-
-" Syntastic keymap
-nnoremap <silent>[Syntastic]c :SyntasticCheck<CR>
-nnoremap <silent>[Syntastic]i :SyntasticInfo<CR>
-nnoremap <silent>[Syntastic]r :SyntasticReset<CR>
-
-" -------------------------------------------------------------------------- }}}
-
 " Ruby Development {{{
 
 " rails.vim: Ruby on Rails power tools
@@ -669,11 +641,6 @@ set showcmd
 if !(executable('powerline-daemon'))
   " ステータス行の設定
   set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
-  if dein#is_sourced('syntastic')
-    set statusline+=\ %#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
-  endif
   set statusline+=%r%h%w
   set statusline+=%=%{fugitive#statusline()}[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
 endif
