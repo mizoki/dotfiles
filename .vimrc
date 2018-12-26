@@ -301,27 +301,6 @@ let g:quickrun_config['ruby.rspec'] = {
 
 " -------------------------------------------------------------------------- }}}
 
-" thinca/vim-ref {{{
-
-" Integrated reference viewer.
-call dein#add('thinca/vim-ref')
-
-" Ruby Document
-"
-" How to setup
-" # Host
-" $ docker-compose exec ruby /bin/bash
-"
-" # Guest
-" $ gem install refe2
-" $ bitclust setup
-"
-" * ホームディレクトリの永続化が必要
-
-let g:ref_refe_cmd="docker-compose run --rm --no-deps ruby /usr/local/bundle/bin/refe"
-
-" -------------------------------------------------------------------------- }}}
-
 " mattn/emmet-vim {{{
 
 " emmet for vim ( http://emmet.io/ )
