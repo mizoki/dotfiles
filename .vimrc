@@ -294,10 +294,9 @@ endif
 " Ruby RSpec
 let g:quickrun_config['ruby.rspec'] = {
       \ 'runner': 'terminal',
-      \ 'command': 'docker-compose',
-      \ 'cmdopt': 'exec -e RAILS_ENV=test ruby bundle exec rspec',
-      \ 'args': '--colour --format progress',
-      \ 'exec': '%c %o %a %s:.',
+      \ 'command': 'rspec',
+      \ 'cmdopt': '--colour --format progress',
+      \ 'exec': '%c %o %s:.',
       \ }
 
 " -------------------------------------------------------------------------- }}}
