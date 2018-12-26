@@ -498,11 +498,6 @@ call dein#add('tpope/vim-rails')
 " Make text objects with various ruby block structures.
 call dein#add('rhysd/vim-textobj-ruby')
 
-" Lovely rspec runner for vim
-call dein#add('itmammoth/run-rspec.vim')
-
-let g:run_rspec_bin = 'docker-compose exec -e RAILS_ENV=test ruby bundle exec rspec'
-
 " -------------------------------------------------------------------------- }}}
 
 " Go Development {{{
