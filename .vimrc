@@ -914,6 +914,12 @@ nnoremap <silent><Leader>j :lnext<CR>
 nnoremap <silent><Leader>k :lprevious<CR>
 nnoremap <silent><Leader>q :lclose<CR>
 
+" fuzzy finder
+" if fzf is installed, 'FZF' command should be usable.
+if executable('fzf')
+  nnoremap <C-p> :FZF<CR>
+endif
+
 " }}}
 "-------------------------------------------------------------------------------
 
