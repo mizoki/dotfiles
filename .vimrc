@@ -226,34 +226,6 @@ nmap ga <Plug>(EasyAlign)
 
 " -------------------------------------------------------------------------- }}}
 
-" ctrlpvim/ctrlp.vim {{{
-call dein#add('ctrlpvim/ctrlp.vim')
-
-" Save every MRU file path
-let g:ctrlp_tilde_homedir = 1
-" Enable per-session caching
-let g:ctrlp_use_caching = 1
-
-" ref. http://celt.hatenablog.jp/entry/2014/07/11/205308
-" ag入ってたらagで検索させる
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup -g ""'
-endif
-
-" set prefix of CtrlP
-nnoremap [CtrlP] <Nop>
-nmap <Space>c [CtrlP]
-
-" CtrlP keymaps
-nnoremap <silent>[CtrlP]p :CtrlP<CR>
-nnoremap <silent>[CtrlP]b :CtrlPBuffer<CR>
-nnoremap <silent>[CtrlP]m :CtrlPMRUFiles<CR>
-nnoremap <silent>[CtrlP]c :CtrlPCurFile<CR>
-nnoremap <silent>[CtrlP]l :CtrlPLine<CR>
-nnoremap <silent>[CtrlP]z :CtrlPClearAllCaches<CR>
-
-" -------------------------------------------------------------------------- }}}
-
 " thinca/vim-quickrun {{{
 call dein#add('thinca/vim-quickrun')
 
