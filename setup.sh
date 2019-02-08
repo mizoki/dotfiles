@@ -41,42 +41,5 @@ if [ ! -d "$HOME/.peco" ]; then
 fi
 [ ! -s "$HOME/.peco/config.json" ] && ln -s $PWD/.peco/config.json $HOME/.peco/config.json
 
-if [ ! -d "$HOME/.config/powerline" ]; then
-  mkdir -p $HOME/.config/powerline
-  ln -s $PWD/config/powerline/config.json $HOME/.config/powerline/config.json
-fi
-
-[ ! -d "$HOME/.config/powerline/themes/tmux" ] && mkdir -p $HOME/.config/powerline/themes/tmux
-[ ! -s "$HOME/.config/powerline/themes/tmux/default.json" ] && ln -s $PWD/config/powerline/themes/tmux/default.json $HOME/.config/powerline/themes/tmux/default.json
-
-[ ! -d "$HOME/.config/powerline/themes/vim" ] && mkdir -p $HOME/.config/powerline/themes/vim
-for f in \
-  __main__.json \
-  cmdwin.json \
-  default.json \
-  help.json \
-  plugin_commandt.json \
-  plugin_gundo-preview.json \
-  plugin_gundo.json \
-  plugin_nerdtree.json \
-  quickfix.json \
-  tabline.json \
-
-do
-  [ ! -s "$HOME/.config/powerline/themes/vim/$f" ] && ln -s $PWD/config/powerline/themes/vim/$f $HOME/.config/powerline/themes/vim/$f
-done
-
-[ ! -d "$HOME/.config/powerline/themes/shell" ] && mkdir -p $HOME/.config/powerline/themes/shell
-for f in \
-  __main__.json \
-  continuation.json \
-  default.json \
-  default_leftonly.json \
-  select.json \
-
-do
-  [ ! -s "$HOME/.config/powerline/themes/shell/$f" ] && ln -s $PWD/config/powerline/themes/shell/$f $HOME/.config/powerline/themes/shell/$f
-done
-
 [ ! -d "$HOME/.w3m" ] && mkdir -p $HOME/.w3m
 [ ! -s "$HOME/.w3m/keymap" ] && ln -s $PWD/.w3m/keymap $HOME/.w3m/keymap

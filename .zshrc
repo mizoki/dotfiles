@@ -157,10 +157,5 @@ stty start undef
 # 関数の読み込み
 [[ -s "$HOME/.functions_common" ]] && source $HOME/.functions_common
 
-# Powerline (Mac OSX)
-[[ -s "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]] && source "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
-# Powerline (Arch Linux)
-[[ -s "/usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh" ]] && source "/usr/lib/python3.4/site-packages/powerline/bindings/zsh/powerline.zsh"
-
 # PATHの重複項目を削除して、PATHの長さ順に並び替える
 export PATH=`echo $PATH | tr ':' '\n' | awk '{print length($0), $0}' | sort -nr | uniq | cut -d' ' -f2- | paste -d: -s -`

@@ -333,17 +333,6 @@ call dein#add('vim-scripts/sudo.vim')
 
 " -------------------------------------------------------------------------- }}}
 
-" powerline/powerline {{{
-
-if executable('powerline-daemon')
-  call dein#add('powerline/powerline', {'rtp': 'powerline/bindings/vim/'})
-
-  " Hide the default mode text (e.g. -- INSERT -- below the statusline)
-  set noshowmode
-endif
-
-" -------------------------------------------------------------------------- }}}
-
 " haya14busa/vim-migemo {{{
 
 if executable('cmigemo')
@@ -595,29 +584,26 @@ set cmdheight=2
 " コマンドをステータス行に表示
 set showcmd
 
-" Powerline is not installed
-if !(executable('powerline-daemon'))
-  " ステータス行の設定
-  set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
-  set statusline+=%r%h%w
-  if dein#is_sourced('ale')
-    function! LinterStatus() abort
-        let l:counts = ale#statusline#Count(bufnr(''))
+" ステータス行の設定
+set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
+set statusline+=%r%h%w
+if dein#is_sourced('ale')
+  function! LinterStatus() abort
+      let l:counts = ale#statusline#Count(bufnr(''))
 
-        let l:all_errors = l:counts.error + l:counts.style_error
-        let l:all_non_errors = l:counts.total - l:all_errors
+      let l:all_errors = l:counts.error + l:counts.style_error
+      let l:all_non_errors = l:counts.total - l:all_errors
 
-        return l:counts.total == 0 ? '[OK]' : printf(
-        \   '[W(%d),E(%d)]',
-        \   all_non_errors,
-        \   all_errors
-        \)
-    endfunction
+      return l:counts.total == 0 ? '[OK]' : printf(
+      \   '[W(%d),E(%d)]',
+      \   all_non_errors,
+      \   all_errors
+      \)
+  endfunction
 
-    set statusline+=%=%{LinterStatus()}
-  endif
-  set statusline+=%=%{fugitive#statusline()}[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
+  set statusline+=%=%{LinterStatus()}
 endif
+set statusline+=%=%{fugitive#statusline()}[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
 
 " Tabをスペースに変換する
 set expandtab
@@ -653,13 +639,8 @@ endif
 "日本語の行の連結時には空白を入力しない。
 set formatoptions+=mM
 
-" Powerline is not installed
-if !(executable('powerline-daemon'))
-  "□や○の文字があってもカーソル位置がずれないようにする。
-  set ambiwidth=double
-else
-  set ambiwidth=single
-endif
+"□や○の文字があってもカーソル位置がずれないようにする。
+set ambiwidth=double
 
 "画面最後の行をできる限り表示する。
 set display+=lastline
