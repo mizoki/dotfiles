@@ -3,7 +3,6 @@
 [ ! -s "$HOME/.zshrc" ] && ln -s $PWD/.zshrc $HOME/.zshrc
 [ ! -s "$HOME/.alias_common" ] && ln -s $PWD/.alias_common $HOME/.alias_common
 [ ! -s "$HOME/.functions_common" ] && ln -s $PWD/.functions_common $HOME/.functions_common
-[ ! -s "$HOME/.zsh_completion_common" ] && ln -s $PWD/.zsh_completion_common $HOME/.zsh_completion_common
 
 [ ! -s "$HOME/.gitignore" ] && ln -s $PWD/.gitignore_global $HOME/.gitignore
 

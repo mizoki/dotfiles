@@ -157,9 +157,6 @@ stty start undef
 # 関数の読み込み
 [[ -s "$HOME/.functions_common" ]] && source $HOME/.functions_common
 
-# サブコマンドの補完
-[[ -s "$HOME/.zsh_completion_common" ]] && source $HOME/.zsh_completion_common
-
 # Powerline (Mac OSX)
 [[ -s "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh" ]] && source "/usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh"
 # Powerline (Arch Linux)
