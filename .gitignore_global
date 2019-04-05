@@ -1035,3 +1035,8 @@ healthchecksdb
 MigrationBackup/
 
 # End of https://www.gitignore.io/api/osx,vim,svn,node,tags,ruby,swift,rails,linux,xcode,python,android,windows,intellij+all,visualstudio,visualstudiocode
+
+### Created by manual
+
+# IntellJ Railway Plugin
+railways.cache
