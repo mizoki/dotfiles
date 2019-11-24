@@ -4,7 +4,10 @@
 [ ! -s "$HOME/.alias_common" ] && ln -s $PWD/.alias_common $HOME/.alias_common
 [ ! -s "$HOME/.functions_common" ] && ln -s $PWD/.functions_common $HOME/.functions_common
 
-[ ! -s "$HOME/.gitignore" ] && ln -s $PWD/.gitignore_global $HOME/.gitignore
+if [ ! -d "$HOME/.config/git" ]; then
+  mkdir -p $HOME/.config/git
+fi
+[ ! -s "$HOME/.config/git/ignore" ] && ln -s $PWD/.gitignore_global $HOME/.config/git/ignore
 
 [ ! -s "$HOME/.vimrc" ] && ln -s $PWD/.vimrc $HOME/.vimrc
 [ ! -s "$HOME/.gvimrc" ] && ln -s $PWD/.gvimrc $HOME/.gvimrc
