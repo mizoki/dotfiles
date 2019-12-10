@@ -550,6 +550,8 @@ endif
 
 " 行番号を表示
 set number
+" Toggle Line Number
+nnoremap <Leader>m :<C-u>setlocal relativenumber!<CR>
 
 " バックアップファイルを作成しない
 set nobackup
