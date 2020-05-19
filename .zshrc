@@ -48,10 +48,7 @@ function rprompt-git-current-branch {
     color=%F{red}
   fi
 
-  cntbranch=`git log --oneline --no-merges | wc -l | tr -d ' ' 2> /dev/null`
-  cntallbranch=`git log --oneline --all --no-merges | wc -l | tr -d ' ' 2> /dev/null`
-
-  echo "[$color$name$action%f%b : $cntbranch($cntallbranch)]"
+  echo "[$color$name$action%f%b]"
 }
 
 # PCRE 互換の正規表現を使う
