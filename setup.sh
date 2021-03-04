@@ -37,6 +37,7 @@ fi
 [ ! -d "$HOME/local/bin" ] && mkdir -p $HOME/local/bin
 [ ! -s "$HOME/local/bin/git-wip" ] && ln -s $PWD/git-subcommand/git-wip $HOME/local/bin/git-wip
 [ ! -s "$HOME/local/bin/git-vi" ] && ln -s $PWD/git-subcommand/git-vi $HOME/local/bin/git-vi
+[ ! -s "$HOME/local/bin/git-bareupdate" ] && ln -s $PWD/git-subcommand/git-bareupdate $HOME/local/bin/git-bareupdate
 
 if [ ! -d "$HOME/.peco" ]; then
   mkdir $HOME/.peco

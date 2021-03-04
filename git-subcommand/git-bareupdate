@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ $# != 1 ]; then
+  echo 'Usage: git bareupdate <repository>'
+  exit 1
+fi
+
+git fetch $1 -f 'refs/heads/*:refs/heads/*' && git fetch $1 -f 'refs/tags/*:refs/tags/*'
