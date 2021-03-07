@@ -3,7 +3,7 @@ set tab-size = 4           # Number of spaces to use when expanding tabs
 set line-graphics = ascii  # Enum: ascii, default, utf-8
 
 # View settings
-set main-view	= line-number:no,interval=5 date:default id author:abbreviated,width=20 commit-title:yes,graph,refs,overflow=no
+set main-view	= line-number:no,interval=5 date:default id,width=8 author:abbreviated,width=20 commit-title:yes,graph,refs,overflow=no
 
 # UI display settings
 set commit-order = topo
