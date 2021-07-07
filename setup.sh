@@ -33,6 +33,9 @@ if [ ! -d "$HOME/.functions" ]; then
 fi
 # [ ! -s "$HOME/.functions/peco_function.sh" ] && ln -s $PWD/.functions/peco_function.sh $HOME/.functions/peco_function.sh
 [ ! -s "$HOME/.functions/filter_function.sh" ] && ln -s $PWD/.functions/filter_function.sh $HOME/.functions/filter_function.sh
+if [ `uname` = 'Darwin' ]; then
+  [ ! -s "$HOME/.functions/mac.sh" ] && ln -s $PWD/.functions/mac.sh $HOME/.functions/mac.sh
+fi
 
 [ ! -d "$HOME/local/bin" ] && mkdir -p $HOME/local/bin
 [ ! -s "$HOME/local/bin/git-wip" ] && ln -s $PWD/git-subcommand/git-wip $HOME/local/bin/git-wip

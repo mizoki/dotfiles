@@ -3,3 +3,6 @@
 
 # filter用の関数の読み込み
 [[ -s "$HOME/.functions/filter_function.sh" ]] && source $HOME/.functions/filter_function.sh
+
+# Mac用の関数の読み込み
+[[ -s "$HOME/.functions/mac.sh" ]] && source $HOME/.functions/mac.sh
