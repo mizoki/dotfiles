@@ -5,4 +5,4 @@ if [ $# != 1 ]; then
   exit 1
 fi
 
-git fetch $1 -f 'refs/heads/*:refs/heads/*' && git fetch $1 -f 'refs/tags/*:refs/tags/*'
+git fetch $1 -f 'refs/heads/*:refs/heads/*' --prune && git fetch $1 -f 'refs/tags/*:refs/tags/*' --prune
