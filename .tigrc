@@ -53,3 +53,5 @@ bind main C ?git cherry-pick %(commit)
 
 bind status C !git commit -v
 bind stage  C !git commit -v
+
+bind refs d ?git branch -d %(branch)
