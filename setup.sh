@@ -49,3 +49,6 @@ fi
 
 [ ! -d "$HOME/.w3m" ] && mkdir -p $HOME/.w3m
 [ ! -s "$HOME/.w3m/keymap" ] && ln -s $PWD/.w3m/keymap $HOME/.w3m/keymap
+
+[ ! -d "$HOME/.config" ] && mkdir -p $HOME/.config
+[ ! -d "$HOME/.config/vim" ] && ln -s $PWD/.config/vim $HOME/.config/vim
