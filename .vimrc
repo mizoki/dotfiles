@@ -35,6 +35,13 @@ set ignorecase
 " 大文字小文字の両方が含まれている場合は大文字小文字を区別
 set smartcase
 
+" 常にステータス行を表示 (詳細は:he laststatus)
+set laststatus=2
+" コマンドラインの高さ
+set cmdheight=2
+" コマンドをステータス行に表示
+set showcmd
+
 " Tabをスペースに変換する
 set expandtab
 " タブの幅を2文字に設定する
