@@ -152,7 +152,7 @@ if dein#load_state(s:dein_dir)
     call mkdir(s:rc_dir, 'p')
   endif
 
-  " color scheme
+  call dein#load_toml(s:rc_dir . '/common.toml', {'lazy': 0})
   call dein#load_toml(s:rc_dir . '/color_scheme.toml', {'lazy': 0})
 
   call dein#end()
