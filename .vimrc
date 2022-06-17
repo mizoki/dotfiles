@@ -58,6 +58,9 @@ set listchars=tab:»-,trail:␣,eol:⏎,extends:»,precedes:«,nbsp:%
 "日本語の行の連結時には空白を入力しない。
 set formatoptions+=mM
 
+" バッファの内容が変更されていても、バッファの切り替えができるようにする
+set hidden
+
 " Enable modeline
 set modeline
 
