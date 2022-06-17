@@ -1,0 +1,97 @@
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+depends = ['denops.vim']
+hook_add = '''
+call ddu#custom#patch_global({
+    \   'ui': 'ff',
+    \   'sources': [
+    \     {
+    \       'name': 'file_rec',
+    \       'params': {
+    \         'ignoredDirectories': ['.git', 'node_modules', 'vendor', '.next']
+    \       }
+    \     }
+    \   ],
+    \   'sourceOptions': {
+    \     '_': {
+    \       'matchers': ['matcher_substring'],
+    \     },
+    \   },
+    \   'filterParams': {
+    \     'matcher_substring': {
+    \       'highlightMatched': 'Title',
+    \     },
+    \   },
+    \   'kindOptions': {
+    \     'file': {
+    \       'defaultAction': 'open',
+    \     },
+    \   },
+    \   'uiParams': {
+    \     'ff': {
+    \       'startFilter': v:true,
+    \       'prompt': '> ',
+    \     }
+    \   },
+    \ })
+
+autocmd FileType ddu-ff call s:ddu_my_settings()
+function! s:ddu_my_settings() abort
+nnoremap <buffer><silent> <CR>
+\ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open'})<CR>
+
+nnoremap <buffer><silent> s
+\ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'split'}})<CR>
+
+nnoremap <buffer><silent> v
+\ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>
+
+nnoremap <buffer><silent> a
+\ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+
+nnoremap <buffer><silent> i
+\ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+
+nnoremap <buffer><silent> p
+\ <Cmd>call ddu#ui#ff#do_action('preview')<CR>
+
+nnoremap <buffer><silent> q
+\ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+
+nnoremap <buffer><silent> <Esc>
+\ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+endfunction
+
+autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
+function! s:ddu_filter_my_settings() abort
+inoremap <buffer><silent> <CR>
+\ <Esc><Cmd>close<CR>
+
+inoremap <buffer><silent> <Esc>
+\ <Esc><Cmd>close<CR>
+
+nnoremap <buffer><silent> <CR>
+\ <Cmd>close<CR>
+
+nnoremap <buffer><silent> <Esc>
+\ <Cmd>close<CR>
+endfunction
+
+nmap <silent><Leader>f <Cmd>call ddu#start({})<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-ff'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file_rec'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_substring'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+on_source = 'ddu.vim'
