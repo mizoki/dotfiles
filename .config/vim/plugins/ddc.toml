@@ -3,7 +3,7 @@ repo = 'Shougo/ddc.vim'
 on_event = 'InsertEnter'
 depends = ['denops.vim']
 hook_source = '''
-call ddc#custom#patch_global('sources', ['around', 'buffer'])
+call ddc#custom#patch_global('sources', ['around', 'buffer', 'vim-lsp'])
 call ddc#custom#patch_global('sourceOptions', {
      \ '_': {
      \   'matchers': ['matcher_head'],
@@ -12,6 +12,7 @@ call ddc#custom#patch_global('sourceOptions', {
      \ },
      \ 'around': {'mark': '[A]'},
      \ 'buffer' : {'mark': '[B]'},
+     \ 'vim-lsp': {'mark': '[LSP]'},
      \ })
 
 call ddc#custom#patch_global('sourceParams', {
@@ -21,6 +22,9 @@ call ddc#custom#patch_global('sourceParams', {
      \   'limitBytes': 5000000,
      \   'fromAltBuf': v:true,
      \   'forceCollect': v:true,
+     \ },
+     \ 'vim-lsp': {
+     \   'ignoreCompleteProvider': v:true,
      \ },
      \ })
 
@@ -54,4 +58,8 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'matsui54/ddc-buffer'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'shun/ddc-vim-lsp'
 on_source = 'ddc.vim'
