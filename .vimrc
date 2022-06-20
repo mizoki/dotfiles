@@ -61,6 +61,9 @@ set formatoptions+=mM
 " バッファの内容が変更されていても、バッファの切り替えができるようにする
 set hidden
 
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
+
 " Enable modeline
 set modeline
 
