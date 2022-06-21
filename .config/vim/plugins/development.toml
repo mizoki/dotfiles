@@ -1,2 +1,20 @@
 [[plugins]]
 repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+hook_add = '''
+" set prefix of vim-fugitive
+nnoremap [Git] <Nop>
+nmap <space>g [Git]
+
+" keymaps
+nnoremap <silent>[Git]b :Git blame<CR>
+nnoremap <silent>[Git]d :Gdiffsplit<CR>
+nnoremap <silent>[Git]f :Git fetch<CR>
+nnoremap <silent>[Git]s :Git<CR>
+
+if executable('tig')
+  nnoremap <silent>[Git]t :silent !tig --all<CR>:redraw!<CR>
+endif
+'''
