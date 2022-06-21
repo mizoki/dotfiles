@@ -76,6 +76,9 @@ nnoremap <C-]> g<C-]>
 " Enable modeline
 set modeline
 
+" Use highlight search
+set hlsearch
+
 " }}}
 " ------------------------------------------------------------------------------
 
@@ -158,6 +161,19 @@ nnoremap [Window]+ <C-W>=
 
 " Markdown用の作業バッファの作成
 nnoremap <silent><Leader>s :OpenTempBuffer markdown<CR>
+
+" Esc×2で検索結果のハイライトを解除する
+nnoremap <Esc><Esc> :nohlsearch<CR>
+
+" ref.
+" http://qiita.com/inodev/items/4f4d5412e65c2564b273
+"検索語が画面の真ん中に来るようにする
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz
 
 " }}}
 " ------------------------------------------------------------------------------
