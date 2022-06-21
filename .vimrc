@@ -71,6 +71,14 @@ set modeline
 " ------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------------------
+" {{{ command
+
+command! -bar -nargs=1 OpenTempBuffer new | setlocal buftype=nofile bufhidden=hide filetype=<args> noswapfile
+
+" }}}
+" ------------------------------------------------------------------------------
+
+" ------------------------------------------------------------------------------
 " {{{ Key mappings
 
 " Set mapleader
@@ -138,6 +146,9 @@ nnoremap [Window]. <C-W>>
 nnoremap [Window]= <C-W>+
 nnoremap [Window]- <C-W>-
 nnoremap [Window]+ <C-W>=
+
+" Markdown用の作業バッファの作成
+nnoremap <silent><Leader>s :OpenTempBuffer markdown<CR>
 
 " }}}
 " ------------------------------------------------------------------------------
