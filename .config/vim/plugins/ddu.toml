@@ -123,3 +123,18 @@ if executable("rg")
   \ })<CR>
 endif
 '''
+
+[[plugins]]
+repo = 'shun/ddu-source-buffer'
+on_source = 'ddu.vim'
+hook_add = '''
+call ddu#custom#patch_local('buffer', {
+\   'uiParams': {
+\     'ff': {
+\       'startFilter': v:false,
+\     }
+\   },
+\ })
+
+nmap <silent><Leader>b <Cmd>call ddu#start({'name': 'buffer', 'sources': [{'name': 'buffer'}]})<CR>
+'''
