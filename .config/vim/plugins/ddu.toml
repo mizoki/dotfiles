@@ -95,3 +95,31 @@ on_source = 'ddu.vim'
 [[plugins]]
 repo = 'Shougo/ddu-kind-file'
 on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'shun/ddu-source-rg'
+on_source = 'ddu.vim'
+if = '''executable("rg")'''
+hook_add = '''
+if executable("rg")
+  call ddu#custom#patch_local('grep', {
+  \   'sourceParams' : {
+  \     'rg' : {
+  \       'args': ['--column', '--no-heading', '--color', 'never'],
+  \     },
+  \   },
+  \   'uiParams': {
+  \     'ff': {
+  \       'startFilter': v:true,
+  \     }
+  \   },
+  \ })
+
+  nmap <silent><Leader>g <Cmd>call ddu#start({
+  \   'name': 'grep',
+  \   'sources':[
+  \     {'name': 'rg', 'params': {'input': expand('<cword>')}}
+  \   ],
+  \ })<CR>
+endif
+'''
