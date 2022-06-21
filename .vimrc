@@ -42,6 +42,12 @@ set cmdheight=2
 " コマンドをステータス行に表示
 set showcmd
 
+" ステータス行の設定
+set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
+set statusline+=%r%h%w%=
+set statusline+=%{fugitive#statusline()}
+set statusline+=[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
+
 " Tabをスペースに変換する
 set expandtab
 " タブの幅を2文字に設定する
