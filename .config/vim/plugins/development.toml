@@ -18,3 +18,6 @@ if executable('tig')
   nnoremap <silent>[Git]t :silent !tig --all<CR>:redraw!<CR>
 endif
 '''
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
