@@ -82,6 +82,9 @@ set hlsearch
 " :h :filetype-overview
 filetype plugin indent on
 
+" Always show the sign column
+set signcolumn=yes
+
 " }}}
 " ------------------------------------------------------------------------------
 
