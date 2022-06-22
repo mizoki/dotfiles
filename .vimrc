@@ -79,6 +79,9 @@ set modeline
 " Use highlight search
 set hlsearch
 
+" :h :filetype-overview
+filetype plugin indent on
+
 " }}}
 " ------------------------------------------------------------------------------
 
