@@ -7,4 +7,10 @@ hook_add = '''
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_text_edit_enabled = 1
+
+nnoremap [LSP] <Nop>
+nmap <space>l [LSP]
+
+nnoremap <silent>[LSP]d :LspDocumentDiagnostics<CR>
+nnoremap <silent>[LSP]h :LspHover<CR>
 '''
