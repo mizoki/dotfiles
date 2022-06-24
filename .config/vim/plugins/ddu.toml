@@ -77,7 +77,9 @@ nnoremap <buffer><silent> <Esc>
 \ <Cmd>close<CR>
 endfunction
 
-nmap <silent><Leader>f <Cmd>call ddu#start({})<CR>
+nnoremap [ddu] <Nop>
+nmap u [ddu]
+nmap [ddu]f <Cmd>call ddu#start({})<CR>
 '''
 
 [[plugins]]
@@ -115,7 +117,7 @@ if executable("rg")
   \   },
   \ })
 
-  nmap <silent><Leader>g <Cmd>call ddu#start({
+  nmap [ddu]g <Cmd>call ddu#start({
   \   'name': 'grep',
   \   'sources':[
   \     {'name': 'rg', 'params': {'input': expand('<cword>')}}
@@ -136,5 +138,5 @@ call ddu#custom#patch_local('buffer', {
 \   },
 \ })
 
-nmap <silent><Leader>b <Cmd>call ddu#start({'name': 'buffer', 'sources': [{'name': 'buffer'}]})<CR>
+nmap [ddu]b <Cmd>call ddu#start({'name': 'buffer', 'sources': [{'name': 'buffer'}]})<CR>
 '''
