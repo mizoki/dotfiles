@@ -8,4 +8,3 @@ if !($TMUX == '')
     autocmd BufEnter * let &titlestring = ' ' . expand("%:t")
   augroup END
 endif
-
