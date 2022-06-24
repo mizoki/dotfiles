@@ -140,3 +140,10 @@ call ddu#custom#patch_local('buffer', {
 
 nmap [ddu]b <Cmd>call ddu#start({'name': 'buffer', 'sources': [{'name': 'buffer'}]})<CR>
 '''
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file_old'
+on_source = 'ddu.vim'
+hook_add = '''
+nmap [ddu]o <Cmd>call ddu#start({'sources': [{'name': 'file_old'}]})<CR>
+'''
