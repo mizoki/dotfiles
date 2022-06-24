@@ -18,3 +18,10 @@ if executable('tig')
   nnoremap <silent>[Git]t :silent !tig --all<CR>:redraw!<CR>
 endif
 '''
+
+[[plugins]]
+repo = 'mhinz/vim-signify'
+hook_add = '''
+" default updatetime 4000ms is not good for async update
+set updatetime=100
+'''
