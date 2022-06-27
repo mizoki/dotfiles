@@ -8,6 +8,9 @@ repo = 'kana/vim-textobj-user'
 repo = 'kana/vim-textobj-jabraces'
 
 [[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
 repo = 'vim-denops/denops.vim'
 
 [[plugins]]
