@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'tpope/vim-rails'
 on_ft = ['ruby', 'eruby']
-hook_add = '''
+hook_source = '''
 let g:rails_ctags_arguments = ['--languages=Ruby', '--exclude=tmp/output', '--exclude=.docker']
 '''
