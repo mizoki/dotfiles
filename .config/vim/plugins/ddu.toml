@@ -78,7 +78,7 @@ nnoremap <buffer><silent> <Esc>
 endfunction
 
 nnoremap [ddu] <Nop>
-nmap u [ddu]
+nmap <space>u [ddu]
 nmap [ddu]f <Cmd>call ddu#start({})<CR>
 '''
 
