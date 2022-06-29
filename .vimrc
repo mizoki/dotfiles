@@ -247,6 +247,11 @@ for file in splt
   execute 'source' file
 endfor
 
+" Write about device-dependent settings and secure settings
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
+
 " }}}
 " ------------------------------------------------------------------------------
 
