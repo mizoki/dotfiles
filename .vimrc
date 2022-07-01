@@ -281,6 +281,10 @@ endif
 
 command! -bar -nargs=1 OpenTempBuffer new | setlocal buftype=nofile bufhidden=hide filetype=<args> noswapfile
 
+if get(g:, 'dein#install_github_api_token')
+  command DeinUpdate call dein#check_update(v:true)
+endif
+
 " }}}
 " ------------------------------------------------------------------------------
 
