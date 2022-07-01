@@ -89,14 +89,6 @@ set signcolumn=yes
 " ------------------------------------------------------------------------------
 
 " ------------------------------------------------------------------------------
-" {{{ command
-
-command! -bar -nargs=1 OpenTempBuffer new | setlocal buftype=nofile bufhidden=hide filetype=<args> noswapfile
-
-" }}}
-" ------------------------------------------------------------------------------
-
-" ------------------------------------------------------------------------------
 " {{{ Key mappings
 
 " Set mapleader
@@ -280,6 +272,14 @@ endfor
 if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
+
+" }}}
+" ------------------------------------------------------------------------------
+
+" ------------------------------------------------------------------------------
+" {{{ command
+
+command! -bar -nargs=1 OpenTempBuffer new | setlocal buftype=nofile bufhidden=hide filetype=<args> noswapfile
 
 " }}}
 " ------------------------------------------------------------------------------
