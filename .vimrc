@@ -286,6 +286,9 @@ if get(g:, 'dein#install_github_api_token')
   command DeinUpdate call dein#check_update(v:true)
 endif
 
+" tagジャンプの結果をロケーションリストに表示し、ロケーションリストを開く
+command LTag exec('ltag '.expand('<cword>')) | lopen
+
 " }}}
 " ------------------------------------------------------------------------------
 
