@@ -70,9 +70,6 @@ set display+=lastline
 " バッファの内容が変更されていても、バッファの切り替えができるようにする
 set hidden
 
-" tagsジャンプの時に複数ある時は一覧表示
-nnoremap <C-]> g<C-]>
-
 " Enable modeline
 set modeline
 
@@ -107,6 +104,9 @@ nnoremap ; :
 nnoremap : ;
 vnoremap ; :
 vnoremap : ;
+
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
 
 " 分割ウインドウ操作関係のプレフィックス
 nnoremap [Window] <Nop>
