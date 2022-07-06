@@ -37,51 +37,50 @@ call ddu#custom#patch_global({
 
 autocmd FileType ddu-ff call s:ddu_my_settings()
 function! s:ddu_my_settings() abort
-nnoremap <buffer><silent> <CR>
-\ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open'})<CR>
+  nnoremap <buffer><silent> <CR>
+        \ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open'})<CR>
 
-nnoremap <buffer><silent> s
-\ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'split'}})<CR>
+  nnoremap <buffer><silent> s
+        \ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'split'}})<CR>
 
-nnoremap <buffer><silent> v
-\ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>
+  nnoremap <buffer><silent> v
+        \ <Cmd>call ddu#ui#ff#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>
 
-nnoremap <buffer><silent> a
-\ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+  nnoremap <buffer><silent> a
+        \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
 
-nnoremap <buffer><silent> i
-\ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+  nnoremap <buffer><silent> i
+        \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
 
-nnoremap <buffer><silent> p
-\ <Cmd>call ddu#ui#ff#do_action('preview')<CR>
+  nnoremap <buffer><silent> p
+        \ <Cmd>call ddu#ui#ff#do_action('preview')<CR>
 
-nnoremap <buffer><silent> q
-\ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+  nnoremap <buffer><silent> q
+        \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
 
-nnoremap <buffer><silent> <Esc>
-\ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+  nnoremap <buffer><silent> <Esc>
+        \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
 
   if b:ddu_ui_name ==# 'buffer'
     nnoremap <buffer><silent> d
           \ <Cmd>execute 'bdelete' str2nr(getline(line('.'))[:3], 10)<CR>
           \ <Cmd>call ddu#ui#ff#do_action('refreshItems')<CR>
   endif
-
 endfunction
 
 autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
 function! s:ddu_filter_my_settings() abort
-inoremap <buffer><silent> <CR>
-\ <Esc><Cmd>call ddu#ui#ff#close()<CR>
+  inoremap <buffer><silent> <CR>
+        \ <Esc><Cmd>call ddu#ui#ff#close()<CR>
 
-inoremap <buffer><silent> <Esc>
-\ <Esc><Cmd>call ddu#ui#ff#close()<CR>
+  inoremap <buffer><silent> <Esc>
+        \ <Esc><Cmd>call ddu#ui#ff#close()<CR>
 
-nnoremap <buffer><silent> <CR>
-\ <Cmd>call ddu#ui#ff#close()<CR>
+  nnoremap <buffer><silent> <CR>
+        \ <Cmd>call ddu#ui#ff#close()<CR>
 
-nnoremap <buffer><silent> <Esc>
-\ <Cmd>call ddu#ui#ff#close()<CR>
+  nnoremap <buffer><silent> <Esc>
+        \ <Cmd>call ddu#ui#ff#close()<CR>
 endfunction
 
 nnoremap [ddu] <Nop>
@@ -110,12 +109,12 @@ repo = 'shun/ddu-source-buffer'
 on_source = 'ddu.vim'
 hook_add = '''
 call ddu#custom#patch_local('buffer', {
-\   'uiParams': {
-\     'ff': {
-\       'startFilter': v:false,
-\     }
-\   },
-\ })
+    \   'uiParams': {
+    \     'ff': {
+    \       'startFilter': v:false,
+    \     }
+    \   },
+    \ })
 
 nmap [ddu]b <Cmd>call ddu#start({'name': 'buffer', 'sources': [{'name': 'buffer'}]})<CR>
 '''
