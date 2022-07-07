@@ -169,9 +169,9 @@ autocmd FileType ddu-filer call s:ddu_filer_my_settings()
 function! s:ddu_filer_my_settings() abort
   nnoremap <buffer><silent> <CR>
         \ <Cmd>call ddu#ui#filer#do_action('itemAction')<CR>
-  nnoremap <buffer><silent> s
+  nnoremap <buffer><silent> S
         \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'open', 'params': {'command': 'split'}})<CR>
-  nnoremap <buffer><silent> v
+  nnoremap <buffer><silent> V
         \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>
   nnoremap <buffer><silent> <Space>
         \ <Cmd>call ddu#ui#filer#do_action('toggleSelectItem')<CR>
