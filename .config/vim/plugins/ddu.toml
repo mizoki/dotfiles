@@ -197,7 +197,7 @@ function! ToggleHidden()
   return empty(matchers) ? ['matcher_hidden'] : []
 endfunction
 
-nmap [ddu]e <Cmd>call ddu#start({'name': 'filer'})<CR>
+nmap [ddu]e <Cmd>call ddu#start({'name': 'filer', 'sourceOptions': {'file': {'path': expand("%:p:h"),}}})<CR>
 '''
 
 [[plugins]]
