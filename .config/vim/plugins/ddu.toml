@@ -127,7 +127,15 @@ nmap [ddu]b <Cmd>call ddu#start({'name': 'buffer', 'sources': [{'name': 'buffer'
 repo = 'Shougo/ddu-source-file_old'
 on_source = 'ddu.vim'
 hook_add = '''
-nmap [ddu]o <Cmd>call ddu#start({'sources': [{'name': 'file_old'}]})<CR>
+call ddu#custom#patch_local('file_old', {
+    \   'uiParams': {
+    \     'ff': {
+    \       'startFilter': v:false,
+    \     }
+    \   },
+    \ })
+
+nmap [ddu]o <Cmd>call ddu#start({'name': 'file_old', 'sources': [{'name': 'file_old'}]})<CR>
 '''
 
 [[plugins]]
