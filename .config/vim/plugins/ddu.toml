@@ -63,7 +63,7 @@ function! s:ddu_my_settings() abort
 
   if b:ddu_ui_name ==# 'buffer'
     nnoremap <buffer><silent> d
-          \ <Cmd>execute 'bdelete' str2nr(getline(line('.'))[:3], 10)<CR>
+          \ <Cmd>execute 'bdelete' str2nr(getline(line('.')), 10)<CR>
           \ <Cmd>call ddu#ui#ff#do_action('refreshItems')<CR>
   endif
 endfunction
