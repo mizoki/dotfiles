@@ -1,0 +1,9 @@
+[[plugins]]
+repo = 'yuki-yano/fuzzy-motion.vim'
+on_cmd = ['FuzzyMotion']
+hook_add = '''
+nnoremap <silent>f :FuzzyMotion<CR>
+'''
+hook_source = '''
+let g:fuzzy_motion_auto_jump = v:true
+'''
