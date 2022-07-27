@@ -127,8 +127,8 @@ nnoremap [Window] <Nop>
 nmap s [Window]
 
 " ウインドウの分割
-nnoremap [Window]s :split<CR>
-nnoremap [Window]v :vsplit<CR>
+nnoremap <silent>[Window]s :split<CR>
+nnoremap <silent>[Window]v :vsplit<CR>
 
 " 分割ウインドウを閉じる
 nnoremap [Window]q <C-W>q
@@ -155,8 +155,8 @@ endfunction
 
 nnoremap [Window]j <C-W>j
 nnoremap [Window]k <C-W>k
-nnoremap [Window]l :call <SID>movewinright()<CR>
-nnoremap [Window]h :call <SID>movewinleft()<CR>
+nnoremap <silent>[Window]l :call <SID>movewinright()<CR>
+nnoremap <silent>[Window]h :call <SID>movewinleft()<CR>
 
 " 分割ウインドウ自体の移動
 nnoremap [Window]J <C-W>J
