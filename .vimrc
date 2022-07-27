@@ -82,6 +82,12 @@ filetype plugin indent on
 " Always show the sign column
 set signcolumn=yes
 
+" Grep検索にripgrepを使用する
+if executable('rg')
+ set grepprg=rg\ --vimgrep
+ set grepformat=%f:%l:%c:%m
+endif
+
 " }}}
 " ------------------------------------------------------------------------------
 
