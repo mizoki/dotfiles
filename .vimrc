@@ -1,6 +1,11 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+" vimrc グループのautocmdを初期化
+augroup vimrc
+  autocmd!
+augroup END
+
 " ------------------------------------------------------------------------------
 " {{{ Settings
 
@@ -87,6 +92,9 @@ if executable('rg')
  set grepprg=rg\ --vimgrep
  set grepformat=%f:%l:%c:%m
 endif
+
+" QuickFixリストを自動で開く
+autocmd vimrc QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
 " }}}
 " ------------------------------------------------------------------------------
