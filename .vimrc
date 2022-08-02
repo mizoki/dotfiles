@@ -248,7 +248,6 @@ if dein#load_state(s:dein_dir)
     call mkdir(s:toml_dir, 'p')
   endif
 
-  execute 'set path+=' . s:toml_dir
   call dein#load_toml(s:toml_dir . '/' . 'common.toml', {'lazy': 0})
   call dein#load_toml(s:toml_dir . '/' . 'common_lazy.toml', {'lazy': 1})
   call dein#load_toml(s:toml_dir . '/' . 'color_scheme.toml', {'lazy': 0})
