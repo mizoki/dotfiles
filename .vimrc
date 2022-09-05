@@ -216,12 +216,6 @@ cnoremap <C-g>          <C-c>
 cnoremap <expr><C-k>
       \ repeat("\<Del>", strchars(getcmdline()[getcmdpos() - 1:]))
 
-" Automatic closing of brackets and quotation
-inoremap [ []<Left>
-inoremap ( ()<Left>
-inoremap ' ''<left>
-inoremap " ""<left>
-
 " }}}
 " ------------------------------------------------------------------------------
 
