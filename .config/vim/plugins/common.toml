@@ -15,12 +15,3 @@ repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-
-[[plugins]]
-repo = 'mattn/vim-molder'
-hook_add = '''
-let g:molder_show_hidden = 1
-
-"open at vertical split
-nnoremap <silent><Leader>f :30vsp %:p:h<CR>
-'''
