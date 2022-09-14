@@ -122,55 +122,6 @@ vnoremap : ;
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
 
-" 分割ウインドウ操作関係のプレフィックス
-nnoremap [Window] <Nop>
-nmap s [Window]
-
-" ウインドウの分割
-nnoremap <silent>[Window]s :split<CR>
-nnoremap <silent>[Window]v :vsplit<CR>
-
-" 分割ウインドウを閉じる
-nnoremap [Window]q <C-W>q
-
-" 分割ウインドウ間の移動
-
-" Ref.
-" https://github.com/kaosf/dotfiles/commit/50f38c9951b8f84aa11ef1a541b22df8900b7f00
-" Switch tabs by same key mappings for moving windows
-function! s:movewinleft()
-  let before = winnr()
-  wincmd h
-  if before == winnr()
-    tabprevious
-  endif
-endfunction
-function! s:movewinright()
-  let before = winnr()
-  wincmd l
-  if before == winnr()
-    tabnext
-  endif
-endfunction
-
-nnoremap [Window]j <C-W>j
-nnoremap [Window]k <C-W>k
-nnoremap <silent>[Window]l :call <SID>movewinright()<CR>
-nnoremap <silent>[Window]h :call <SID>movewinleft()<CR>
-
-" 分割ウインドウ自体の移動
-nnoremap [Window]J <C-W>J
-nnoremap [Window]K <C-W>K
-nnoremap [Window]L <C-W>L
-nnoremap [Window]H <C-W>H
-
-" 分割ウインドウの大きさを調整
-nnoremap [Window], <C-W><
-nnoremap [Window]. <C-W>>
-nnoremap [Window]= <C-W>+
-nnoremap [Window]- <C-W>-
-nnoremap [Window]+ <C-W>=
-
 " Markdown用の作業バッファの作成
 nnoremap <silent><Leader>s :OpenTempBuffer markdown<CR>
 
