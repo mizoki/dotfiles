@@ -167,6 +167,18 @@ cnoremap <C-g>          <C-c>
 cnoremap <expr><C-k>
       \ repeat("\<Del>", strchars(getcmdline()[getcmdpos() - 1:]))
 
+" Resize Window
+" Ref. https://zenn.dev/mattn/articles/83c2d4c7645faa
+nmap <C-w>+ <C-w>+<SID>ws
+nmap <C-w>- <C-w>-<SID>ws
+nmap <C-w>> <C-w>><SID>ws
+nmap <C-w>< <C-w><<SID>ws
+nnoremap <script> <SID>ws+ <C-w>+<SID>ws
+nnoremap <script> <SID>ws- <C-w>-<SID>ws
+nnoremap <script> <SID>ws> <C-w>><SID>ws
+nnoremap <script> <SID>ws< <C-w><<SID>ws
+nmap <SID>ws <Nop>
+
 " }}}
 " ------------------------------------------------------------------------------
 
