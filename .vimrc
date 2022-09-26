@@ -179,6 +179,16 @@ nnoremap <script> <SID>ws> <C-w>><SID>ws
 nnoremap <script> <SID>ws< <C-w><<SID>ws
 nmap <SID>ws <Nop>
 
+" Move Cursor
+nmap <C-w>j <C-w>j<SID>ws
+nmap <C-w>k <C-w>k<SID>ws
+nmap <C-w>l <C-w>l<SID>ws
+nmap <C-w>h <C-w>h<SID>ws
+nnoremap <script> <SID>wsj <C-w>j<SID>ws
+nnoremap <script> <SID>wsk <C-w>k<SID>ws
+nnoremap <script> <SID>wsl <C-w>l<SID>ws
+nnoremap <script> <SID>wsh <C-w>h<SID>ws
+
 " }}}
 " ------------------------------------------------------------------------------
 
