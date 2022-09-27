@@ -8,7 +8,7 @@ call ddu#custom#patch_global({
     \     {
     \       'name': 'file_rec',
     \       'params': {
-    \         'ignoredDirectories': ['.git', 'node_modules', 'vendor', '.next']
+    \         'ignoredDirectories': ['.git', 'node_modules', 'vendor', '.next', '.idea', 'coverage']
     \       }
     \     }
     \   ],
