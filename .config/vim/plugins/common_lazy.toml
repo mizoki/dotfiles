@@ -14,3 +14,6 @@ on_cmd = ['Fern']
 hook_add = '''
 nnoremap <silent><Leader>f :Fern . -drawer -reveal=%<CR>
 '''
+hook_source = '''
+let g:fern#default_hidden = 1
+'''
