@@ -2,5 +2,5 @@
 
 editor=`which vim 2> /dev/null`
 if [ -x $editor ]; then
-  exec $editor $(git status --porcelain | cut -c4-)
+  exec $editor $(git status --porcelain --untracked-files | cut -c4-)
 fi
