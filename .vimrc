@@ -188,6 +188,8 @@ nnoremap <script> <SID>wsj <C-w>j<SID>ws
 nnoremap <script> <SID>wsk <C-w>k<SID>ws
 nnoremap <script> <SID>wsl <C-w>l<SID>ws
 nnoremap <script> <SID>wsh <C-w>h<SID>ws
+" end of cursor move
+nnoremap <script> <SID>wsq <Nop>
 
 " }}}
 " ------------------------------------------------------------------------------
