@@ -60,12 +60,6 @@ function! s:ddu_my_settings() abort
 
   nnoremap <buffer><silent> <Esc>
         \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
-
-  if b:ddu_ui_name ==# 'buffer'
-    nnoremap <buffer><silent> d
-          \ <Cmd>execute 'bdelete' str2nr(getline(line('.')), 10)<CR>
-          \ <Cmd>call ddu#ui#ff#do_action('refreshItems')<CR>
-  endif
 endfunction
 
 autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
@@ -103,21 +97,6 @@ on_source = 'ddu.vim'
 [[plugins]]
 repo = 'Shougo/ddu-kind-file'
 on_source = 'ddu.vim'
-
-[[plugins]]
-repo = 'shun/ddu-source-buffer'
-on_source = 'ddu.vim'
-hook_add = '''
-call ddu#custom#patch_local('buffer', {
-    \   'uiParams': {
-    \     'ff': {
-    \       'startFilter': v:false,
-    \     }
-    \   },
-    \ })
-
-nmap [ddu]b <Cmd>call ddu#start({'name': 'buffer', 'sources': [{'name': 'buffer'}]})<CR>
-'''
 
 [[plugins]]
 repo = 'Shougo/ddu-source-file_old'
