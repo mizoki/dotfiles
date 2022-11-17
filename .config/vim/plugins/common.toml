@@ -15,3 +15,9 @@ repo = 'tpope/vim-surround'
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
+
+[[plugins]]
+repo = 'jeetsukumaran/vim-buffergator'
+hook_add = '''
+let g:buffergator_viewport_split_policy = "B"
+'''
