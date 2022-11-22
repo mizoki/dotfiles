@@ -88,6 +88,9 @@ filetype plugin indent on
 " Always show the sign column
 set signcolumn=yes
 
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 " Grep検索にripgrepを使用する
 if executable('rg')
  set grepprg=rg\ --vimgrep
