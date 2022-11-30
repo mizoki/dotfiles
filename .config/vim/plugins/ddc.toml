@@ -10,6 +10,7 @@ call ddc#custom#patch_global('sourceOptions', {
      \   'matchers': ['matcher_head'],
      \   'sorters': ['sorter_rank'],
      \   'converters': ['converter_remove_overlap'],
+     \   'dup': 'keep',
      \ },
      \ 'around': {'mark': '[A]'},
      \ 'buffer' : {'mark': '[B]'},
@@ -23,9 +24,6 @@ call ddc#custom#patch_global('sourceParams', {
      \   'limitBytes': 5000000,
      \   'fromAltBuf': v:true,
      \   'forceCollect': v:true,
-     \ },
-     \ 'vim-lsp': {
-     \   'ignoreCompleteProvider': v:true,
      \ },
      \ })
 
