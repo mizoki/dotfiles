@@ -183,6 +183,9 @@ nnoremap <script> <SID>ws> <C-w>><SID>ws
 nnoremap <script> <SID>ws< <C-w><<SID>ws
 nmap <SID>ws <Nop>
 
+" Ctrl-Space for omni completion
+inoremap <NUL> <C-X><C-O>
+
 " }}}
 " ------------------------------------------------------------------------------
 
