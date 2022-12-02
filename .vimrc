@@ -190,6 +190,9 @@ inoremap <NUL> <C-X><C-O>
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
 
+" Return to normal mode by jj
+inoremap <silent> jj <Esc>
+
 " }}}
 " ------------------------------------------------------------------------------
 
