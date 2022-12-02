@@ -186,6 +186,10 @@ nmap <SID>ws <Nop>
 " Ctrl-Space for omni completion
 inoremap <NUL> <C-X><C-O>
 
+" Auto escape / and ? in search command.
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+
 " }}}
 " ------------------------------------------------------------------------------
 
