@@ -277,6 +277,10 @@ endif
 " tagジャンプの結果をロケーションリストに表示し、ロケーションリストを開く
 command LTag exec('ltag '.expand('<cword>')) | lopen
 
+" 文字コードを指定して開きなおす
+command! -bang -nargs=? ShiftJIS edit<bang> ++enc=cp932 <args>
+command! -bang -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
+
 " }}}
 " ------------------------------------------------------------------------------
 
