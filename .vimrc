@@ -248,8 +248,13 @@ endif
 
 " ------------------------------------------------------------------------------
 " Other configs {{{
-" Ref. https://zenn.dev/comamoca/articles/58aa4c48f56e95
 
+" Write about device-dependent settings and secure settings
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
+
+" Ref. https://zenn.dev/comamoca/articles/58aa4c48f56e95
 let splt = split(glob("~/.config/vim/" . "*.vim"))
 
 for file in splt
@@ -259,11 +264,6 @@ for file in splt
   " ファイルの読み込み
   execute 'source' file
 endfor
-
-" Write about device-dependent settings and secure settings
-if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
-endif
 
 " }}}
 " ------------------------------------------------------------------------------
