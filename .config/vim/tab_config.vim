@@ -29,7 +29,7 @@ let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 
 " The prefix key.
 nnoremap [Tab] <Nop>
-nmap <silent><Leader>t [Tab]
+nmap <Space>t [Tab]
 
 " Tab jump
 " t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ

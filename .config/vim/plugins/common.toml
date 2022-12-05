@@ -20,4 +20,6 @@ repo = 'vim-denops/denops.vim'
 repo = 'jeetsukumaran/vim-buffergator'
 hook_add = '''
 let g:buffergator_viewport_split_policy = "B"
+
+nnoremap <silent> [Tab]t :BuffergatorTabsOpen<CR>
 '''
