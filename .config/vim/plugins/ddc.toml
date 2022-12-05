@@ -14,11 +14,13 @@ call ddc#custom#patch_global('sourceOptions', {
      \   'matchers': ['matcher_head'],
      \   'sorters': ['sorter_rank'],
      \   'converters': ['converter_remove_overlap'],
-     \   'dup': 'keep',
      \ },
      \ 'around': {'mark': '[A]'},
      \ 'buffer' : {'mark': '[B]'},
-     \ 'vim-lsp': {'mark': '[LSP]'},
+     \ 'vim-lsp': {
+     \   'mark': '[LSP]',
+     \   'dup': 'force',
+     \ },
      \ 'cmdline': {'mark': '[CMD]'},
      \ })
 
