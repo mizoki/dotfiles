@@ -1,12 +1,6 @@
 [[plugins]]
 repo = 'preservim/tagbar'
 on_cmd = ['TagbarToggle']
-hook_add = '''
-nnoremap [Tagbar] <Nop>
-nmap <space>t [Tagbar]
-
-nnoremap <silent>[Tagbar]t :TagbarToggle<CR>
-'''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
