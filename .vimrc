@@ -100,6 +100,9 @@ endif
 " QuickFixリストを自動で開く
 autocmd vimrc QuickfixCmdPost make,grep,grepadd,vimgrep copen
 
+" The time in milliseconds that is waited for a key code or mapped key sequence to complete.
+set ttimeoutlen=50
+
 " }}}
 " ------------------------------------------------------------------------------
 
