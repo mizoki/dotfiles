@@ -221,7 +221,7 @@ if dein#load_state(s:dein_dir)
 
   call dein#load_toml(s:toml_dir . '/common.toml', {'lazy': 0})
   call dein#load_toml(s:toml_dir . '/common_lazy.toml', {'lazy': 1})
-  call dein#load_toml(s:toml_dir . '/color_scheme.toml', {'lazy': 0})
+  call dein#load_toml(s:toml_dir . '/display.toml', {'lazy': 0})
   call dein#load_toml(s:toml_dir . '/ddc.toml', {'lazy': 1})
   call dein#load_toml(s:toml_dir . '/ddu.toml', {'lazy': 0})
   call dein#load_toml(s:toml_dir . '/development.toml', {'lazy': 0})
