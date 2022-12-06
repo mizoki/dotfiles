@@ -11,9 +11,9 @@ call ddc#custom#patch_global('cmdlineSources', {
 call ddc#custom#patch_global('sourceOptions', {
      \ '_': {
      \   'ignoreCase': v:true,
-     \   'matchers': ['matcher_head'],
-     \   'sorters': ['sorter_rank'],
-     \   'converters': ['converter_remove_overlap'],
+     \   'matchers': ['matcher_fuzzy'],
+     \   'sorters': ['sorter_fuzzy'],
+     \   'converters': ['converter_fuzzy'],
      \ },
      \ 'around': {'mark': '[A]'},
      \ 'buffer' : {'mark': '[B]'},
@@ -126,17 +126,17 @@ on_source = 'ddc.vim'
 repo = 'Shougo/ddc-around'
 on_source = 'ddc.vim'
 
-[[plugins]]
-repo = 'Shougo/ddc-matcher_head'
-on_source = 'ddc.vim'
+#[[plugins]]
+#repo = 'Shougo/ddc-matcher_head'
+#on_source = 'ddc.vim'
 
-[[plugins]]
-repo = 'Shougo/ddc-sorter_rank'
-on_source = 'ddc.vim'
+#[[plugins]]
+#repo = 'Shougo/ddc-sorter_rank'
+#on_source = 'ddc.vim'
 
-[[plugins]]
-repo = 'Shougo/ddc-converter_remove_overlap'
-on_source = 'ddc.vim'
+#[[plugins]]
+#repo = 'Shougo/ddc-converter_remove_overlap'
+#on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'matsui54/ddc-buffer'
@@ -148,4 +148,8 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-source-cmdline'
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'tani/ddc-fuzzy'
 on_source = 'ddc.vim'
