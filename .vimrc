@@ -222,6 +222,7 @@ inoremap <silent> jj <Esc>
 
 let s:dein_dir = expand('~/.cache/dein')
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+let s:dein_local_toml_dir = expand('~/.vim/plugins')
 
 if &runtimepath !~# '/dein.vim'
   if !isdirectory(s:dein_repo_dir)
@@ -247,6 +248,9 @@ if dein#load_state(s:dein_dir)
   call dein#load_toml(s:toml_dir . '/development_lazy.toml', {'lazy': 1})
   call dein#load_toml(s:toml_dir . '/lsp.toml', {'lazy': 0})
   call dein#load_toml(s:toml_dir . '/dev_ruby.toml', {'lazy': 1})
+  if filereadable(s:dein_local_toml_dir . '/fzf.toml')
+    call dein#load_toml(s:dein_local_toml_dir . '/fzf.toml', {'lazy': 0})
+  endif
 
   call dein#end()
   call dein#save_state()
