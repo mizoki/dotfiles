@@ -212,6 +212,13 @@ vnoremap gk k
 " Return to normal mode by jj
 inoremap <silent> jj <Esc>
 
+" terminal
+nnoremap [Shell] <Nop>
+nmap <Space>s [Shell]
+
+nnoremap <silent>[Shell]s :botright terminal ++rows=10<CR>
+nnoremap <silent>[Shell]c :terminal ++curwin<CR>
+
 " }}}
 " ------------------------------------------------------------------------------
 
