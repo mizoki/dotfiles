@@ -1,0 +1,20 @@
+[[plugins]]
+repo = '/home/linuxbrew/.linuxbrew/opt/fzf'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+hook_add = '''
+command! -bang -nargs=? RecentlyModifiedFiles
+      \ call fzf#run(fzf#wrap(fzf#vim#with_preview({'source': 'git diff --name-only HEAD HEAD~<args>', 'options': '--multi --cycle'})))
+
+nnoremap [fzf] <Nop>
+nmap <Space>f [fzf]
+
+nnoremap <silent><C-p> :Files<CR>
+
+nnoremap <silent>[fzf]c :Commands<CR>
+nnoremap <silent>[fzf]f :Files<CR>
+nnoremap <silent>[fzf]b :Buffers<CR>
+nnoremap <silent>[fzf]g :GFiles?<CR>
+nnoremap <silent>[fzf]r :RecentlyModifiedFiles<CR>
+'''
