@@ -219,6 +219,8 @@ nmap <Space>s [Shell]
 nnoremap <silent>[Shell]s :botright terminal ++rows=10<CR>
 nnoremap <silent>[Shell]c :terminal ++curwin<CR>
 
+tnoremap <silent> <ScrollWheelUp> <C-W>N<C-Y>
+
 " }}}
 " ------------------------------------------------------------------------------
 
