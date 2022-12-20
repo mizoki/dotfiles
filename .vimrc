@@ -103,6 +103,9 @@ autocmd vimrc QuickfixCmdPost make,grep,grepadd,vimgrep copen
 " The time in milliseconds that is waited for a key code or mapped key sequence to complete.
 set ttimeoutlen=50
 
+" Hide line numbers, etc. in terminal normal mode
+autocmd vimrc ModeChanged *:nt setlocal nonumber norelativenumber signcolumn=no
+
 " }}}
 " ------------------------------------------------------------------------------
 
