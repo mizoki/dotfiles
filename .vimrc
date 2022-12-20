@@ -224,6 +224,9 @@ nnoremap <silent>[Shell]c :terminal ++curwin<CR>
 
 tnoremap <silent> <ScrollWheelUp> <C-W>N<C-Y>
 
+" wrap toggle
+nnoremap <silent><Leader>w :setlocal wrap!<CR>
+
 " }}}
 " ------------------------------------------------------------------------------
 
