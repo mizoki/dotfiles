@@ -25,3 +25,7 @@ repo = 'lambdalisue/nerdfont.vim'
 
 [[plugins]]
 repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+
+[[plugins]]
+repo = 'skanehira/denops-translate.vim'
+on_cmd = ['Translate']
