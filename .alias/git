@@ -28,6 +28,7 @@ alias grbiigd='git rebase -i --ignore-date'
 alias grh='git reset --hard'
 alias grhh='git reset --hard HEAD'
 alias gs='git status'
+alias gsu='git status --untracked-files'
 alias gt="git log --graph --all --pretty=format:'%x09%Cred%h%Creset - %Cgreen(%ai)%Creset%x09%C(bold blue)<%an>%Creset%x09%s %C(blue reverse)%d%Creset' --abbrev-commit --date=relative"
 alias gtmp="git add -A; git commit -m '[WIP]'"
 
