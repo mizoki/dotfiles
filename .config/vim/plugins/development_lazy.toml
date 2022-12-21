@@ -5,3 +5,7 @@ on_cmd = ['TagbarToggle']
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'eruby']
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+on_event = 'InsertEnter'

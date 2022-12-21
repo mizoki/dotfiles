@@ -1,7 +1,4 @@
 [[plugins]]
-repo = 'tpope/vim-endwise'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 hook_add = '''
 " set prefix of vim-fugitive
