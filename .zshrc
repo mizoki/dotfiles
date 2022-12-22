@@ -154,5 +154,8 @@ stty start undef
 # 関数の読み込み
 [[ -s "$HOME/.functions_common" ]] && source $HOME/.functions_common
 
+# 環境ごとの設定の読み込み
+[[ -s "$HOME/.zshrc_local" ]] && source $HOME/.zshrc_local
+
 # PATHの重複項目を削除して、PATHの長さ順に並び替える
 # export PATH=`echo $PATH | tr ':' '\n' | awk '{print length($0), $0}' | sort -nr | uniq | cut -d' ' -f2- | paste -d: -s -`
