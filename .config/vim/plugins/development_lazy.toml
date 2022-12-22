@@ -1,8 +1,4 @@
 [[plugins]]
-repo = 'preservim/tagbar'
-on_cmd = ['TagbarToggle']
-
-[[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = ['html', 'eruby']
 
