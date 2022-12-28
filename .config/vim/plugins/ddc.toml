@@ -4,7 +4,7 @@ on_event = ['InsertEnter', 'CursorHold']
 depends = ['denops.vim', 'pum.vim']
 hook_source = '''
 " call ddc#custom#patch_global('ui', 'native')
-call ddc#custom#patch_global('sources', ['around', 'buffer', 'vim-lsp'])
+call ddc#custom#patch_global('sources', ['vim-lsp', 'around', 'buffer'])
 call ddc#custom#patch_global('cmdlineSources', {
      \   ':': ['cmdline', 'around'],
      \ })
