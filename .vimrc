@@ -51,7 +51,9 @@ set showcmd
 " ステータス行の設定
 set statusline=[%02n]%f%m\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
 set statusline+=%r%h%w%=
-set statusline+=%{fugitive#statusline()}
+if exists("*fugitive#statusline")
+  set statusline+=%{fugitive#statusline()}
+endif
 set statusline+=[\%04b]\[\0x%04B]\ \ %02l,%02c\ \ %4P
 
 " Tabをスペースに変換する
