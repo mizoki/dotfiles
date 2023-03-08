@@ -5,3 +5,15 @@ on_ft = ['html', 'eruby']
 [[plugins]]
 repo = 'cohama/lexima.vim'
 on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'yegappan/taglist'
+on_cmd = ['Tlist', 'TlistOpen', 'TlistToggle']
+hook_source = '''
+let g:Tlist_GainFocus_On_ToggleOpen = 1
+let g:Tlist_Use_Right_Window = 1
+let g:Tlist_Display_Tag_Scope = 1
+let g:Tlist_Compact_Format = 1
+let g:Tlist_Exit_OnlyWindow = 1
+let g:Tlist_WinWidth = 60
+'''
