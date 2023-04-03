@@ -32,3 +32,13 @@ hook_add = '''
 " default updatetime 4000ms is not good for async update
 set updatetime=100
 '''
+
+[[plugins]]
+repo = 'junegunn/vim-easy-align'
+hook_add = '''
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+'''
