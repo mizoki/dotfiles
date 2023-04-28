@@ -52,3 +52,5 @@ fi
 
 [ ! -d "$HOME/.config" ] && mkdir -p $HOME/.config
 [ ! -d "$HOME/.config/vim" ] && ln -s $PWD/.config/vim $HOME/.config/vim
+[ ! -d "$HOME/.vim/" ] && mkdir $HOME/.vim
+[ ! -d "$HOME/.vim/ftplugin" ] && ln -s $PWD/.vim/ftplugin $HOME/.vim/ftplugin
