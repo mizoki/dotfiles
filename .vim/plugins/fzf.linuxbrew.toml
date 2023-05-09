@@ -17,4 +17,10 @@ nnoremap <silent>[fzf]f :Files<CR>
 nnoremap <silent>[fzf]b :Buffers<CR>
 nnoremap <silent>[fzf]g :GFiles?<CR>
 nnoremap <silent>[fzf]r :RecentlyModifiedFiles<CR>
+
+if executable("rg")
+  nnoremap <expr>[fzf]s ':Rg ' . expand("<cword>")
+elseif executable("ag")
+  nnoremap <expr>[fzf]s ':Ag ' . expand("<cword>")
+endif
 '''
