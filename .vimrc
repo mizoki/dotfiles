@@ -150,35 +150,6 @@ nmap # #zz
 nmap g* g*zz
 nmap g# g#zz
 
-" ref.
-" https://github.com/Shougo/shougo-s-github/blob/master/vim/rc/mappings.rc.vim
-"
-" Command-line mode keymappings
-" <C-a>, A: move to head.
-cnoremap <C-a>          <Home>
-" <C-b>: previous char.
-cnoremap <C-b>          <Left>
-" <C-d>: delete char.
-cnoremap <C-d>          <Del>
-" <C-e>, E: move to end.
-cnoremap <C-e>          <End>
-" <C-f>: next char.
-cnoremap <C-f>          <Right>
-" <C-n>: next history.
-cnoremap <C-n>          <Down>
-" <C-p>: previous history.
-cnoremap <C-p>          <Up>
-" Only when clipboard is enabled
-if has('clipboard')
-  " <C-y>: paste.
-  cnoremap <C-y>          <C-r>*
-endif
-" <C-g>: Exit.
-cnoremap <C-g>          <C-c>
-" <C-k>: Delete to the end.
-cnoremap <expr><C-k>
-      \ repeat("\<Del>", strchars(getcmdline()[getcmdpos() - 1:]))
-
 " Resize Window
 " Ref. https://zenn.dev/mattn/articles/83c2d4c7645faa
 nmap <C-w>+ <C-w>+<SID>ws
