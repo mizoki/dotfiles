@@ -48,7 +48,8 @@ bind main m ?git merge %(remote)/%(branch)
 
 bind main <C-R> !sh -c "git fetch --all --prune"
 
-bind main c !@sh -c "echo %(commit) | pbcopy"
+#bind main c !@sh -c "echo %(commit) | pbcopy"
+bind main c ?git checkout %(branch)
 bind main C ?git cherry-pick %(commit)
 
 bind status C !git commit -v
