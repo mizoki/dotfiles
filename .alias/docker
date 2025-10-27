@@ -1,0 +1,6 @@
+# Docker
+
+alias dc='docker compose'
+alias dcup='docker compose up'
+alias dcdown='docker compose down'
+

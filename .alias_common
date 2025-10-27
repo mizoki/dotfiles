@@ -41,6 +41,9 @@ if [ `uname` = 'Linux' ]; then
   [[ -s "/usr/bin/src-hilite-lesspipe.sh" ]] && export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 fi
 
+# Docker
+[[ -s "$HOME/.alias/docker" ]] && source $HOME/.alias/docker
+
 # Git
 [[ -s "$HOME/.alias/git" ]] && source $HOME/.alias/git
 

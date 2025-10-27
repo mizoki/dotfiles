@@ -19,6 +19,7 @@ fi
 if [ ! -d "$HOME/.alias" ]; then
   mkdir $HOME/.alias
 fi
+[ ! -s "$HOME/.alias/docker" ] && ln -s $PWD/.alias/docker $HOME/.alias/docker
 [ ! -s "$HOME/.alias/git" ] && ln -s $PWD/.alias/git $HOME/.alias/git
 [ ! -s "$HOME/.alias/ruby" ] && ln -s $PWD/.alias/ruby $HOME/.alias/ruby
 if [ `uname` = 'Darwin' ]; then
